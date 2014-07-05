@@ -28,11 +28,27 @@ describe "user_pages" do
 				it "creates user" do
 					expect { click_button submit }.to change(User, :count).by(1)
 				end
+
+				describe "after saving user" do
+					before { click_button submit }
+					let(:user) { User.find_by(email: "ben.dover@gmail.com") }
+
+					it { should have_title(full_title(full_name(user))) }
+					it { should have_selector('div.alert.alert-success', 
+						text: 'Welcome') }
+				end
 			end
 
 			describe "with invalid information" do
 				it "does not create user" do
 					expect { click_button submit }.not_to change(User, :count).by(1)
+				end
+
+				describe "after submission" do
+					before { click_button submit }
+
+					it { should have_title('Sign Up') }
+					it { should have_content('error') }
 				end
 			end
 		end
