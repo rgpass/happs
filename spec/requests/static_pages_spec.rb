@@ -42,7 +42,7 @@ describe "static_pages" do
 			click_link "Help"
 			expect(page).to have_title(full_title("Help"))
 			click_link "Sign Up"
-			expect(page).to have_title(full_title("Sign Up"))			
+			expect(page).to have_title(full_title("Sign Up"))
 		end
 	end
 
