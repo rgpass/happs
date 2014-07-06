@@ -67,7 +67,7 @@ describe "user_pages" do
 					fill_in "Last name",		with: "Dover"
 					fill_in "Email",				with: "ben.dover@gmail.com"
 					fill_in "Password",			with: "foobar"
-					fill_in "Confirmation",	with: "foobar"
+					fill_in "Confirm Password",	with: "foobar"
 				end
 
 				it "creates user" do
@@ -129,7 +129,7 @@ describe "user_pages" do
 					fill_in "Last name",		with: new_last_name
 					fill_in "Email",				with: new_email
 					fill_in "Password",			with: user.password
-					fill_in "Confirmation",	with: user.password
+					fill_in "Confirm Password",	with: user.password
 					click_button "Save Changes"
 				end
 
@@ -144,6 +144,18 @@ describe "user_pages" do
 				before { click_button "Save Changes" }
 				it { should have_content('error') }
 			end
+		end
+
+		describe "forbidden attributes" do
+			let(:params) do
+				{ user: { admin: true, password: user.password,
+					password_confirmation: user.password } }
+			end
+			before do
+				sign_in user, no_capybara: true
+				patch user_path(user), params
+			end
+			specify { expect(user.reload).not_to be_admin }
 		end
 	end
 end
