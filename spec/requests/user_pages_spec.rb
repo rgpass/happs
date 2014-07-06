@@ -4,6 +4,51 @@ describe "user_pages" do
 
 	subject { page }
 
+	describe "index page GET /users" do
+		let(:user) { FactoryGirl.create(:user) }
+
+		before do
+			sign_in user
+			visit users_path
+		end
+
+		it { should have_title('All Users') }
+		it { should have_content('All Users') }
+
+		describe "pagination" do
+			before(:all) { 30.times { FactoryGirl.create(:user) } }
+			after(:all) { User.delete_all }
+
+			it { should have_selector('div.pagination') }
+
+			it "lists each user" do
+				User.paginate(page: 1).each do |user|
+					expect(page).to have_selector('li', text: full_name(user))
+				end
+			end
+		end
+
+		describe "delete links" do
+			it { should_not have_link('delete') }
+
+			describe "as admin" do
+				let(:admin) { FactoryGirl.create(:admin) }
+				before do
+					sign_in admin
+					visit users_path
+				end
+
+				it { should have_link('delete', href: user_path(User.first)) }
+				it "able to delete another user" do
+					expect do
+						click_link('delete', match: :first)
+					end.to change(User, :count).by(-1)
+				end
+				it { should_not have_link('delete', href: user_path(admin)) }
+			end
+		end
+	end
+
 	describe "signup page GET /signup" do
 
 		before { visit signup_path }
@@ -18,11 +63,11 @@ describe "user_pages" do
 
 			describe "with valid information" do
 				before do
-					fill_in "First name", with: "Ben"
-					fill_in "Last name", with: "Dover"
-					fill_in "Email", with: "ben.dover@gmail.com"
-					fill_in "Password", with: "foobar"
-					fill_in "Confirmation", with: "foobar"
+					fill_in "First name",		with: "Ben"
+					fill_in "Last name",		with: "Dover"
+					fill_in "Email",				with: "ben.dover@gmail.com"
+					fill_in "Password",			with: "foobar"
+					fill_in "Confirmation",	with: "foobar"
 				end
 
 				it "creates user" do
@@ -61,5 +106,44 @@ describe "user_pages" do
 
 		it { should have_content(full_name(user)) }
 		it { should have_title(full_title(full_name(user))) }
+	end
+
+	describe "edit page GET /users/:id/edit" do
+		let(:user) { FactoryGirl.create(:user) }
+		before do
+			sign_in user
+			visit edit_user_path(user)
+		end
+
+		it { should have_content("Update your profile") }
+		it { should have_title("Edit User") }
+		it { should have_link('change', href: 'http://gravatar.com/emails') }
+
+		describe "edit PATCH /users/:id" do
+			describe "with valid information" do
+				let(:new_first_name)	{ "Gerry" }
+				let(:new_last_name)		{ "Pass" }
+				let(:new_email)				{ "rgpass@gmail.com" }
+				before do
+					fill_in "First name",		with: new_first_name
+					fill_in "Last name",		with: new_last_name
+					fill_in "Email",				with: new_email
+					fill_in "Password",			with: user.password
+					fill_in "Confirmation",	with: user.password
+					click_button "Save Changes"
+				end
+
+				it { should have_title("#{new_first_name} #{new_last_name}") }
+				it { should have_selector('div.alert.alert-success') }
+				specify { expect(user.reload.first_name).to eq new_first_name }
+				specify { expect(user.reload.last_name).to eq new_last_name }
+				specify { expect(user.reload.email).to eq new_email }
+			end
+
+			describe "with invalid information" do
+				before { click_button "Save Changes" }
+				it { should have_content('error') }
+			end
+		end
 	end
 end
