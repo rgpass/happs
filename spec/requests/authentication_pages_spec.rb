@@ -142,6 +142,11 @@ describe "authentication_pages" do
         before { patch user_path(wrong_user) }
         specify { expect(response).to redirect_to(root_url) }
       end
+
+      describe "show page GET /users/:id" do
+        before { get user_path(wrong_user) }
+        specify { expect(response).to redirect_to(root_url) }
+      end
     end
 
     describe "not #admin?" do
@@ -151,17 +156,40 @@ describe "authentication_pages" do
       before { sign_in non_admin, no_capybara: true }
 
       describe "delete user DELETE /users/:id" do
-        before { delete user_path(user) }
+        it "cannot delete others" do
+          delete user_path(user)
+          expect(response).to redirect_to(root_url)
+        end
+
+        it "can delete self" do
+          expect { delete user_path(non_admin) }.to change(User, :count).by(-1)
+        end
+      end
+
+      describe "index page GET /users" do
+        before { get users_path }
         specify { expect(response).to redirect_to(root_url) }
       end
     end
 
     describe "#admin?" do
       let(:admin) { FactoryGirl.create(:admin) }
+      let(:user)  { FactoryGirl.create(:user) }
+
       before { sign_in admin, no_capybara: true }
 
       it "cannot delete self" do
         expect { delete user_path(admin) }.not_to change(User, :count)
+      end
+
+      describe "index page GET /users" do
+        before { get users_path }
+        specify { expect(response.body).to match(full_title('All Users')) }
+      end
+
+      describe "show page GET /users/:id" do
+        before { get user_path(user) }
+        specify { expect(response.body).to match(full_title(full_name(user))) }
       end
     end
   end

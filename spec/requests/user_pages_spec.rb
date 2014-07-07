@@ -5,10 +5,10 @@ describe "user_pages" do
 	subject { page }
 
 	describe "index page GET /users" do
-		let(:user) { FactoryGirl.create(:user) }
+		let(:admin) { FactoryGirl.create(:admin) }
 
 		before do
-			sign_in user
+			sign_in admin
 			visit users_path
 		end
 
@@ -29,23 +29,22 @@ describe "user_pages" do
 		end
 
 		describe "delete links" do
-			it { should_not have_link('delete') }
+			let(:admin) { FactoryGirl.create(:admin) }
+			before(:all) { 30.times { FactoryGirl.create(:user) } }
+			after(:all) { User.delete_all }
 
-			describe "#admin?" do
-				let(:admin) { FactoryGirl.create(:admin) }
-				before do
-					sign_in admin
-					visit users_path
-				end
-
-				it { should have_link('delete', href: user_path(User.first)) }
-				it "able to delete another user" do
-					expect do
-						click_link('delete', match: :first)
-					end.to change(User, :count).by(-1)
-				end
-				it { should_not have_link('delete', href: user_path(admin)) }
+			before do
+				sign_in admin
+				visit users_path
 			end
+
+			it { should have_link('delete', href: user_path(User.first)) }
+			it "able to delete another user" do
+				expect do
+					click_link('delete', match: :first)
+				end.to change(User, :count).by(-1)
+			end
+			it { should_not have_link('delete', href: user_path(admin)) }
 		end
 	end
 
@@ -102,7 +101,10 @@ describe "user_pages" do
 
 	describe "show page GET /users/:id" do
 		let(:user) { FactoryGirl.create(:user) }
-		before { visit user_path(user) }
+		before do
+			sign_in user
+			visit user_path(user)
+		end
 
 		it { should have_content(full_name(user)) }
 		it { should have_title(full_title(full_name(user))) }
