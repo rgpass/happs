@@ -136,4 +136,26 @@ describe User do
 		before { @user.save }
 		its(:remember_token) { should_not be_blank }
 	end
+
+	describe ".new_remember_token" do
+		let(:new_remember_token_1) { User.new_remember_token }
+		let(:new_remember_token_2) { User.new_remember_token }
+
+		it "returns 22 char string" do
+			expect(User.new_remember_token).to be_a(String)
+		end
+
+		it "is random" do
+			expect(new_remember_token_1).not_to eq(new_remember_token_2)
+		end
+	end
+
+	describe ".digest" do
+		let(:new_remember_token) { "KZXxHG8ZFEViTuDOC1Kzpg" }
+
+		it "SHA1 hashes a string" do
+			expected = expect(User.digest(new_remember_token))
+			expected.to eq("4ff9c77c36cf560d3b31ca79b1a50f790dc1218e")
+		end
+	end
 end

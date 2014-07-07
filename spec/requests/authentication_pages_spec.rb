@@ -144,7 +144,7 @@ describe "authentication_pages" do
       end
     end
 
-    describe "as non-admin user" do
+    describe "not #admin?" do
       let(:user) { FactoryGirl.create(:user) }
       let(:non_admin) { FactoryGirl.create(:user) }
 
@@ -156,10 +156,10 @@ describe "authentication_pages" do
       end
     end
 
-    describe "as admin user" do
+    describe "#admin?" do
       let(:admin) { FactoryGirl.create(:admin) }
       before { sign_in admin, no_capybara: true }
-      
+
       it "cannot delete self" do
         expect { delete user_path(admin) }.not_to change(User, :count)
       end
