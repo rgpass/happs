@@ -84,7 +84,22 @@ footer ul li {
 	margin-top: 30px;
 }
 
+
 /* Text */
 .strong {
 	font-weight: bold;
+}
+
+
+/* Forms */
+.form-font {
+  label {
+    font-size: 18px;
+  }
+}
+
+.form-padding {
+  input {
+    margin-bottom: 15px;
+  }
 }

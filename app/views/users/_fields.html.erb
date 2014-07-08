@@ -1,16 +1,22 @@
 <%= render 'shared/error_messages' %>
 
-<%= f.label :first_name %>
-<%= f.text_field :first_name %>
+<div class="row">
+	<div class="col-md-4 form-font form-padding">
+		<%= f.label :first_name, class: "control-label" %>
+		<%= f.text_field :first_name, class: "form-control input-sm", autofocus: true, placeholder: "Benjamin" %>
 
-<%= f.label :last_name %>
-<%= f.text_field :last_name %>
 
-<%= f.label :email %>
-<%= f.text_field :email %>
+		<%= f.label :last_name, class: "control-label" %>
+		<%= f.text_field :last_name, class: "form-control input-sm", placeholder: "Dover" %>
 
-<%= f.label :password %>
-<%= f.password_field :password %>
+		<%= f.label :email, class: "control-label" %>
+		<%= f.text_field :email, class: "form-control input-sm", placeholder: "benjamin.dover@gmail.com" %>
 
-<%= f.label :password_confirmation, "Confirm Password" %>
-<%= f.password_field :password_confirmation %>
+		<%= f.label :password, class: "control-label" %>
+		<%= f.password_field :password, class: "form-control input-sm", placeholder: "At least 6 characters" %>
+
+		<%= f.label :password_confirmation, "Confirm password", class: "control-label" %>
+		<%= f.password_field :password_confirmation, class: "form-control input-sm", placeholder: "To double-check for typos" %>
+	</div>
+</div>
+<br >
