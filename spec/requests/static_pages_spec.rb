@@ -11,7 +11,7 @@ describe "static_pages" do
 
 	describe "home page - GET /" do
 		before { visit root_path }
-		let(:heading)			{ "Happs" }
+		let(:heading)			{ "happs" }
 		let(:page_title)	{ "" }
 
 		it_should_behave_like "all static pages"

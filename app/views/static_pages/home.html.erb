@@ -1,6 +1,90 @@
-<h1>Happs</h1>
-<p>This will be the landing page for non-signed in users.</p>
+<div class="jumbotron">
+  <h1 class="inline">happs</h1>
+  <h2 class="inline blue">making happiness matter</h2>
+  <p>
+  	Scientifically proven activities to become happier. Based on 
+  	<a href="http://www.amazon.com/The-How-Happiness-Approach-Getting/dp/0143114956">The How of Happiness</a>
+  	by positive psychology leader
+  	<a href="http://psych.ucr.edu/faculty/lyubomirsky/">Dr. Sonja Lybomirsky</a>
+  </p>
+  <p><%= link_to "Let's get started", signup_path, class: "btn btn-primary btn-lg" %></p>
+</div>
+
+<h2>What is positive psychology?</h2>
+<hr>
+<p class="strong">
+	Positive Psychology is a new field of study that focuses on making the normal person happier.
+</p>
+<p>
+	As long as psychology has been around, its focus has been on making sick people better. The belief was that if you can rid a person of negative emotion, they will be happy. Recent research has determined that this is simply untrue.
+</p>
+<p>
+	Imagine your brain was a knee. If it was broken, your goal would be to get it back to normal; you would get surgery if necessary, see a doctor to get medicine, and visit a physical therapist to rehabiliate. But now we know that being normal isn't good enough -- you have to make it stronger to be healthy and the only way to make it stronger is through training.
+</p>
+<p class="strong">
+	Consider happs to be your personal trainer for your happiness.
+</p>
+<p>
+	<%= link_to "Looking for more resources on positive psychology?", about_path %>
+</p>
+<br />
+
+<h2>Why make happs?</h2>
+<hr>
+<p>
+	There are several reasons happs had to be made and the most important one: <strong>we're passionate about making people happier</strong>. We are <a href="https://gettingreal.37signals.com/ch02_Whats_Your_Problem.php">scratching our own itch</a>. We are the both developers and end users.
+</p>
+<p>
+	Our competitors, such as
+	(<a href="http://www.happify.com/">Happify</a>, <a href="https://www.happier.com/home">Happier</a>, and <a href="http://www.thesmileepidemic.com/smiles/">Smile Epidemic</a>)
+	have one or more of the following:
+	<ul>
+		<li>aren't backed with research</li>
+		<li>require you to pay to use</li>
+		<li>are cluttered and overcomplicated</li>
+	</ul>
+	Although our competitors are also our allies when it comes to our mission, we believe that a free, clean, science-backed app is the only way to maximize the benefits that people get when actively working on becoming happier.
+</p>
+<p class="strong">
+	Have any questions? Feel free to give me a call anytime at (404) 953-9976 or 
+	<a href="mailto:gerry.pass@happs.io">email me</a> (gerry.pass@happs.io). --Gerry Pass, Founder
+</p>
+<br />
+<blockquote>
+	<p>Happiness is not something ready made. It comes from your own actions.</p>
+	<small><a href="http://en.wikipedia.org/wiki/Dalai_Lama">Dalai Lama</a></small>
+</blockquote>
+<p><%= link_to "Let's get started", signup_path, class: "btn btn-primary btn-lg" %></p>
+
+
+
+<% if current_user.try(:admin) %>
+
+<blockquote>
+  <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
+  <small><a href="http://en.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry">Antoine de Saint-Exupéry</a></small>
+</blockquote>
+<blockquote>
+  <p>
+		In design, where meaning is often controversially subjective or 
+		painfully inscrutable, few things are more apparent and lucid than 
+		the presence of passion. This is true whether the design of a product 
+		delights you or leaves you cold; in either case it’s diﬃcult not to 
+		detect the emotional investment of the hands that built it.
+  </p>
+  <small>Khoi Vinh, Subtraction.com and co-founder of Behavior LLC</small>
+</blockquote>
+<blockquote>
+	<p>
+		Any fool can make something complicated. It takes a genius to make it simple.
+	</p>
+	<small><a href="http://en.wikipedia.org/wiki/Woody_Guthrie">Woody Guthrie</a></small>
+</blockquote>
+
 <ul>
-	<li>Sign up form</li>
-	<li>Summary of what Happs is</li>
+	<li>Refer to It Shouldn't be a Chore section of Getting Real</li>
+	<li>Add links on here, header, and About page -- make it very easy to get in touch with you</li>
+	<li>Add the glyphicon and subheaders structure. Applicable to both our features/what makes us difference and to each of the 12 activities.</li>
 </ul>
+
+<% end %>

@@ -1,0 +1,90 @@
+/*@import "bootstrap";
+*/
+
+/* Colors */
+/*
+green: 70CAD1 -- rgp(112,202,209)
+blue: 2098D4 -- rgp(32,152,212)
+yellow: FCEE36 -- rgp(252,238,54)
+orange: FC6F36 -- rgp(252,111,54)
+grey: 587878 -- rgp(88,120,120)
+*/
+.blue {
+	color: #2098D4;
+}
+
+
+/* Functional */
+.inline {
+	display: inline;
+}
+
+
+/* General */
+html {
+	overflow-y: scroll;
+}
+
+body {
+	padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+
+/* Header */
+#logo {
+	/*color: #587878;	*/
+}
+
+.navbar-default {
+	border-radius: 0px;
+}
+
+
+/* Footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer a {
+  color: #555;
+}
+
+footer a:hover {
+  color: #222;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+
+/* Jumbotron */
+.jumbotron {
+	margin-top: 30px;
+}
+
+/* Text */
+.strong {
+	font-weight: bold;
+}
