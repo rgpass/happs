@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706142438) do
+ActiveRecord::Schema.define(version: 20140708182117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "subjective_happiness_scales", force: true do |t|
+    t.integer  "general"
+    t.integer  "peers"
+    t.integer  "regardless"
+    t.integer  "not"
+    t.decimal  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "first_name"
