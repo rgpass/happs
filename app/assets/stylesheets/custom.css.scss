@@ -19,6 +19,10 @@ grey: 587878 -- rgp(88,120,120)
 	display: inline;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 
 /* General */
 html {
@@ -76,6 +80,13 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 10px;
+}
+
+
+/* Gravatar */
+.gravatar {
+  border-radius: 15px;
+  margin-right: 10px;
 }
 
 

@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:subjective_happiness_scales) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -156,6 +157,32 @@ describe User do
 		it "SHA1 hashes a string" do
 			expected = expect(User.digest(new_remember_token))
 			expected.to eq("4ff9c77c36cf560d3b31ca79b1a50f790dc1218e")
+		end
+	end
+
+	describe "subjective_happiness_scale assocations" do
+		before { @user.save }
+		let!(:older_shs) do
+			FactoryGirl.create(:subjective_happiness_scale, user: @user,
+				created_at: 1.day.ago)
+		end
+		let!(:newer_shs) do
+			FactoryGirl.create(:subjective_happiness_scale, user: @user,
+				created_at: 1.hour.ago)
+		end
+
+		it "correct order" do
+			expect(@user.subjective_happiness_scales.to_a).to eq(
+				[newer_shs, older_shs])
+		end
+
+		it "destroys associated SHSes" do
+			subjective_happiness_scales = @user.subjective_happiness_scales.to_a
+			@user.destroy
+			expect(subjective_happiness_scales).not_to be_empty
+			subjective_happiness_scales.each do |shs|
+				expect(SubjectiveHappinessScale.where(id: shs.id)).to be_empty
+			end
 		end
 	end
 end

@@ -1,0 +1,99 @@
+<% provide(:title, "Subjective Happiness Scale") %>
+<h1>Subjective Happiness Scale</h1>
+
+<%= form_for(@shs) do |f| %>
+	<% if @shs.errors.any? %>
+	  <div id="error_explanation">
+	    <div class="alert alert-danger">
+	      The form contains <%= pluralize(@shs.errors.count, "error") %>.
+	      <ul>
+	        <% @shs.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+	  </div>
+	<% end %>
+
+	<%= f.label :general, "In general, I consider myself:", class: "control-label" %>
+
+	<!-- In general, I consider myself: -->
+	<br />
+	<%= f.radio_button :general, '1' %>
+	<%= f.label :general, '1 - not a very happy person', value: '1' %>
+	<%= f.radio_button :general, '2' %>
+	<%= f.label :general, '2', value: '2' %>
+	<%= f.radio_button :general, '3' %>
+	<%= f.label :general, '3', value: '3' %>
+	<%= f.radio_button :general, '4' %>
+	<%= f.label :general, '4', value: '4' %>
+	<%= f.radio_button :general, '5' %>
+	<%= f.label :general, '5', value: '5' %>
+	<%= f.radio_button :general, '6' %>
+	<%= f.label :general, '6', value: '6' %>
+	<%= f.radio_button :general, '7' %>
+	<%= f.label :general, '7 - a very happy person', value: '7' %>
+	<br />
+
+	<%= f.label :peers, "Peers question:", class: "control-label" %>
+	Compared with most of my peers, I consider myself:
+	<br />
+	<%= f.radio_button :peers, '1' %>
+	<%= f.label :peers, '1 - less happy', value: '1' %>
+	<%= f.radio_button :peers, '2' %>
+	<%= f.label :peers, '2', value: '2' %>
+	<%= f.radio_button :peers, '3' %>
+	<%= f.label :peers, '3', value: '3' %>
+	<%= f.radio_button :peers, '4' %>
+	<%= f.label :peers, '4', value: '4' %>
+	<%= f.radio_button :peers, '5' %>
+	<%= f.label :peers, '5', value: '5' %>
+	<%= f.radio_button :peers, '6' %>
+	<%= f.label :peers, '6', value: '6' %>
+	<%= f.radio_button :peers, '7' %>
+	<%= f.label :peers, '7 - more happy', value: '7' %>
+	<br />
+
+	Some people are generally very happy. They enjoy life regardless of what is
+	going on, getting the most out of everything. To what extent does this
+	characterization describe you?
+	<br />
+	<%= f.radio_button :regardless, '1' %>
+	<%= f.label :regardless, '1 - not at all', value: '1' %>
+	<%= f.radio_button :regardless, '2' %>
+	<%= f.label :regardless, '2', value: '2' %>
+	<%= f.radio_button :regardless, '3' %>
+	<%= f.label :regardless, '3', value: '3' %>
+	<%= f.radio_button :regardless, '4' %>
+	<%= f.label :regardless, '4', value: '4' %>
+	<%= f.radio_button :regardless, '5' %>
+	<%= f.label :regardless, '5', value: '5' %>
+	<%= f.radio_button :regardless, '6' %>
+	<%= f.label :regardless, '6', value: '6' %>
+	<%= f.radio_button :regardless, '7' %>
+	<%= f.label :regardless, '7 - a great deal', value: '7' %>
+	<br />
+
+	Some people are generally not very happy. Although they are not depressed,
+	they never seem as happy as they might be. To what extent does this
+	characterization describe you?
+	<br />
+	<%= f.radio_button :neg, '1' %>
+	<%= f.label :neg, '1 - a great deal', value: '1' %>
+	<%= f.radio_button :neg, '2' %>
+	<%= f.label :neg, '2', value: '2' %>
+	<%= f.radio_button :neg, '3' %>
+	<%= f.label :neg, '3', value: '3' %>
+	<%= f.radio_button :neg, '4' %>
+	<%= f.label :neg, '4', value: '4' %>
+	<%= f.radio_button :neg, '5' %>
+	<%= f.label :neg, '5', value: '5' %>
+	<%= f.radio_button :neg, '6' %>
+	<%= f.label :neg, '6', value: '6' %>
+	<%= f.radio_button :neg, '7' %>
+	<%= f.label :neg, '7 - not at all', value: '7' %>
+	<br />
+
+	<br />
+	<%= f.submit "All done", class: "btn btn-large btn-primary" %>
+<% end %>

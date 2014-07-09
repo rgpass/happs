@@ -9,7 +9,7 @@ describe "static_pages" do
 		it { should have_title(full_title(page_title)) }
 	end
 
-	describe "home page - GET /" do
+	describe "home page GET /" do
 		before { visit root_path }
 		let(:heading)			{ "happs" }
 		let(:page_title)	{ "" }
@@ -18,7 +18,7 @@ describe "static_pages" do
 		it { should_not have_title("| Home") }
 	end
 
-	describe "help page - GET /help" do
+	describe "help page GET /help" do
 		before { visit help_path }
 		let(:heading)			{ "Help" }
 		let(:page_title)	{ "Help" }		
@@ -26,7 +26,7 @@ describe "static_pages" do
 		it_should_behave_like "all static pages"
 	end
 
-	describe "about page - GET /about" do
+	describe "about page GET /about" do
 		before { visit about_path }
 		let(:heading)			{ "About" }
 		let(:page_title)	{ "About Us" }

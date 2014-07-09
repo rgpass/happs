@@ -1,4 +1,184 @@
 <% provide(:title, full_name(@user)) %>
 
-<%= full_name(@user) %> <%= @user.email %>
-<%= gravatar_for(@user) %>
+<div class="alert alert-info">
+	<strong>Heads up!</strong> It's been over two weeks since your last <%= link_to "Set Point Quiz", '#', class: 'alert-link' %>.
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="">
+			<%= full_name(@user) %>
+		</h1>
+		<hr>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-5">
+		<h2>My Stats</h2>
+		<table class="table">
+			<tbody>
+				<tr>
+					<td style="width:25%">In Control:</td>
+					<td style="width:5%">35</td>
+					<td style="width:5%" class="strong">/</td>
+					<td style="width:5%" class="strong">40</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>Circumstance:</td>
+					<td>8</td>
+					<td class="strong">/</td>
+					<td class="strong">10</td>
+				</tr>
+				<tr>
+					<td>Set Point:</td>
+					<td>47</td>
+					<td class="strong">/</td>
+					<td class="strong">50</td>
+				</tr>
+			</tbody>
+		</table>
+		<h4>My Happiness Score: <span class="text-success strong">90</span> <strong>/ 100</strong></h4>
+		<p>Member since: July 4, 2014</p>
+		<br />
+
+		<h2>My Todos</h2>
+		<table class="table">
+			<tbody>
+				<tr>
+					<td style="width:5%">1.</td>
+					<td style="width:25%">Profile</td>
+					<td>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:5%">2.</td>
+					<td style="width:25%">Set Point Quizzes</td>
+					<td>
+						<div class="progress">
+						  <div class="progress-bar" style="width: 33%;"></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:5%">3.</td>
+					<td style="width:35%">Person Activity Fit Quiz</td>
+					<td>
+						<div class="progress">
+						  <div class="progress-bar" style="width: 0%;"></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:5%">4.</td>
+					<td style="width:25%">Happiness Activities</td>
+					<td>
+						<div class="progress">
+						  <div class="progress-bar" style="width: 0%;"></div>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2 class="inline-block">My Effective Strategies</h2>
+		<p class="inline"><%= link_to "update", '#' %></p>
+		<table class="table">
+			<tbody>
+				<tr>
+					<td style="width:5%" class="text-right">1.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Gratitude</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+				<tr>
+					<td style="width:5%" class="text-right">2.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Savoring Life's Joys</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+				<tr>
+					<td style="width:5%" class="text-right">3.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Acts of Kindness</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+				<tr>
+					<td style="width:5%" class="text-right">4.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Reach Flow</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2>Other Strategies</h2>
+		<table class="table">
+			<tbody>
+				<tr>
+					<td style="width:5%" class="text-right">5.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Other</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+				<tr>
+					<td style="width:5%" class="text-right">6.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Other</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+				<tr>
+					<td style="width:5%" class="text-right">7.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Other</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+				<tr>
+					<td style="width:5%" class="text-right">8.</td>
+					<td style="width:35%"><a href="#benefitsofactivity" style="text-decoration:none;">Other</td>
+					<td style="width:30%" class="text-center"><a href="#viewactivity" style="text-decoration:none;">view</a></td>
+					<td style="width:30%" class="text-center"><a href="#newactivity" style="text-decoration:none;">new</a></td>
+				</tr>
+			</tbody>
+		</table>		
+	</div>
+
+
+	<div class="col-md-7">
+		<h2>My Activities (12)</h2>
+		<h3>My Wife</h3>
+		<p>Gratitude -- Posted 4 hours ago</p>
+		<h3>Helped an elderly lady across the street</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Example 3</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Example 4</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Example 5</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Example 6</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Example 7</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Example 8</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Example 9</h3>
+		<p>Acts of Kindness -- Posted 2 days ago</p>
+		<h3>Completed 2nd Set Point Quiz</h3>
+		<p>Subjective Happiness Scale -- Posted 2 days ago</p>
+
+		<ul class="pagination">
+		  <li class="disabled"><a href="#">«</a></li>
+		  <li class="active"><a href="#">1</a></li>
+		  <li><a href="#">2</a></li>
+		  <li><a href="#">3</a></li>
+		  <li><a href="#">4</a></li>
+		  <li><a href="#">5</a></li>
+		  <li><a href="#">»</a></li>
+		</ul>
+	</div>
+</div>

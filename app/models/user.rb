@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :subjective_happiness_scales, dependent: :destroy
+
 	before_save { email.downcase! }
 	before_create :create_remember_token
 
