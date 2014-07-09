@@ -3,9 +3,6 @@
 <div class="alert alert-warning">
 	If you're wondering where all this info came from, it's been hardcoded in. As I add features, I'll remove the hardcoded portions. Thanks for the feedback!
 </div>
-<div class="alert alert-info">
-	<strong>Heads up!</strong> It's been over two weeks since your last <%= link_to "Set Point Quiz", new_subjective_happiness_scale_path, class: 'alert-link' %>.
-</div>
 
 <div class="row">
 	<div class="col-md-12">
@@ -16,11 +13,13 @@
 	</div>
 </div>
 
-
+<div class="alert alert-info">
+	<strong>Heads up!</strong> It's been over two weeks since your last <%= link_to "Set Point Quiz", new_subjective_happiness_scale_path, class: 'alert-link' %>.
+</div>
 
 <div class="row">
 	<div class="col-md-5">
-		<h2>My Stats</h2>
+		<h2>My Happiness</h2>
 
 		<table class="table">
 			<tbody>
@@ -57,7 +56,7 @@
 				<tr>
 					<td sytle="width:25%">Potential:</td>
 					<td style="width:75%">
-						<div class="progress" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Set Point:</strong> How much happier you could become.<br /><strong>Focus on these activities and bettering your circumstances</strong><br /><i>Currently hardcoded</i>">
+						<div class="progress" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Potential:</strong> How much happier you could become.<br /><strong>Focus on these activities and bettering your circumstances</strong><br /><i>Currently hardcoded</i>">
 						  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 14%;">
 						    7 / 50
 						  </div>
@@ -74,7 +73,6 @@
 		  <div class="progress-bar progress-bar-success" style="width: 35%"></div>
 		  <div class="progress-bar progress-bar-info" style="width: 7%"></div>
 		</div>
-		<p>Member since: <%= ordinalized_date(@user.created_at) %></p>
 		<br />
 
 		<h2>My To-dos</h2>
