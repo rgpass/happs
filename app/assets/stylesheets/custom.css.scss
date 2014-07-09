@@ -105,6 +105,10 @@ footer ul li {
   }
 }
 
+.black {
+  color: black;
+}
+
 
 /* Forms */
 .form-font {
@@ -118,3 +122,17 @@ footer ul li {
     margin-bottom: 15px;
   }
 }
+
+
+/* Tooltips */
+div.tooltip-inner {
+  max-width: 350px;
+  /* If max-width does not work, try using width instead */
+  width: 350px;
+}
+
+
+/* Progress Bars */
+.progress-bar-gray {
+  background-color: gray;
+ }
