@@ -1,6 +1,3 @@
-/*@import "bootstrap";
-*/
-
 /* Colors */
 /*
 green: 70CAD1 -- rgp(112,202,209)
@@ -99,6 +96,13 @@ footer ul li {
 /* Text */
 .strong {
 	font-weight: bold;
+}
+
+.normal-links a {
+  text-decoration:none !important;
+  &:hover {
+    text-decoration: underline !important;
+  }
 }
 
 

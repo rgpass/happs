@@ -1,5 +1,8 @@
 <% provide(:title, full_name(@user)) %>
 
+<div class="alert alert-warning">
+	If you're wondering where all this info came from, it's been hardcoded in. As I add features, I'll remove the hardcoded portions. Thanks for the feedback!
+</div>
 <div class="alert alert-info">
 	<strong>Heads up!</strong> It's been over two weeks since your last <%= link_to "Set Point Quiz", '#', class: 'alert-link' %>.
 </div>
@@ -25,6 +28,8 @@
 					<td style="width:5%" class="strong">40</td>
 					<td></td>
 				</tr>
+				<!-- <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Tooltip Example</button>
+				<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="" title="" aria-describedby="popover215360">Popover Example</button> -->
 				<tr>
 					<td>Circumstance:</td>
 					<td>8</td>
@@ -40,15 +45,15 @@
 			</tbody>
 		</table>
 		<h4>My Happiness Score: <span class="text-success strong">90</span> <strong>/ 100</strong></h4>
-		<p>Member since: July 4, 2014</p>
+		<p>Member since: <%= ordinalized_date(@user.created_at) %></p>
 		<br />
 
-		<h2>My Todos</h2>
-		<table class="table">
+		<h2>My To-dos</h2>
+		<table class="table normal-links">
 			<tbody>
 				<tr>
 					<td style="width:5%">1.</td>
-					<td style="width:25%">Profile</td>
+					<td style="width:25%"><%= link_to "Finish Profile", edit_user_path(@user) %></td>
 					<td>
 						<div class="progress">
 						  <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
@@ -57,7 +62,16 @@
 				</tr>
 				<tr>
 					<td style="width:5%">2.</td>
-					<td style="width:25%">Set Point Quizzes</td>
+					<td style="width:25%"><%= link_to "Take Tour", '#' %></td>
+					<td>
+						<div class="progress">
+						  <div class="progress-bar progress-bar-success" style="width: 100%;"></div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:5%">3.</td>
+					<td style="width:25%"><%= link_to "Set Point Quizzes", new_subjective_happiness_scale_path %></td>
 					<td>
 						<div class="progress">
 						  <div class="progress-bar" style="width: 33%;"></div>
@@ -65,8 +79,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td style="width:5%">3.</td>
-					<td style="width:35%">Person Activity Fit Quiz</td>
+					<td style="width:5%">4.</td>
+					<td style="width:35%"><%= link_to "Person Activity Fit Quiz", '#'%></td>
 					<td>
 						<div class="progress">
 						  <div class="progress-bar" style="width: 0%;"></div>
@@ -74,8 +88,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td style="width:5%">4.</td>
-					<td style="width:25%">Happiness Activities</td>
+					<td style="width:5%">5.</td>
+					<td style="width:25%"><%= link_to "Do a Happiness Activities", '#' %></td>
 					<td>
 						<div class="progress">
 						  <div class="progress-bar" style="width: 0%;"></div>
@@ -148,7 +162,7 @@
 	</div>
 
 
-	<div class="col-md-7">
+	<div class="col-md-6 col-md-offset-1">
 		<h2>My Activities (12)</h2>
 		<h3>My Wife</h3>
 		<p>Gratitude -- Posted 4 hours ago</p>
