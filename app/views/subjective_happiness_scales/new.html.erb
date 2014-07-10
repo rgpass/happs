@@ -10,87 +10,140 @@
 	</div>
 <% end %>
 
-<h1>Subjective Happiness Scale</h1>
+<h1 class="inline-block">Set Point Quiz</h1>
+<h4 class="inline">via <a href="http://sonjalyubomirsky.com/wp-content/themes/sonjalyubomirsky/papers/LL1999.pdf">Subjective Happiness Scale</a></h4>
+<hr>
 
 <%= form_for(@shs) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 
-	<%= f.label :general, "1. In general, I consider myself:", class: "control-label" %>
-	<br />
-	<%= f.radio_button :general, '1' %>
-	<%= f.label :general, '1 - not a very happy person', value: '1' %>
-	<%= f.radio_button :general, '2' %>
-	<%= f.label :general, '2', value: '2' %>
-	<%= f.radio_button :general, '3' %>
-	<%= f.label :general, '3', value: '3' %>
-	<%= f.radio_button :general, '4' %>
-	<%= f.label :general, '4', value: '4' %>
-	<%= f.radio_button :general, '5' %>
-	<%= f.label :general, '5', value: '5' %>
-	<%= f.radio_button :general, '6' %>
-	<%= f.label :general, '6', value: '6' %>
-	<%= f.radio_button :general, '7' %>
-	<%= f.label :general, '7 - a very happy person', value: '7' %>
-	<br />
+	<div class="row">
+		<div class="col-md-8">
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">1. In general, I consider myself:</h3>
+			  </div>
+			  <div class="panel-body">
+					<div class="btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<%= f.radio_button :general, '1', class: "display-none" %>1 - not a very<br/>happy person
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :general, '2', class: "display-none" %>2
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :general, '3', class: "display-none" %>3
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :general, '4', class: "display-none" %>4
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :general, '5', class: "display-none" %>5
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :general, '6', class: "display-none" %>6
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :general, '7', class: "display-none" %>7 - a very<br/>happy person
+						</label>
+					</div>
+				</div>
+			</div>
 
-	<%= f.label :peers, "2. Compared with most of my peers, I consider myself:", class: "control-label" %>
-	<br />
-	<%= f.radio_button :peers, '1' %>
-	<%= f.label :peers, '1 - less happy', value: '1' %>
-	<%= f.radio_button :peers, '2' %>
-	<%= f.label :peers, '2', value: '2' %>
-	<%= f.radio_button :peers, '3' %>
-	<%= f.label :peers, '3', value: '3' %>
-	<%= f.radio_button :peers, '4' %>
-	<%= f.label :peers, '4', value: '4' %>
-	<%= f.radio_button :peers, '5' %>
-	<%= f.label :peers, '5', value: '5' %>
-	<%= f.radio_button :peers, '6' %>
-	<%= f.label :peers, '6', value: '6' %>
-	<%= f.radio_button :peers, '7' %>
-	<%= f.label :peers, '7 - more happy', value: '7' %>
-	<br />
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">2. Compared with most of my peers, I consider myself:</h3>
+			  </div>
+			  <div class="panel-body">
+					<div class="btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<%= f.radio_button :peers, '1', class: "display-none" %>1 - less<br/>happy
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :peers, '2', class: "display-none" %>2
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :peers, '3', class: "display-none" %>3
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :peers, '4', class: "display-none" %>4
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :peers, '5', class: "display-none" %>5
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :peers, '6', class: "display-none" %>6
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :peers, '7', class: "display-none" %>7 - more<br />happy
+						</label>
+					</div>
+				</div>
+			</div>
 
-	3. Some people are generally very happy. They enjoy life regardless of what is
-	going on, getting the most out of everything. To what extent does this
-	characterization describe you?
-	<br />
-	<%= f.radio_button :regardless, '1' %>
-	<%= f.label :regardless, '1 - not at all', value: '1' %>
-	<%= f.radio_button :regardless, '2' %>
-	<%= f.label :regardless, '2', value: '2' %>
-	<%= f.radio_button :regardless, '3' %>
-	<%= f.label :regardless, '3', value: '3' %>
-	<%= f.radio_button :regardless, '4' %>
-	<%= f.label :regardless, '4', value: '4' %>
-	<%= f.radio_button :regardless, '5' %>
-	<%= f.label :regardless, '5', value: '5' %>
-	<%= f.radio_button :regardless, '6' %>
-	<%= f.label :regardless, '6', value: '6' %>
-	<%= f.radio_button :regardless, '7' %>
-	<%= f.label :regardless, '7 - a great deal', value: '7' %>
-	<br />
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">3. Some people are generally very happy. They enjoy life regardless of what is going on, getting the most out of everything. To what extent does this characterization describe you?</h3>
+			  </div>
+			  <div class="panel-body">
+					<div class="btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<%= f.radio_button :regardless, '1', class: "display-none" %>1 - not<br/>at all
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :regardless, '2', class: "display-none" %>2
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :regardless, '3', class: "display-none" %>3
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :regardless, '4', class: "display-none" %>4
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :regardless, '5', class: "display-none" %>5
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :regardless, '6', class: "display-none" %>6
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :regardless, '7', class: "display-none" %>7 - a<br/>great deal
+						</label>
+					</div>
+				</div>
+			</div>
 
-	4. Some people are generally not very happy. Although they are not depressed,
-	they never seem as happy as they might be. To what extent does this
-	characterization describe you?
-	<br />
-	<%= f.radio_button :neg, '1' %>
-	<%= f.label :neg, '1 - a great deal', value: '1' %>
-	<%= f.radio_button :neg, '2' %>
-	<%= f.label :neg, '2', value: '2' %>
-	<%= f.radio_button :neg, '3' %>
-	<%= f.label :neg, '3', value: '3' %>
-	<%= f.radio_button :neg, '4' %>
-	<%= f.label :neg, '4', value: '4' %>
-	<%= f.radio_button :neg, '5' %>
-	<%= f.label :neg, '5', value: '5' %>
-	<%= f.radio_button :neg, '6' %>
-	<%= f.label :neg, '6', value: '6' %>
-	<%= f.radio_button :neg, '7' %>
-	<%= f.label :neg, '7 - not at all', value: '7' %>
-	<br />
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">4. Some people are generally not very happy. Although they are not depressed, they never seem as happy as they might be. To what extent does this characterization describe you?</h3>
+			  </div>
+			  <div class="panel-body">
+					<div class="btn-group btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<%= f.radio_button :neg, '1', class: "display-none" %>1 - a<br/>great deal
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :neg, '2', class: "display-none" %>2
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :neg, '3', class: "display-none" %>3
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :neg, '4', class: "display-none" %>4
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :neg, '5', class: "display-none" %>5
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :neg, '6', class: "display-none" %>6
+						</label>
+						<label class="btn btn-default">
+							<%= f.radio_button :neg, '7', class: "display-none" %>7 - not</br>at all
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<br />
 	<%= f.submit "All done", class: "btn btn-large btn-primary" %>
 <% end %>
