@@ -13,20 +13,9 @@
 <h1>Subjective Happiness Scale</h1>
 
 <%= form_for(@shs) do |f| %>
-	<% if @shs.errors.any? %>
-	  <div id="error_explanation">
-	    <div class="alert alert-danger">
-	      The form contains <%= pluralize(@shs.errors.count, "error") %>.
-	      <ul>
-	        <% @shs.errors.full_messages.each do |msg| %>
-	          <li><%= msg %></li>
-	        <% end %>
-	      </ul>
-	    </div>
-	  </div>
-	<% end %>
+	<%= render 'shared/error_messages', object: f.object %>
 
-	<%= f.label :general, "In general, I consider myself:", class: "control-label" %>
+	<%= f.label :general, "1. In general, I consider myself:", class: "control-label" %>
 	<br />
 	<%= f.radio_button :general, '1' %>
 	<%= f.label :general, '1 - not a very happy person', value: '1' %>
@@ -44,7 +33,7 @@
 	<%= f.label :general, '7 - a very happy person', value: '7' %>
 	<br />
 
-	<%= f.label :peers, "Compared with most of my peers, I consider myself:", class: "control-label" %>
+	<%= f.label :peers, "2. Compared with most of my peers, I consider myself:", class: "control-label" %>
 	<br />
 	<%= f.radio_button :peers, '1' %>
 	<%= f.label :peers, '1 - less happy', value: '1' %>
@@ -62,7 +51,7 @@
 	<%= f.label :peers, '7 - more happy', value: '7' %>
 	<br />
 
-	Some people are generally very happy. They enjoy life regardless of what is
+	3. Some people are generally very happy. They enjoy life regardless of what is
 	going on, getting the most out of everything. To what extent does this
 	characterization describe you?
 	<br />
@@ -82,7 +71,7 @@
 	<%= f.label :regardless, '7 - a great deal', value: '7' %>
 	<br />
 
-	Some people are generally not very happy. Although they are not depressed,
+	4. Some people are generally not very happy. Although they are not depressed,
 	they never seem as happy as they might be. To what extent does this
 	characterization describe you?
 	<br />

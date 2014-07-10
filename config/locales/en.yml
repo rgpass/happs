@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      subjective_happiness_scale:
+        general: "Question 1"
+        peers: "Question 2"
+        regardless: "Question 3"
+        neg: "Question 4"
