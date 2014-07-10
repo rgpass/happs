@@ -4,6 +4,11 @@
 		Whoa, slow down there! It's been under two weeks since your last Set Point Quiz. Taking them too close together can give false data.
 	</div>
 <% end %>
+<% if @shscales.count >= 3 %>
+	<div class="alert alert-danger">
+		Taking more than 3 can skew results! If you've done a lot of activities, you'll get higher than expected results.
+	</div>
+<% end %>
 
 <h1>Subjective Happiness Scale</h1>
 

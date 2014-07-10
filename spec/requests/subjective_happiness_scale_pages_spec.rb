@@ -26,9 +26,23 @@ describe "subjective_happiness_scale_pages" do
 				text: "It's been under two weeks since") }
 		end
 
+		describe ">=3 taken" do
+			let!(:shs) { FactoryGirl.create(:subjective_happiness_scale,
+				user: user, created_at: Time.now) }
+			let!(:shs2) { FactoryGirl.create(:subjective_happiness_scale,
+				user: user, created_at: Time.now) }
+			let!(:shs3) { FactoryGirl.create(:subjective_happiness_scale,
+				user: user, created_at: Time.now) }
+			before do
+				sign_in user
+				visit new_subjective_happiness_scale_path
+			end
+
+			it { should have_selector('div.alert.alert-danger',
+				text: 'Taking more than 3 can skew results!') }
+		end
+
 		describe "create shs POST /subjective_happiness_scale" do
-			pending "Also add logic so that only signed_in? can visit new/create.
-			Emulate user.rb for sol'n. No capybara"
 
 			before { visit new_subjective_happiness_scale_path }
 

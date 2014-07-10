@@ -125,6 +125,18 @@ describe "authentication_pages" do
           it { should have_title('Sign In') }
         end
       end
+
+      describe "in SubjectiveHappinessScales controller" do
+        describe "new shs GET /subjective_happiness_scales/new" do
+          before { visit new_subjective_happiness_scale_path }
+          it { should have_title('Sign In') }
+        end
+
+        describe "create shs POST /subjective_happiness_scales" do
+          before { post subjective_happiness_scales_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
     end
 
     describe "as wrong user" do
@@ -132,20 +144,22 @@ describe "authentication_pages" do
       let(:wrong_user) { FactoryGirl.create(:user, email: "wrong@example.com") }
       before { sign_in user, no_capybara: true }
 
-      describe "edit page GET /users/:id/edit" do
-        before { get edit_user_path(wrong_user) }
-        specify { expect(response.body).not_to match(full_title('Edit User')) }
-        specify { expect(response).to redirect_to(root_url) }
-      end
+      describe "in Users controller" do
+        describe "edit page GET /users/:id/edit" do
+          before { get edit_user_path(wrong_user) }
+          specify { expect(response.body).not_to match(full_title('Edit User')) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
 
-      describe "update action PATCH /users/:id" do
-        before { patch user_path(wrong_user) }
-        specify { expect(response).to redirect_to(root_url) }
-      end
+        describe "update action PATCH /users/:id" do
+          before { patch user_path(wrong_user) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
 
-      describe "show page GET /users/:id" do
-        before { get user_path(wrong_user) }
-        specify { expect(response).to redirect_to(root_url) }
+        describe "show page GET /users/:id" do
+          before { get user_path(wrong_user) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
       end
     end
 

@@ -114,9 +114,9 @@ describe "user_pages" do
 
 			describe "shows results" do
 				let!(:shs1) { FactoryGirl.create(:subjective_happiness_scale,
-					user_id: user.id) }
+					user: user) }
 				let!(:shs2) { FactoryGirl.create(:subjective_happiness_scale,
-					user_id: user.id) }
+					user: user) }
 				before do
 					sign_in user
 					visit user_path(user)
@@ -127,27 +127,64 @@ describe "user_pages" do
 				it { should have_content(shs2.score.to_f) }
 				it { should have_content(
 					user.subjective_happiness_scales.average_score) }
+				it { should have_content("2 of 3") }
 			end
 
-			describe "link for quiz" do
-				it { should have_link('Set Point Quizzes',
-					href: new_subjective_happiness_scale_path) }
+			describe "links" do
+				describe "Set Point Quiz" do
+					it { should have_link('Set Point Quizzes',
+						href: new_subjective_happiness_scale_path) }
 
-				describe "max 5 quizzes" do
-					pending "Link won't show up if more than 5. 3?"
-				end
+					describe "max 3" do
+						SubjectiveHappinessScale.destroy_all
+						let!(:shs1) { FactoryGirl.create(:subjective_happiness_scale,
+							user: user, created_at: 12.weeks.ago) }
+						let!(:shs2) { FactoryGirl.create(:subjective_happiness_scale,
+							user: user, created_at: 9.weeks.ago) }
+						let!(:shs3) { FactoryGirl.create(:subjective_happiness_scale,
+							user: user, created_at: 6.weeks.ago) }
+						before do
+							sign_in user
+							visit user_path(user)
+						end
 
-				describe "last one taken >2wks ago" do
-					let!(:shs) { FactoryGirl.create(:subjective_happiness_scale,
-						user: user, created_at: 3.weeks.ago) }
-					before do
-						sign_in user
-						visit user_path(user)
+						it { should_not have_link('Set Point Quizzes',
+							href: new_subjective_happiness_scale_path) }
+						it { should_not have_selector('div.alert.alert-info',
+							text: "It's been over two weeks") }
 					end
 
-					it { should have_selector('div.alert.alert-info',
-						text: "It's been over two weeks") }
+					describe "last taken >2wks ago" do
+						let!(:shs) { FactoryGirl.create(:subjective_happiness_scale,
+							user: user, created_at: 3.weeks.ago) }
+						before do
+							sign_in user
+							visit user_path(user)
+						end
+
+						it { should have_selector('div.alert.alert-info',
+							text: "It's been over two weeks") }
+					end
+
+					describe "last taken <2wks ago" do
+						let!(:shs) { FactoryGirl.create(:subjective_happiness_scale,
+							user: user, created_at: 1.week.ago) }
+						before do
+							sign_in user
+							visit user_path(user)
+						end
+
+						it { should_not have_link('Set Point Quizzes', href: new_subjective_happiness_scale_path) }
+					end
 				end
+			end
+		end
+
+		describe "finish profile" do
+			describe "link" do
+				# At this point, do not have any demographic questions, thus once
+				# sign up is done, their profile is completed
+				it { should_not have_link('Finish Profile', href: edit_user_path(user)) }
 			end
 		end
 	end
