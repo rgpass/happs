@@ -37,6 +37,9 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @shscales = @user.subjective_happiness_scales
+    @shs_average = (@shscales.average_score * 50 / 7).ceil || 0
+    @time = @shscales.empty? ? 4.weeks.ago : @shscales.first.created_at
   end
 
   def destroy

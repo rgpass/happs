@@ -108,6 +108,48 @@ describe "user_pages" do
 
 		it { should have_content(full_name(user)) }
 		it { should have_title(full_title(full_name(user))) }
+
+		describe "subjective_happiness_scales" do
+			let(:user) { FactoryGirl.create(:user) }
+
+			describe "shows results" do
+				let!(:shs1) { FactoryGirl.create(:subjective_happiness_scale,
+					user_id: user.id) }
+				let!(:shs2) { FactoryGirl.create(:subjective_happiness_scale,
+					user_id: user.id) }
+				before do
+					sign_in user
+					visit user_path(user)
+				end
+
+				it { should have_content("Set Point Quiz -- ") }
+				it { should have_content(shs1.score.to_f) }
+				it { should have_content(shs2.score.to_f) }
+				it { should have_content(
+					user.subjective_happiness_scales.average_score) }
+			end
+
+			describe "link for quiz" do
+				it { should have_link('Set Point Quizzes',
+					href: new_subjective_happiness_scale_path) }
+
+				describe "max 5 quizzes" do
+					pending "Link won't show up if more than 5. 3?"
+				end
+
+				describe "last one taken >2wks ago" do
+					let!(:shs) { FactoryGirl.create(:subjective_happiness_scale,
+						user: user, created_at: 3.weeks.ago) }
+					before do
+						sign_in user
+						visit user_path(user)
+					end
+
+					it { should have_selector('div.alert.alert-info',
+						text: "It's been over two weeks") }
+				end
+			end
+		end
 	end
 
 	describe "edit page GET /users/:id/edit" do

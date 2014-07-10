@@ -13,9 +13,11 @@
 	</div>
 </div>
 
-<div class="alert alert-info">
-	<strong>Heads up!</strong> It's been over two weeks since your last <%= link_to "Set Point Quiz", new_subjective_happiness_scale_path, class: 'alert-link' %>.
-</div>
+<% if @time < 2.weeks.ago %>
+	<div class="alert alert-info">
+		<strong>Heads up!</strong> It's been over two weeks since your last <%= link_to "Set Point Quiz", new_subjective_happiness_scale_path, class: 'alert-link' %>.
+	</div>
+<% end %>
 
 <div class="row">
 	<div class="col-md-5">
@@ -46,9 +48,9 @@
 				<tr>
 					<td sytle="width:25%">Set Point:</td>
 					<td style="width:75%">
-						<div class="progress" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Set Point:</strong> How much happiness is controlled by your genetics. Some people are born generally happy, others need help.<br /><strong>Research shows that our genetics make up 50% of our happiness</strong><br /><i>Currently hardcoded</i>">
-						  <div class="progress-bar progress-bar-gray" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 94%;">
-						    47 / 50
+						<div class="progress" data-toggle="tooltip" data-placement="top" data-html="true" title="<strong>Set Point:</strong> How much happiness is controlled by your genetics. Some people are born generally happy, others need help.<br /><strong>Research shows that our genetics make up 50% of our happiness</strong><br />">
+						  <div class="progress-bar progress-bar-gray" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: <%= @shs_average * 100 / 50 %>%;">
+						    <%= @shs_average %> / 50
 						  </div>
 						</div>
 					</td>
@@ -68,7 +70,7 @@
 		<h4>My Happiness Score: <span class="text-success strong">90</span> <strong>/ 100</strong></h4>
 		<h4>Potential Happiness Score: <span class="text-info strong">97</span> <strong>/ 100</strong></h4>
 		<div class="progress">
-		  <div class="progress-bar progress-bar-gray" style="width: 47%"></div>
+		  <div class="progress-bar progress-bar-gray" style="width: <%= @shs_average %>%"></div>
 		  <div class="progress-bar" style="width: 8%"></div>
 		  <div class="progress-bar progress-bar-success" style="width: 35%"></div>
 		  <div class="progress-bar progress-bar-info" style="width: 7%"></div>
@@ -191,7 +193,14 @@
 
 	<div class="col-md-6 col-md-offset-1">
 		<h2>My Activities (12)</h2>
-		<h3>My Wife</h3>
+		<% if @shscales.any? %>
+			<% @shscales.each do |shs| %>
+				<h3>Set Point Quiz -- Score: <%= shs.score.to_f %> / 7</h3>
+				<p>Quizzes -- Completed <%= time_ago_in_words(shs.created_at) %></p>
+			<% end %>
+		<% end %>
+
+		<h3>My Main Squeeze</h3>
 		<p>Gratitude -- Posted 4 hours ago</p>
 		<h3>Helped an elderly lady across the street</h3>
 		<p>Acts of Kindness -- Posted 2 days ago</p>
@@ -204,11 +213,6 @@
 		<h3>Example 6</h3>
 		<p>Acts of Kindness -- Posted 2 days ago</p>
 		<h3>Example 7</h3>
-		<p>Acts of Kindness -- Posted 2 days ago</p>
-		<h3>Example 8</h3>
-		<p>Acts of Kindness -- Posted 2 days ago</p>
-		<h3>Example 9</h3>
-		<p>Acts of Kindness -- Posted 2 days ago</p>
 		<h3>Completed 2nd Set Point Quiz</h3>
 		<p>Subjective Happiness Scale -- Posted 2 days ago</p>
 

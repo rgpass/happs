@@ -14,9 +14,21 @@ describe "subjective_happiness_scale_pages" do
 		it { should have_title("Subjective Happiness Scale") }
 		it { should have_selector("h1", "Subjective Happiness Scale") }
 
+		describe "last one taken <2wks ago" do
+			let!(:shs) { FactoryGirl.create(:subjective_happiness_scale,
+				user: user, created_at: Time.now) }
+			before do
+				sign_in user
+				visit new_subjective_happiness_scale_path
+			end
+
+			it { should have_selector('div.alert.alert-warning',
+				text: "It's been under two weeks since") }
+		end
+
 		describe "create shs POST /subjective_happiness_scale" do
-			pending "Also add logic so that only correct_user can visit new/create. Emulate user.rb for sol'n"
-			pending "Add: link for new SHS in user show"
+			pending "Also add logic so that only signed_in? can visit new/create.
+			Emulate user.rb for sol'n. No capybara"
 
 			before { visit new_subjective_happiness_scale_path }
 

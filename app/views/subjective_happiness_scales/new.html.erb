@@ -1,7 +1,10 @@
 <% provide(:title, "Subjective Happiness Scale") %>
-<div class="alert alert-warning">
-	I'm still troubleshooting this and working on formatting. If anything's unclear so far, please let me know!
-</div>
+<% if @time > 2.weeks.ago %>
+	<div class="alert alert-warning">
+		Whoa, slow down there! It's been under two weeks since your last Set Point Quiz. Taking them too close together can give false data.
+	</div>
+<% end %>
+
 <h1>Subjective Happiness Scale</h1>
 
 <%= form_for(@shs) do |f| %>
@@ -19,8 +22,6 @@
 	<% end %>
 
 	<%= f.label :general, "In general, I consider myself:", class: "control-label" %>
-
-	<!-- In general, I consider myself: -->
 	<br />
 	<%= f.radio_button :general, '1' %>
 	<%= f.label :general, '1 - not a very happy person', value: '1' %>
@@ -38,8 +39,7 @@
 	<%= f.label :general, '7 - a very happy person', value: '7' %>
 	<br />
 
-	<%= f.label :peers, "Peers question:", class: "control-label" %>
-	Compared with most of my peers, I consider myself:
+	<%= f.label :peers, "Compared with most of my peers, I consider myself:", class: "control-label" %>
 	<br />
 	<%= f.radio_button :peers, '1' %>
 	<%= f.label :peers, '1 - less happy', value: '1' %>

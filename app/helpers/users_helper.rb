@@ -11,9 +11,4 @@ module UsersHelper
 		image_tag(gravatar_url, alt: full_name(user), class: "gravatar")
 	end
 
-	def ordinalized_date(datetime)
-		time = datetime
-		time.strftime("%B #{time.day.ordinalize}, %Y")
-	end
-
 end
