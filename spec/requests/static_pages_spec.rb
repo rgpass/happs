@@ -34,11 +34,21 @@ describe "static_pages" do
 		it_should_behave_like "all static pages"
 	end
 
+	describe "research page GET /research" do
+		before { visit research_path }
+		let(:heading)			{ "The Research" }
+		let(:page_title)	{ "Research" }
+
+		it_should_behave_like "all static pages"
+	end
+
 	it "has correct links in header" do
 		visit root_path
 		within ".header" do
 			click_link "About"
 			expect(page).to have_title(full_title("About Us"))
+			click_link "Research"
+			expect(page).to have_title(full_title("Research"))
 			click_link "Help"
 			expect(page).to have_title(full_title("Help"))
 			click_link "Sign Up"
@@ -53,6 +63,8 @@ describe "static_pages" do
 			expect(page).to have_title(full_title(''))
 			click_link "About"
 			expect(page).to have_title(full_title("About Us"))
+			click_link "Research"
+			expect(page).to have_title(full_title("Research"))
 			click_link "Help"
 			expect(page).to have_title(full_title("Help"))		
 		end
