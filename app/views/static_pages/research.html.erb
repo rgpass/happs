@@ -1,0 +1,206 @@
+<% provide(:title, "Research") %>
+<h1 class="text-center">The Research</h1>
+<br />
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+  	<h3 class="panel-title">
+  		Positive psychology? What's that??
+  	</h3>
+  </div>
+  <div class="panel-body">
+  	<p class="strong">
+	    Positive Psychology is a new field of research that focuses on making the normal person happier.
+	  </p>
+		<p>
+			As long as psychology has been around, its focus has been on making sick people better. The belief was that if you can rid a person of negative emotion, they will be happy. Recent research has determined that this is simply untrue.
+		</p>
+		<p>
+			Imagine your brain was a knee. If it was broken, your goal would be to get it back to normal; you would get surgery if necessary, see a doctor to get medicine, and visit a physical therapist to rehabiliate. But now we know that being normal isn't good enough -- you have to make it stronger to be healthy and the only way to make it stronger is through training.
+		</p>
+  </div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+  	<h3 class="panel-title">
+  		And what has their research told us?
+  	</h3>
+  </div>
+  <div class="panel-body">
+  	<div class="row">
+  		<div class="col-md-3">
+		  	<p class="strong">
+			    It's a skill.
+			  </p>
+				<p>
+					And like any other skill, some people are naturally talented but more importantly, it can be taught, learned, and improved. The research conducted by <a href="http://psych.ucr.edu/faculty/lyubomirsky/">Dr. Sonja Lybomirsky</a> has shown our total happiness can be broken down into percentages.
+					<br />(mouseover for more info)
+				</p>
+			</div>
+			<div class="col-md-9">
+				<script src="http://code.highcharts.com/highcharts.js"></script>
+				<script src="http://code.highcharts.com/modules/exporting.js"></script>
+				<div id="container" style="height: 200px; max-width: 100%; margin: 0 auto"></div>
+				<script type="text/javascript">
+					$(function () {
+					  Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+					      return {
+					          radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+					          stops: [
+					              [0, color],
+					              [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+					          ]
+					      };
+					  });
+							
+					  $('#container').highcharts({
+					    chart: {
+					      plotBackgroundColor: null,
+					      plotBorderWidth: null,
+					      plotShadow: false
+					    },
+					    title: {
+					      text: ''
+					    },
+					    tooltip: {
+						    pointFormat: '{point.a} <b>{point.percentage:.1f}% </b> {point.b}'
+					    },
+					    plotOptions: {
+					      pie: {
+					        allowPointSelect: true,
+					        cursor: 'pointer',
+					        dataLabels: {
+					          enabled: true,
+					          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					          style: {
+					            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+					          },
+					          connectorColor: 'silver'
+					        }
+					      }
+					    },
+					    series: [{
+					      type: 'pie',
+					      name: 'Make of Happiness',
+					      data: [
+					        {
+					          name: 'Set Point',
+					          y: 50.0,
+					          a: "How much happiness is controlled by your genetics.<br/>Some people are born generally happy, others need help.<br /><i>Research shows that our genetics make up </i>",
+					          b: "<i> of our happiness</i>"
+					        },
+					        {
+					          name: 'Intentional Activity',
+					          y: 40.0,
+					          a: "How much happiness you can achieve by participating in<br/>activities proven to make people happier.<br /><i>Research shows that we have control over </i>",
+					          b: "<i> of our happiness</i>",
+					          sliced: true,
+					          selected: true
+					        },
+					        {
+					          name: 'Circumstances',
+					          y: 10.0,
+					          a: "How much happiness you get from wealth, beauty, and recent events.<br /><i>Research shows our circumstances make up only </i>",
+					          b: "<i> of our happiness</i>"
+					        }
+					      ]
+					    }]
+					  });
+					});
+				</script>
+			</div>
+		</div>
+  </div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+  	<h3 class="panel-title">
+  		What do you mean Circumstances make up only 10%?? I just got a new promotion/car/house and I'm super happy!
+  	</h3>
+  </div>
+  <div class="panel-body">
+  	<p class="strong">
+	    Happiness from circumstances is not only a small part, but it's habitual.
+	  </p>
+		<p>
+			One of the good parts of our brains is our ability to adapt. When a traumatizing event occurs, it affects us negatively, some times for a long period of time, but then we adapt and go back to our normal life and our happiness set point mentioned above.
+		</p>
+		<blockquote>
+		  <p>
+		  	The truth is, bad things don't affect us as profoundly as we expect them to. That's true of good things, too. We adapt very quickly to either.
+		  </p>
+		  <small><a href="http://www.wjh.harvard.edu/~dtg/gilbert.htm">Dr. Dan Gilbert</a>, <a href="http://www.ted.com/talks/dan_gilbert_asks_why_are_we_happy">The Surprising Science of Happiness</a></small>
+		</blockquote>
+		<p>
+			When someone gets a new promotion, car, house, clothes, etc., they feel excited, proud, happy -- however these are all things proven to fall under the psychological phenomenon called the <a href="http://en.wikipedia.org/wiki/Hedonic_treadmill">Hedonic Treadmill</a>. Let's say you currently drive a BMW 300 series. One day you decide to buy a new BMW M3; you're super excited and happy. But six months from now, it will be your new standard of living and you'll be eyeing up the next model up, thinking it will make happier. This adaptation is the Hedonic Treadmill (also known as Hedonic Adaptation) in action.
+		</p>
+  </div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+  	<h3 class="panel-title">
+  		So what are the techniques for increasing happiness?
+  	</h3>
+  </div>
+  <div class="panel-body">
+  	<p class="strong">
+	    There are 12 proven techniques for increasing happiness and there's a self-evaluation to figure out which ones will be the most beneficial.
+	  </p>
+		<p>
+			The overall strategy is to take the Person-Activity Fit evaluation, then practice those techniques, and quantify your level of happiness every couple of weeks.
+		</p>
+		<p>
+			The techniques include:
+			<div class="row">
+				<div class="col-md-4">
+					<ul>
+						<li>Expressing gratitude</li>
+						<li>Cultivating optimism</li>
+						<li>Avoiding overthining and social comparison</li>
+						<li>Practicing acts of kindness</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul>
+						<li>Nurturing relationships</li>
+						<li>Developing strategies for coping</li>
+						<li>Learning to forgive</li>
+						<li>Doing more activities that truly engage you</li>
+					</ul>
+				</div>
+				<div class="col-md-4">
+					<ul>
+						<li>Savoring life's joys</li>
+						<li>Comitting to your goals</li>
+						<li>Practicing religion and spirituality</li>
+						<li>Taking care of your body</li>
+					</ul>
+				</div>
+			</div>
+		</p>
+  </div>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading">
+  	<h3 class="panel-title">
+  		Sounds awesome! Where can I learn more?
+  	</h3>
+  </div>
+  <div class="panel-body">
+  	<p class="strong">
+	    A quick Google search of "positive psychology" will give lots of books, video, and white papers.
+	  </p>
+		<p>
+			Our favorite resources for getting started are:
+			<ul>
+				<li><a href="http://www.ted.com/talks/martin_seligman_on_the_state_of_psychology">(video - free) Martin Seligman - The New Era of Positive Psychology</a></li>
+				<li><a href="http://www.thehappymovie.com/">(documentary - free on Netflix) Happy</a></li>
+				<li><a href="http://www.amazon.com/The-How-Happiness-Approach-Getting/dp/0143114956">(book) Sonja Lyubomirsky - The How of Happiness</a></li>
+			</ul>	
+		</p>
+  </div>
+</div>

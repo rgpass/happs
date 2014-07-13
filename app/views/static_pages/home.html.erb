@@ -10,22 +10,6 @@
   <p><%= link_to "Let's get started", signup_path, class: "btn btn-primary btn-lg" %></p>
 </div>
 
-<h2>Why make happs?</h2>
-<hr>
-<p>
-	There are several reasons happs had to be made and the most important one: <strong>we're passionate about making people happier</strong>. We are <a href="https://gettingreal.37signals.com/ch02_Whats_Your_Problem.php">scratching our own itch</a>. We are the both developers and end users.
-</p>
-<p>
-	Our competitors, such as
-	(<a href="http://www.happify.com/">Happify</a>, <a href="https://www.happier.com/home">Happier</a>, and <a href="http://www.thesmileepidemic.com/smiles/">Smile Epidemic</a>)
-	have one or more of the following:
-	<ul>
-		<li>aren't backed with research</li>
-		<li>require you to pay to use</li>
-		<li>are cluttered and overcomplicated</li>
-	</ul>
-	Although our competitors are also our allies when it comes to our mission, we believe that a free, clean, science-backed app is the only way to maximize the benefits that people get when actively working on becoming happier.
-</p>
 <p class="strong">
 	Have any questions? Feel free to give me a call anytime at (404) 953-9976 or 
 	<a href="mailto:gerry.pass@happs.io">email me</a> (gerry.pass@happs.io). --Gerry Pass, Founder
@@ -36,36 +20,3 @@
 	<small><a href="http://en.wikipedia.org/wiki/Dalai_Lama">Dalai Lama</a></small>
 </blockquote>
 <p><%= link_to "Let's get started", signup_path, class: "btn btn-primary btn-lg" %></p>
-
-
-
-<% if current_user.try(:admin) %>
-
-<blockquote>
-  <p>Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away.</p>
-  <small><a href="http://en.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry">Antoine de Saint-Exupéry</a></small>
-</blockquote>
-<blockquote>
-  <p>
-		In design, where meaning is often controversially subjective or 
-		painfully inscrutable, few things are more apparent and lucid than 
-		the presence of passion. This is true whether the design of a product 
-		delights you or leaves you cold; in either case it’s diﬃcult not to 
-		detect the emotional investment of the hands that built it.
-  </p>
-  <small>Khoi Vinh, Subtraction.com and co-founder of Behavior LLC</small>
-</blockquote>
-<blockquote>
-	<p>
-		Any fool can make something complicated. It takes a genius to make it simple.
-	</p>
-	<small><a href="http://en.wikipedia.org/wiki/Woody_Guthrie">Woody Guthrie</a></small>
-</blockquote>
-
-<ul>
-	<li>Refer to It Shouldn't be a Chore section of Getting Real</li>
-	<li>Add links on here, header, and About page -- make it very easy to get in touch with you</li>
-	<li>Add the glyphicon and subheaders structure. Applicable to both our features/what makes us difference and to each of the 12 activities.</li>
-</ul>
-
-<% end %>
