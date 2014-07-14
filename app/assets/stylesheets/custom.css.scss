@@ -1,4 +1,4 @@
-/* Colors */
+/* Happs Colors */
 /*
 green: 70CAD1 -- rgp(112,202,209)
 blue: 2098D4 -- rgp(32,152,212)
@@ -12,6 +12,10 @@ grey: 587878 -- rgp(88,120,120)
 
 
 /* Functional */
+.block {
+  display: block;
+}
+
 .inline {
 	display: inline;
 }
@@ -22,6 +26,14 @@ grey: 587878 -- rgp(88,120,120)
 
 .display-none {
   display: none;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.col-bottom {
+  vertical-align: bottom;
 }
 
 
@@ -151,3 +163,16 @@ div.tooltip-inner {
 .progress-bar-gray {
   background-color: gray;
  }
+
+
+/* Div backgrounds */
+.bg-gray {
+  background-color: #f4f4f4;
+  min-height: 200px;
+}
+
+
+/* Profile */
+.min-height {
+  min-height: 265px;
+}

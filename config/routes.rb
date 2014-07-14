@@ -1,4 +1,11 @@
 Happs::Application.routes.draw do
+  get "examples/profile_start"
+  get "examples/ohq"
+  get "examples/profile_ohq"
+  get "examples/paf"
+  get "examples/profile_paf"
+  get "examples/activity"
+  get "examples/profile_activity"
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :subjective_happiness_scales
