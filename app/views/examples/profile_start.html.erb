@@ -1,93 +1,185 @@
-<% provide(:title, "Example | John Smith") %>
+<% provide(:title, "Example | Initial Profile") %>
 
 <div class="alert alert-success no-margin strong">
 	Welcome to Happs!
 </div>
 
-<div class="row">
-	<div class="col-md-6">
+<div class="row" id="intro1">
+	<div class="col-md-11">
 		<h1 class="inline-block">John Smith</h1>
-		<p class="inline-block"><em>Next Step:</em> Figure out your <a href="#" class="alert-link">current happiness level</a>.</p>
+		<p class="inline-block padding-left next-step"><em>Next Step:</em> Figure out your <%= link_to "current happiness level", examples_ohq_path %>.</p>
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-md-5">
-		<div class="panel panel-default min-height">
-		  <div class="panel-heading">
-		  	<h3 class="panel-title strong">My Happiness</h3>
-		  </div>
-		  <div class="panel-body">
-				<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
-				<br />
-		    Using the <a href="#">Oxford Happiness Questionnaire</a>, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
-				<blockquote>
-				  <p>
-				  	What gets measured, gets managed.
-				  </p>
-				  <small><a href="http://en.wikipedia.org/wiki/Peter_Drucker">Peter Drucker</a>, management legend</small>
-				</blockquote>
-		  </div>
+<div class="dashboard">
+	<div class="row" id="intro2">
+		<div class="col-md-5">
+			<div class="panel panel-default min-height my-happiness">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Happiness</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Happiness</strong><br/>This section focuses on your quantified happiness measured over time. This requires the Oxford Happiness Questionnaire to be taken once every couple of weeks."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="buttons">
+						<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
+					</div>
+					<br />
+			    Using the <a href="#">Oxford Happiness Questionnaire</a>, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
+					<blockquote>
+					  <p>
+					  	What gets measured, gets managed.
+					  </p>
+					  <small><a href="http://en.wikipedia.org/wiki/Peter_Drucker">Peter Drucker</a>, management legend</small>
+					</blockquote>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="panel panel-default min-height my-effective-activities">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Effective Activities</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Effective Activities</strong><br/>Once you've taken the Person-Activity Fit Diagnostic, you'll see a pie chart of what activities best fit your personality and will enable you to easily build these activities as habits."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="buttons">
+				  	<button type="button" class="btn btn-primary center-block">Determine My Effective Activities</button>
+				  </div>
+			  	<br />
+			    The truth is, everybody is different and there's no one way to be happy. That's why Happs uses the <a href="#">Person-Activity Fit Diagnostic</a> to determine which activities best fit your personality.
+			    <br /><br />
+					<blockquote>
+					  <p>
+					  	Know yourself to improve yourself.
+					  </p>
+					  <small><a href="http://en.wikipedia.org/wiki/Auguste_Comte">Auguste Comte</a>, founder of sociology</small>
+					</blockquote>
+			  </div>
+			</div>
 		</div>
 	</div>
-	<div class="col-md-7">
-		<div class="panel panel-default min-height">
-		  <div class="panel-heading">
-		  	<h3 class="panel-title strong">My Effective Activities</h3>
-		  </div>
-		  <div class="panel-body">
-		  	<button type="button" class="btn btn-primary center-block">Determine My Effective Strategies</button>
-		  	<br />
-		    The truth is, everybody is different and there's no one way to be happy. That's why Happs uses the <a href="#">Person-Activity Fit Diagnostic</a> to determine which activities best fit your personality.
-		    <br /><br />
-				<blockquote>
-				  <p>
-				  	Know yourself to improve yourself.
-				  </p>
-				  <small><a href="http://en.wikipedia.org/wiki/Auguste_Comte">Auguste Comte</a>, founder of sociology</small>
-				</blockquote>
-		  </div>
+
+	<div class="row">
+		<div class="col-md-5">
+			<div class="panel panel-default min-height my-activity-history">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Activity History</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Activity History</strong><br/>As you complete activities, you'll be able to see how many you've done and be able to view their details/content."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			    <h4>Signed Up! Yay!</h4>
+			    <p class="small">Profile -- Completed 30 seconds ago</p>
+			    <br /><br /><br /><br />
+			    <div class="text-center no-margin">
+						<ul class="pagination pagination-sm no-margin">
+						  <li class="disabled"><a href="#">«</a></li>
+						  <li class="active"><a href="#">1</a></li>
+						  <li class="disabled"><a href="#">»</a></li>
+						</ul>
+					</div>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="panel panel-default min-height my-activity-breakdown">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Activity Breakdown</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Activity Breakdown</strong><br/>As you complete activities, you'll see a pie chart of what activities you've done. The goal is to match this pie chart with the one in My Effective Activities."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="buttons">
+				  	<button type="button" class="btn btn-primary center-block">Do a Happiness Activity</button>
+				  </div>
+			  	<br />
+			  	Once you've done at least one activity, Happs will provide you a visual breakdown of what you've done.
+			  	<br /><br />
+					<blockquote>
+					  <p>
+					  	Action may not bring happiness, but there is no happiness without action.
+					  </p>
+					  <small><a href="http://en.wikipedia.org/wiki/William_James">William James</a>, founder of pragmatism and functional psychology</small>
+					</blockquote>
+			  </div>
+			</div>
 		</div>
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-md-5">
-		<div class="panel panel-default min-height">
-		  <div class="panel-heading">
-		  	<h3 class="panel-title strong">My Activity History</h3>
-		  </div>
-		  <div class="panel-body">
-		    <h4>Signed Up! Yay!</h4>
-		    <p class="small">Profile -- Completed 30 seconds ago</p>
-		    <br /><br /><br /><br />
-		    <div class="text-center no-margin">
-					<ul class="pagination pagination-sm no-margin">
-					  <li class="disabled"><a href="#">«</a></li>
-					  <li class="active"><a href="#">1</a></li>
-					  <li class="disabled"><a href="#">»</a></li>
-					</ul>
-				</div>
-		  </div>
-		</div>
-	</div>
-	<div class="col-md-7">
-		<div class="panel panel-default min-height">
-		  <div class="panel-heading">
-		  	<h3 class="panel-title strong">My Activity Breakdown</h3>
-		  </div>
-		  <div class="panel-body">
-		  	<button type="button" class="btn btn-primary center-block">Do a Happiness Activity</button>
-		  	<br />
-		  	Once you've done at least one activity, Happs will provide you a visual breakdown of what you've done.
-		  	<br /><br />
-				<blockquote>
-				  <p>
-				  	Action may not bring happiness, but there is no happiness without action.
-				  </p>
-				  <small><a href="http://en.wikipedia.org/wiki/William_James">William James</a>, founder of pragmatism and functional psychology</small>
-				</blockquote>
-		  </div>
-		</div>
-	</div>
-</div>
+<script type="text/javascript">
+	var trip = new Trip([
+	{
+		sel : $('#intro1'),
+		content : 'Welcome to to the Happs tour!<br/><small>Note: You can use the arrow keys to navigate.</small>',
+		position : 'n'
+	},
+	{
+		sel : $('#intro2'),
+		content : "This is an example of a new user's profile page. Let's check out each panel.",
+		position : 'n'
+	},
+	{
+		sel : $('.my-happiness'),
+		content : "Happs measures and tracks your happiness over time.",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.my-happiness'),
+		content : 'To get the best results, we suggest measuring<br/>your happiness every 2-3 weeks.',
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.my-effective-activities'),
+		content : "There are 12 proven activities for increasing happiness.<br/>To determine which ones best suite you...",
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.my-effective-activities'),
+		content : "Happs offers Dr. Sonja Lyubomirsky's Person-Activity Fit Diagnostic.<br/>The PAFD only needs to be taken once.",
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.my-activity-breakdown'),
+		content : "As you do more activities, Happs will track your percentage breakdown.<br/>The goal is to match the results from the Person-Activity Fit Diagnostic.",
+		expose: true,
+		position: 's'
+	},
+	{
+		sel : $('.my-activity-history'),
+		content : "Happs will track your activity history, allowing<br/>you to see previous activities on a granular level.",
+		expose: true,
+		position: 's'
+	},
+	{
+		sel : $('.dashboard'),
+		content : "All of these are optional. What you want to do is up to you.",
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.buttons'),
+		content : "If you're the kind of person who bounces around,<br/>you can get started with these buttons.",
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.next-step'),
+		content : "If you're looking for the next step, check right here.",
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.next-step'),
+		content : "Click the link to measure your initial happiness score<br/>and proceed with the tour.",
+		expose: true,
+		position: 'n'
+	}
+	], {
+		showNavigation : true,
+		showCloseBox : true,
+		delay : -1,
+		animation: 'fadeInUp'
+	});
+</script>
