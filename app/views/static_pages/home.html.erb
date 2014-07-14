@@ -7,16 +7,27 @@
   	by positive psychology leader
   	<a href="http://psych.ucr.edu/faculty/lyubomirsky/">Dr. Sonja Lybomirsky</a>
   </p>
-  <p><%= link_to "Let's get started", signup_path, class: "btn btn-primary btn-lg" %></p>
+  <div class="row">
+		<div class="col-md-7">
+			<blockquote>
+				<p>Happiness is not something ready made. It comes from your own actions.</p>
+				<small><a href="http://en.wikipedia.org/wiki/Dalai_Lama">Dalai Lama</a></small>
+			</blockquote>
+		</div>
+  	<div class="col-md-2">
+		  <%= link_to "Take the Tour", '#', class: "btn btn-info btn-lg btn-jumbotron" %>
+		</div>
+		<div class="col-md-1">
+			<%= link_to "Get Started", signup_path, class: "btn btn-primary btn-lg btn-jumbotron" %>
+		</div>
+	</div>
 </div>
 
-<p class="strong">
+<p class="text-center">
 	Have any questions? Feel free to give me a call anytime at (404) 953-9976 or 
 	<a href="mailto:gerry.pass@happs.io">email me</a> (gerry.pass@happs.io). --Gerry Pass, Founder
 </p>
+
 <br />
-<blockquote>
-	<p>Happiness is not something ready made. It comes from your own actions.</p>
-	<small><a href="http://en.wikipedia.org/wiki/Dalai_Lama">Dalai Lama</a></small>
-</blockquote>
-<p><%= link_to "Let's get started", signup_path, class: "btn btn-primary btn-lg" %></p>
+
+
