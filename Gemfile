@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '~> 1.2'
+gem 'font-awesome-sass'
 
 group :doc do
   gem 'sdoc', require: false
