@@ -1,1 +1,232 @@
 <% provide(:title, "Example | Profile after OHQ") %>
+
+<div class="alert alert-success no-margin strong">
+	Current happiness level measured!
+</div>
+
+<div class="row" id="intro1">
+	<div class="col-md-12">
+		<h1 class="inline-block">John Smith</h1>
+		<p class="inline-block padding-left next-step"><em>Next Step:</em> Figure out <a href="#">which activities match your personality.</a></p>
+	</div>
+</div>
+
+<div class="dashboard">
+	<div class="row" id="intro2">
+		<div class="col-md-5">
+			<div class="panel panel-default min-height my-happiness">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Happiness</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Happiness</strong><br/>This section focuses on your quantified happiness measured over time. Keep taking the Oxford Happiness Questionnaire every 2-3 weeks for best results."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="row">
+			  		<div class="col-md-12">
+							<script src="http://code.highcharts.com/highcharts.js"></script>
+							<script src="http://code.highcharts.com/modules/exporting.js"></script>
+							<div id="container" style="min-width: 310px; height: 200px; margin: 0 auto"></div>
+							<script type="text/javascript">
+								$(function () {
+								  $('#container').highcharts({
+								    chart: {
+								      type: 'spline'
+								    },
+								    title: {
+								      text: ''
+								    },
+								    subtitle: {
+								      text: ''
+								    },
+								    xAxis: {
+								      type: 'datetime',
+								      dateTimeLabelFormats: {
+								      		day: '%b',
+								          month: '%b',
+								          year: '%b'
+								      },
+								      title: {
+								          text: ''
+								      }
+								    },
+								    yAxis: {
+								      title: {
+								          text: ''
+								      },
+								      // min: 0,
+								      max: 100
+								    },
+								    tooltip: {
+								      headerFormat: '<b>Happiness Level</b><br>',
+								      pointFormat: '{point.x:%b %e}: {point.y:.0f} / 100'
+								    },
+
+								    series: [{
+								      showInLegend: false,
+								      // In JavaScript, months start at 0 for January, 1 for February etc.
+								      data: [
+								        [Date.UTC(2014,  6, 15), 78]
+								      ],
+								      pointInterval: 24 * 3600 * 1000 // 1d
+								    }]
+								  });
+								});
+							</script>
+			  		</div>
+			  	</div>
+			  	<br />
+			  	<div class="row">
+			  		<div class="col-md-6">
+							<table class="table stats" style="width:50%">
+								<tr>
+									<td>Current:</td>
+									<td>78</td>
+									<td>Highest:</td>
+									<td>78</td>
+								</tr>
+								<tr>
+									<td>Initial:</td>
+									<td>78</td>
+									<td>Average:</td>
+									<td>78</td>
+								</tr>
+							</table>
+						</div>
+				  	<div class="col-md-3">
+				  		<br />
+					  	<div class="buttons btn-mmh">
+								<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
+							</div>
+			  		</div>
+			  	</div>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="panel panel-default min-height my-effective-activities">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Effective Activities</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Effective Activities</strong><br/>Once you've taken the Person-Activity Fit Diagnostic, you'll see a pie chart of what activities best fit your personality and will enable you to easily build these activities as habits."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="buttons">
+				  	<button type="button" class="btn btn-primary center-block">Determine My Effective Activities</button>
+				  </div>
+			  	<br />
+			    The truth is, everybody is different and there's no one way to be happy. That's why Happs uses the <a href="#">Person-Activity Fit Diagnostic</a> to determine which activities best fit your personality.
+			    <br /><br />
+					<blockquote>
+					  <p>
+					  	Know yourself to improve yourself.
+					  </p>
+					  <small><a href="http://en.wikipedia.org/wiki/Auguste_Comte">Auguste Comte</a>, founder of sociology</small>
+					</blockquote>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var h = $('.my-happiness').height();
+		$('.my-effective-activities').height(h+4);
+	</script>
+
+	<div class="row">
+		<div class="col-md-5">
+			<div class="panel panel-default min-height my-activity-history">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Activity History</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Activity History</strong><br/>As you complete activities, you'll be able to see how many you've done and be able to view their details/content."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<h4>Measured Current Happiness Level -- 78</h4>
+			  	<p class="small">Questionnaire -- Completed 5 seconds ago</p>
+			  	<hr style="padding:0px;margin:0px;">
+			    <h4>Signed Up! Yay!</h4>
+			    <p class="small">Profile -- Completed 10 minutes ago</p>
+			    <br /><br/>
+			    <div class="text-center no-margin">
+						<ul class="pagination pagination-sm no-margin">
+						  <li class="disabled"><a href="#">«</a></li>
+						  <li class="active"><a href="#">1</a></li>
+						  <li class="disabled"><a href="#">»</a></li>
+						</ul>
+					</div>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="panel panel-default min-height my-activity-breakdown">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Activity Breakdown</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Activity Breakdown</strong><br/>As you complete activities, you'll see a pie chart of what activities you've done. The goal is to match this pie chart with the one in My Effective Activities."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="buttons">
+				  	<button type="button" class="btn btn-primary center-block">Do a Happiness Activity</button>
+				  </div>
+			  	<br />
+			  	Once you've done at least one activity, Happs will provide you a visual breakdown of what you've done.
+			  	<br /><br />
+					<blockquote>
+					  <p>
+					  	Action may not bring happiness, but there is no happiness without action.
+					  </p>
+					  <small><a href="http://en.wikipedia.org/wiki/William_James">William James</a>, founder of pragmatism and functional psychology</small>
+					</blockquote>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var trip = new Trip([
+	{
+		sel : $('.my-happiness'),
+		content : "Sweet! You just quantified your happiness.<br/>Pretty cool, right? Let's check the results.",
+		position : 'n'
+	},
+	{
+		sel : $('#container'),
+		content : "This guy's a little lonely, but over time<br/>you can see your happiness improvements.",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.stats'),
+		content : "For more granular insight, Happs<br/>provides some stats on your happiness.",
+		expose : true,
+		position : 'e'
+	},
+	{
+		sel : $('.btn-mmh'),
+		content : "We'll remind you every 2 weeks to take it, but</br>you can update it any time you want.",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.next-step'),
+		content : "Notice that the Next Step has changed.",
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.next-step'),
+		content : "This time we're going to fast-forward to after<br/>the Person-Activity Fit Diagnostic.",
+		expose: true,
+		position: 'n'
+	},
+	{
+		sel : $('.next-step'),
+		content : "Click the link to proceed with the tour.",
+		expose: true,
+		position: 'n'
+	}
+	], {
+		showNavigation : true,
+		showCloseBox : true,
+		delay : -1,
+		animation: 'fadeInUp'
+	});
+
+  trip.start();
+</script>
