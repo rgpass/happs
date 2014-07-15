@@ -1,2 +1,68 @@
-<h1>Examples#ohq</h1>
-<p>Find me in app/views/examples/ohq.html.erb</p>
+<% provide(:title, "Example | OHQ") %>
+
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="inline-block">Oxford Happiness Questionnaire</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-8">
+	</div>
+</div>
+<p>
+	<span class="strong">Overview:</span>
+</p>
+The OHQ is used to determine your current happiness level. "[Your happiness level] can shift up or down depending on what you <em>do</em> and how you <em>think</em>."
+
+<p>
+	<span class="strong">Estimated Time to Complete:</span> 5 minutes.
+</p>
+
+
+<div class="row">
+	<div class="col-md-8">
+		<div class="panel panel-primary">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">1. In general, I consider myself:</h3>
+		  </div>
+		  <div class="panel-body">
+				<div class="btn-group btn-group-justified" data-toggle="buttons">
+					<label class="btn btn-default">
+						<input class="display-none" id="subjective_happiness_scale_general_1" name="subjective_happiness_scale[general]" type="radio" value="1" />1 - not a very<br/>happy person
+					</label>
+					<label class="btn btn-default">
+						<input class="display-none" id="subjective_happiness_scale_general_1" name="subjective_happiness_scale[general]" type="radio" value="1" />2
+					</label>
+					<label class="btn btn-default">
+						<input class="display-none" id="subjective_happiness_scale_general_3" name="subjective_happiness_scale[general]" type="radio" value="3" />3
+					</label>
+					<label class="btn btn-default">
+						<input class="display-none" id="subjective_happiness_scale_general_4" name="subjective_happiness_scale[general]" type="radio" value="4" />4
+					</label>
+					<label class="btn btn-default">
+						<input class="display-none" id="subjective_happiness_scale_general_5" name="subjective_happiness_scale[general]" type="radio" value="5" />5
+					</label>
+					<label class="btn btn-default">
+						<input class="display-none" id="subjective_happiness_scale_general_6" name="subjective_happiness_scale[general]" type="radio" value="6" />6
+					</label>
+					<label class="btn btn-default">
+						<input class="display-none" id="subjective_happiness_scale_general_7" name="subjective_happiness_scale[general]" type="radio" value="7" />7 - a very<br/>happy person
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="btn-group" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="checkbox" checked> Option 1 (pre-checked)
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox"> Option 2
+  </label>
+  <label class="btn btn-primary">
+    <input type="checkbox"> Option 3
+  </label>
+</div>
