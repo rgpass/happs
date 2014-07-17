@@ -64,7 +64,7 @@
 					      text: ''
 					    },
 					    tooltip: {
-						    pointFormat: '{point.a} <b>{point.percentage:.1f}% </b> {point.b}'
+						    pointFormat: '{point.a} <b>{point.percentage:.0f}% </b> {point.b}'
 					    },
 					    plotOptions: {
 					      pie: {
@@ -72,7 +72,7 @@
 					        cursor: 'pointer',
 					        dataLabels: {
 					          enabled: true,
-					          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+					          format: '<b>{point.name}</b>: {point.percentage:.0f} %',
 					          style: {
 					            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
 					          },

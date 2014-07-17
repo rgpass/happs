@@ -7,7 +7,7 @@
 <div class="row" id="intro1">
 	<div class="col-md-12">
 		<h1 class="inline-block">John Smith</h1>
-		<p class="inline-block padding-left next-step"><em>Next Step:</em> Figure out your <%= link_to "current happiness level", examples_ohq_path %>.</p>
+		<p class="inline-block padding-left next-step"><em>Suggested Next Step:</em> Figure out your <%= link_to "current happiness level", examples_ohq_path %>.</p>
 	</div>
 </div>
 
@@ -109,6 +109,11 @@
 	{
 		sel : $('#intro1'),
 		content : 'Welcome to to the Happs tour!<br/><small>Note: You can use the arrow keys to navigate.</small>',
+		position : 'n'
+	},
+	{
+		sel : $('#intro1'),
+		content : 'Happs is an app that uses scientifically proven techniques<br/>to quantify happiness, determine what activites best match<br/>your personality, and guide you through those activites.',
 		position : 'n'
 	},
 	{

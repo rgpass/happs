@@ -1,2 +1,138 @@
-<h1>Examples#activity</h1>
-<p>Find me in app/views/examples/activity.html.erb</p>
+<% provide(:title, "Example | Activity") %>
+
+<h1 class='inline-block'>Gratitude</h1>
+
+<div class="row">
+	<div class="col-md-5 form-font form-padding form">
+		<label class="control-label" for="user_first_name">Subject</label>
+		<input autofocus="autofocus" class="form-control input-sm" id="user_first_name" name="user[first_name]" type="text" />
+
+
+		<label class="control-label" for="user_last_name">Why you're grateful</label>
+		<textarea class="form-control" rows="3" id="textArea"></textarea>
+
+		<br/>
+		<div class="control-group file optional pin_image"><label class="file optional control-label" for="pin_image">Upload an image</label><div class="controls"><input class="file optional" id="pin_image" name="pin[image]" type="file" /></div></div>
+
+		<br/>
+		<span class="submit">
+			<%= link_to "All Done", examples_profile_activity_path, class: "btn btn-primary" %>
+		</span>
+	</div>
+
+	<div class="col-md-5 col-md-offset-1">
+		<blockquote>
+		  <p>We can only be said to be alive in those moments when our hearts are conscious of our treasures.</p>
+		  <small><a href="http://en.wikipedia.org/wiki/Thornton_Wilder">Thorton Wilder</a>, three time Pulitzer Prize winner</small>
+		</blockquote>
+
+		<p class="strong">Tips:</p>
+		<div class="panel-group tips" id="accordion">
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+		          Keep it fresh
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseOne" class="panel-collapse collapse in">
+		      <div class="panel-body">
+		        Always try to keep it fresh! Think of the random: laughs you've had, hard times you've overcome, what you had for breakfast.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+		          Mundane up to Magnificent
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseTwo" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        Mundane: Your dryer works. Magnificent: That life exists at all.
+		      </div>
+		    </div>
+		  </div>
+		  <div class="panel panel-default">
+		    <div class="panel-heading">
+		      <h4 class="panel-title">
+		        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+		          List out 3 to 5 Random Things
+		        </a>
+		      </h4>
+		    </div>
+		    <div id="collapseThree" class="panel-collapse collapse">
+		      <div class="panel-body">
+		        This will help you notice the random, cool things in your life!
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var trip = new Trip([
+	{
+		sel : $('h1'),
+		content : "Ah, our first activity. Although this page is simple,<br/>this is the meat behind increasing your happiness.",
+		position : 'e'
+	},
+	{
+		sel : $('.form'),
+		content : "Each activity will have a section that needs to be filled in.",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.form'),
+		content : "Consistency is more important than content, so write only as much as you want.<br/>If you can get your point across in one word, awesome!",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.form'),
+		content : "You may be thinking: What the heck do I write?",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('blockquote'),
+		content : "That's why we added quotes for those that are motivated by wise, old people",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.tips'),
+		content : "and tips for those who want direct advice.",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.row'),
+		content : "Doing these sorts of activities as much as possible<br/>while keeping it fresh and exciting is the",
+		position : 'n'
+	},
+	{
+		sel : $('.row'),
+		content : "best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!",
+		position : 'n'
+	},
+	{
+		sel : $('.submit'),
+		content : "Click the button to proceed with the tour.",
+		expose: true,
+		position : 'e'
+	}
+	], {
+		showNavigation : true,
+		showCloseBox : true,
+		delay : -1,
+		animation: 'fadeInUp'
+	});
+
+  trip.start();
+</script>

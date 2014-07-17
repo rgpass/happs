@@ -1,2 +1,400 @@
-<h1>Examples#profile_activity</h1>
-<p>Find me in app/views/examples/profile_activity.html.erb</p>
+<% provide(:title, "Example | Profile after Activity") %>
+
+<div class="alert alert-success no-margin strong">
+	Gratitude completed!
+</div>
+
+<div class="row" id="intro1">
+	<div class="col-md-12">
+		<h1 class="inline-block">John Smith</h1>
+		<p class="inline-block padding-left next-step"><em>Suggested Next Step:</em> <%= link_to "Savor life's joys", examples_activity_path %>.</p>
+	</div>
+</div>
+
+<div class="dashboard">
+	<div class="row" id="intro2">
+		<div class="col-md-5">
+			<div class="panel panel-default min-height my-happiness">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Happiness</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Happiness</strong><br/>This section focuses on your quantified happiness measured over time. Keep taking the Oxford Happiness Questionnaire every 2-3 weeks for best results."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="row">
+			  		<div class="col-md-12">
+							<script src="http://code.highcharts.com/highcharts.js"></script>
+							<script src="http://code.highcharts.com/modules/exporting.js"></script>
+							<div id="container1" style="min-width: 310px; height: 200px; margin: 0 auto"></div>
+							<script type="text/javascript">
+								$(function () {
+								  $('#container1').highcharts({
+								    chart: {
+								      type: 'spline'
+								    },
+								    title: {
+								      text: ''
+								    },
+								    subtitle: {
+								      text: ''
+								    },
+								    xAxis: {
+								      type: 'datetime',
+								      dateTimeLabelFormats: {
+								      		day: '%b',
+								          month: '%b',
+								          year: '%b'
+								      },
+								      title: {
+								          text: ''
+								      }
+								    },
+								    yAxis: {
+								      title: {
+								          text: ''
+								      },
+								      // min: 0,
+								      max: 100
+								    },
+								    tooltip: {
+								      headerFormat: '<b>Happiness Level</b><br>',
+								      pointFormat: '{point.x:%b %e}: {point.y:.0f} / 100'
+								    },
+
+								    series: [{
+								      showInLegend: false,
+								      // In JavaScript, months start at 0 for January, 1 for February etc.
+								      data: [
+								        [Date.UTC(2014,  6, 15), 78]
+								      ],
+								      pointInterval: 24 * 3600 * 1000 // 1d
+								    }]
+								  });
+								});
+							</script>
+			  		</div>
+			  	</div>
+			  	<br />
+			  	<div class="row">
+			  		<div class="col-md-6">
+							<table class="table stats" style="width:50%">
+								<tr>
+									<td>Current:</td>
+									<td>78</td>
+									<td>Highest:</td>
+									<td>78</td>
+								</tr>
+								<tr>
+									<td>Initial:</td>
+									<td>78</td>
+									<td>Average:</td>
+									<td>78</td>
+								</tr>
+							</table>
+						</div>
+				  	<div class="col-md-3">
+				  		<br />
+					  	<div class="buttons btn-mmh">
+								<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
+							</div>
+			  		</div>
+			  	</div>
+			  </div>
+			</div>
+		</div>
+
+		<div class="col-md-7">
+			<div class="panel panel-default min-height my-effective-activities">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Effective Activities</h3> <a href="#">update</a>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Effective Activities</strong><br/>Shown is a breakdown of what activities best match your personality. Click on one of the slices to start that activity.<br/><em>Check the research page for a list of all activities.</em>"></i></h3>
+			  </div>
+			  <div class="panel-body">
+					<div id="container2" style="min-width: 310px; height: 300px; margin: 0 auto"></div>
+					<script type="text/javascript">
+						$(function () {
+						      
+						  // Radialize the colors
+						  Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
+						    return {
+						      radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+						      stops: [
+						        [0, color],
+						        [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
+						      ]
+						    };
+						  });
+
+						  // Build the chart
+						  $('#container2').highcharts({
+						    chart: {
+						      plotBackgroundColor: null,
+						      plotBorderWidth: null,
+						      plotShadow: false
+						    },
+						    title: {
+						      text: ''
+						    },
+						    subtitle: {
+						    	text: '<small>Mouseover for more info</small>'
+						    },
+						    tooltip: {
+						      pointFormat: '<b>{point.percentage:.1f}% </b>'
+						    },
+						    plotOptions: {
+						      pie: {
+						        allowPointSelect: true,
+						        cursor: 'pointer',
+						        dataLabels: {
+						          enabled: false
+						        },
+						        size: 250,
+						        events: {
+						        	click: function() {
+						        		window.location = '/examples/activity'
+						        	}
+						        }
+						      }
+						    },
+						    series: [{
+						      type: 'pie',
+						      name: 'Make of Happiness',
+						      data: [
+						        {
+						          name: 'Expressing gratitude',
+						          y: 4+1/6
+						        },
+						        {
+						          name: "Savoring life's joys",
+						          y: 3+5/6
+						        },
+						        {
+						          name: 'Practicing acts of kindness',
+						          y: 3.5
+						        },
+						        {
+						          name: 'Doing more activities that truly engage you',
+						          y: 3.5
+						        },
+						        {
+						          name: 'Cultivating optimism',
+						          y: 3
+						        },
+						        {
+						          name: 'Practicing religion and spirituality',
+						          y: 2+2/3
+						        },
+						        {
+						          name: 'Committing to your goals',
+						          y: 2+1/6
+						        },
+						        {
+						          name: 'Avoiding overthinking and social comparison',
+						          y: 2
+						        },
+						        {
+						          name: 'Nurturing relationships',
+						          y: 1.5
+						        },
+						        {
+						          name: 'Taking care of your body',
+						          y: 5/6
+						        },
+						        {
+						          name: 'Developing strategies for coping',
+						          y: 0.5
+						        },
+						        {
+						          name: 'Learning to forgive',
+						          y: 0
+						        }
+						      ]
+						    }]
+						  });
+						});
+					</script>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+
+		var h = $('.my-effective-activities').height();
+		$('.my-happiness').height(h+4);
+	</script>
+
+	<div class="row">
+		<div class="col-md-5">
+			<div class="panel panel-default min-height my-activity-history">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Activity History</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Activity History</strong><br/>As you complete activities, you'll be able to see how many you've done and be able to view their details/content."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<h4>My Best Friend</h4>
+			  	<p class="small">Gratitude -- Completed 5 seconds ago</p>
+			  	<hr style="padding:0px;margin:0px;">
+			  	<h4>Took Person-Activity Fit Diagnostic</h4>
+			  	<p class="small">Questionnaire -- Completed 10 minutes ago</p>
+			  	<hr style="padding:0px;margin:0px;">
+			  	<h4>Measured Current Happiness Level -- 78</h4>
+			  	<p class="small">Questionnaire -- Completed 1 hour ago</p>
+			  	<hr style="padding:0px;margin:0px;">
+			    <h4>Signed Up! Yay!</h4>
+			    <p class="small">Profile -- Completed 2 hours ago</p>
+			    
+			    <div class="text-center no-margin">
+						<ul class="pagination pagination-sm no-margin">
+						  <li class="disabled"><a href="#">«</a></li>
+						  <li class="active"><a href="#">1</a></li>
+						  <li class="disabled"><a href="#">»</a></li>
+						</ul>
+					</div>
+			  </div>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<div class="panel panel-default min-height my-activity-breakdown">
+			  <div class="panel-heading">
+			  	<h3 class="panel-title strong inline-block">My Activity Breakdown</h3>
+			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Activity Breakdown</strong><br/>As you complete activities, you'll see a pie chart of what activities you've done. The goal is to match this pie chart with the one in My Effective Activities."></i></h3>
+			  </div>
+			  <div class="panel-body">
+			  	<div class="buttons new-activity">
+				  	<button type="button" class="btn btn-primary center-block">Do a Happiness Activity</button>
+				  </div>
+					<div id="container3" style="min-width: 310px; height: 300px; margin: 0 auto">Error</div>
+					<script type="text/javascript">
+						$(function () {
+						  // Build the chart
+						  $('#container3').highcharts({
+						    chart: {
+						      plotBackgroundColor: null,
+						      plotBorderWidth: null,
+						      plotShadow: false
+						    },
+						    title: {
+						      text: ''
+						    },
+						    subtitle: {
+						    	text: '<small>Mouseover for more info</small>'
+						    },
+						    tooltip: {
+						      pointFormat: '<b>{point.percentage:.1f}% </b>'
+						    },
+						    plotOptions: {
+						      pie: {
+						        allowPointSelect: true,
+						        cursor: 'pointer',
+						        dataLabels: {
+						          enabled: false
+						        },
+						        size: 250,
+						        events: {
+						        	click: function() {
+						        		window.location = '/examples/activity'
+						        	}
+						        }
+						      }
+						    },
+						    series: [{
+						      type: 'pie',
+						      name: 'Make of Happiness',
+						      data: [
+						        {
+						          name: 'Expressing gratitude',
+						          y: 1
+						        },
+						        {
+						          name: "Savoring life's joys",
+						          y: 0
+						        },
+						        {
+						          name: 'Practicing acts of kindness',
+						          y: 0
+						        },
+						        {
+						          name: 'Doing more activities that truly engage you',
+						          y: 0
+						        },
+						        {
+						          name: 'Cultivating optimism',
+						          y: 0
+						        },
+						        {
+						          name: 'Practicing religion and spirituality',
+						          y: 0
+						        },
+						        {
+						          name: 'Committing to your goals',
+						          y: 0
+						        },
+						        {
+						          name: 'Avoiding overthinking and social comparison',
+						          y: 0
+						        },
+						        {
+						          name: 'Nurturing relationships',
+						          y: 0
+						        },
+						        {
+						          name: 'Taking care of your body',
+						          y: 0
+						        },
+						        {
+						          name: 'Developing strategies for coping',
+						          y: 0
+						        },
+						        {
+						          name: 'Learning to forgive',
+						          y: 0
+						        }
+						      ]
+						    }]
+						  });
+						});
+					</script>
+			  </div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var h = $('.my-activity-breakdown').height();
+			$('.my-activity-history').height(h+4);
+		</script>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var trip = new Trip([
+	{
+		sel : $('.my-activity-breakdown'),
+		content : "Awesome! Now you can track what activities you've done.",
+		expose : true,
+		position : 's'
+	},
+	{
+		sel : $('.my-activity-history'),
+		content : "If you want more granularity, check this Activity History.",
+		expose : true,
+		position : 's'
+	},
+	{
+		sel : $('.next-step'),
+		content : "Happs will help you keep it fresh by suggesting what to do next<br/>based off your activity history and Person-Activity Fit Diagnostic.",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.next-step'),
+		content : "Click on the link to fast-forward to a full profile.",
+		expose : true,
+		position : 'n'
+	}
+	], {
+		showNavigation : true,
+		showCloseBox : true,
+		delay : -1,
+		animation: 'fadeInUp'
+	});
+
+  trip.start();
+</script>
