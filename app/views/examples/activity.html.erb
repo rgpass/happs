@@ -1,6 +1,10 @@
 <% provide(:title, "Example | Activity") %>
 
-<h1 class='inline-block'>Gratitude</h1>
+<span class="next-tour">
+	<%= link_to 'Continue with tour', examples_profile_start_path, class: "btn btn-primary btn-xs" %>
+</span>
+
+<h1>Gratitude</h1>
 
 <div class="row">
 	<div class="col-md-5 form-font form-padding form">
@@ -77,13 +81,12 @@
 <script type="text/javascript">
 	var trip = new Trip([
 	{
-		sel : $('h1'),
-		content : "Ah, our first activity. Although this page is simple,<br/>this is the meat behind increasing your happiness.",
-		position : 'e'
+		content : "Activities are the meat and bones behind making yourself happier.",
+		position : 'screen-center'
 	},
 	{
 		sel : $('.form'),
-		content : "Each activity will have a section that needs to be filled in.",
+		content : "Each activity will have a task for you to do. In this example,<br/>it’s writing about something you’re grateful for.",
 		expose : true,
 		position : 'n'
 	},
@@ -95,7 +98,7 @@
 	},
 	{
 		sel : $('.form'),
-		content : "You may be thinking: What the heck do I write?",
+		content : 'You may be thinking "What the heck do I write?"',
 		expose : true,
 		position : 'n'
 	},
@@ -112,17 +115,15 @@
 		position : 'n'
 	},
 	{
-		sel : $('.row'),
 		content : "Doing these sorts of activities as much as possible<br/>while keeping it fresh and exciting is the",
-		position : 'n'
+		position : 'screen-center'
 	},
 	{
-		sel : $('.row'),
 		content : "best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!",
-		position : 'n'
+		position : 'screen-center'
 	},
 	{
-		sel : $('.submit'),
+		sel : $('.next-tour'),
 		content : "Click the button to proceed with the tour.",
 		expose: true,
 		position : 'e'

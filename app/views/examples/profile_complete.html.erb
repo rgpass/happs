@@ -1,10 +1,10 @@
 <% provide(:title, "Example | Populated Profile") %>
 
 <span class="next-tour">
-	<a href="#" class="btn btn-primary btn-xs">Continue with tour.</a href="#">
+	<%= link_to 'Continue with tour', examples_ohq_path, class: "btn btn-primary btn-xs" %>
 </span>
 
-<div class="row tour1">
+<div class="row">
 	<div class="col-md-12">
 		<h1 class="inline-block">Example User</h1>
 		<p class="inline-block margin-left next-step"><em>Suggested Next Step:</em> <%= link_to "Express gratitude", examples_activity_path %>.</p>

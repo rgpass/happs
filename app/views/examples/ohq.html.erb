@@ -1,16 +1,20 @@
 <% provide(:title, "Example | OHQ") %>
 
+<span class="next-tour">
+	<%= link_to 'Continue with tour', examples_activity_path, class: "btn btn-primary btn-xs" %>
+</span>
+
 <div class="row">
 	<div class="col-md-12">
-		<h1 class="inline-block">Oxford Happiness Questionnaire</h1>
+		<h1 class="inline-block intro">Oxford Happiness Questionnaire</h1>
 	</div>
 </div>
 
-<div class="row" id="intro">
+<div class="row">
 	<div class="col-md-7 overview">
 		<div class="row">
 			<div class="col-md-3">
-				<span class="strong">Overview:</span>
+				<span class="strong">Purpose:</span>
 			</div>
 			<div class="col-md-9">
 				<p class="text-justify">
@@ -24,7 +28,7 @@
 			</div>
 			<div class="col-md-9">
 				<p>
-					5 minutes.
+					5 minutes
 				</p>
 			</div>
 		</div>
@@ -34,7 +38,7 @@
 			</div>
 			<div class="col-md-9">
 				<p>
-					Once every 2-3 weeks.
+					Once every 2-3 weeks
 				</p>
 			</div>
 		</div>
@@ -186,7 +190,7 @@
 
 <div class="row">
 	<div class="col-md-1 next-step">
-		<%= link_to "All Done", examples_profile_ohq_path, class: "btn btn-primary" %>
+		<%= link_to "All Done", "#", class: "btn btn-primary" %>
 	</div>
 </div>
 
@@ -194,25 +198,30 @@
 <script type="text/javascript">
 	var trip = new Trip([
 	{
-		sel : $('#intro'),
-		content : 'Happs has two questionnaires that are<br/>strongly suggested for best results.',
-		position : 'n'
+		content : 'Happs utilizes two questionnaires:<br/>the Oxford Happiness Questionnaire to quantify your happiness and the<br/>Person-Activity Fit Diagnostic to determine your most effective activities.',
+		position : 'screen-center'
 	},
 	{
 		sel : $('.overview'),
-		content : 'Each one will give an overall description with its purpose,<br/>an estimated time to complete, and suggested frequency.',
+		content : 'Each of these questionnaires will explain their purpose,<br/>estimated time to complete, and suggested frequency.',
 		expose : true,
 		position : 'n'
 	},
 	{
 		sel : $('.question'),
-		content : 'Most quesitons are a 1-6 or 1-7 scale.<br/>Pick the answer that first comes to mind.',
+		content : 'All of the questions will be on a 1-6 or 1-7 scale.',
 		expose : true,
 		position : 'n'
 	},
 	{
-		sel : $('.next-step'),
-		content : 'Click the button to proceed to see example results<br/>and continue with the tour.',
+		sel : $('.question'),
+		content : 'Don’t over think the questions. Pick the answer that first comes to mind.',
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.next-tour'),
+		content : 'Click the link when you’re ready to proceed with the tour.',
 		expose : true,
 		position : 'e'
 	}

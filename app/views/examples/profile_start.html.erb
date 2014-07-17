@@ -20,9 +20,9 @@
 			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Happiness</strong><br/>This section focuses on your quantified happiness measured over time. This requires the Oxford Happiness Questionnaire to be taken once every couple of weeks."></i></h3>
 			  </div>
 			  <div class="panel-body">
-			  	<div class="buttons">
-						<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
-					</div>
+		  		<div class="text-center">
+		  			<span class="free-options"><button type="button" class="btn btn-primary">Measure My Happiness</button></span>
+		  		</div>
 					<br />
 			    Using the <a href="#">Oxford Happiness Questionnaire</a>, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
 					<blockquote>
@@ -41,9 +41,9 @@
 			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Effective Activities</strong><br/>Once you've taken the Person-Activity Fit Diagnostic, you'll see a pie chart of what activities best fit your personality and will enable you to easily build these activities as habits."></i></h3>
 			  </div>
 			  <div class="panel-body">
-			  	<div class="buttons">
-				  	<button type="button" class="btn btn-primary center-block">Determine My Effective Activities</button>
-				  </div>
+		  		<div class="text-center">
+		  			<span class="free-options"><button type="button" class="btn btn-primary">Determine My Effective Activities</button></span>
+		  		</div>
 			  	<br />
 			    The truth is, everybody is different and there's no one way to be happy. That's why Happs uses the <a href="#">Person-Activity Fit Diagnostic</a> to determine which activities best fit your personality.
 			    <br /><br />
@@ -86,9 +86,9 @@
 			  	<h3 class="panel-title inline-block float-right"><i class="fa fa-question-circle fa-lg text-info" data-toggle="tooltip" data-placement="left" title="" data-html="true" data-original-title="<strong>My Activity Breakdown</strong><br/>As you complete activities, you'll see a pie chart of what activities you've done. The goal is to match this pie chart with the one in My Effective Activities."></i></h3>
 			  </div>
 			  <div class="panel-body">
-			  	<div class="buttons">
-				  	<button type="button" class="btn btn-primary center-block">Do a Happiness Activity</button>
-				  </div>
+		  		<div class="text-center">
+		  			<span class="free-options"><button type="button" class="btn btn-primary">Do a Happiness Activity</button></span>
+		  		</div>
 			  	<br />
 			  	Once you've done at least one activity, Happs will provide you a visual breakdown of what you've done.
 			  	<br /><br />
@@ -107,86 +107,40 @@
 <script type="text/javascript">
 	var trip = new Trip([
 	{
-		sel : $('#intro1'),
-		content : 'Welcome to to the Happs tour!<br/><small>Note: You can use the arrow keys to navigate.</small>',
-		position : 'n'
+		content : 'When you first sign up, this is what your profile will look like.',
+		position : 'screen-center'
 	},
 	{
-		sel : $('#intro1'),
-		content : 'Happs is an app that uses scientifically proven techniques<br/>to quantify happiness, determine what activites best match<br/>your personality, and guide you through those activites.',
-		position : 'n'
+		content : 'What you want to do is totally up to you.',
+		position : 'screen-center'
 	},
 	{
-		sel : $('#intro2'),
-		content : "This is an example of a new user's profile page. Let's check out each panel.",
-		position : 'n'
-	},
-	{
-		sel : $('.my-happiness'),
-		content : "Happs measures and tracks your happiness over time.",
+		sel : $('.free-options'),
+		content : 'You can either do your own thing by clicking on one of these buttons',
 		expose : true,
 		position : 'n'
 	},
 	{
-		sel : $('.my-happiness'),
-		content : 'To get the best results, we suggest measuring<br/>your happiness every 2-3 weeks.',
-		expose: true,
-		position: 'n'
-	},
-	{
-		sel : $('.my-effective-activities'),
-		content : "There are 12 proven activities for increasing happiness.<br/>To determine which ones best suits you...",
-		expose: true,
-		position: 'n'
-	},
-	{
-		sel : $('.my-effective-activities'),
-		content : "Happs offers Dr. Sonja Lyubomirsky's Person-Activity Fit Diagnostic.<br/>The PAFD only needs to be taken once.",
-		expose: true,
-		position: 'n'
-	},
-	{
-		sel : $('.my-activity-breakdown'),
-		content : "---",
-		expose: true,
-		position: 's',
-		delay : 1
-	},
-	{
-		sel : $('.my-activity-breakdown'),
-		content : "As you do more activities, Happs will track your percentage breakdown.<br/>The goal is to match the results from the Person-Activity Fit Diagnostic.",
-		expose: true,
-		position: 'n'
-	},
-	{
-		sel : $('.my-activity-history'),
-		content : "Happs will also track your activity history, allowing<br/>you to see previous activities on a granular level.",
-		expose: true,
-		position: 's'
-	},
-	{
-		sel : $('.dashboard'),
-		content : "All of these are optional. What you want to do is up to you.",
-		expose: true,
-		position: 'n'
-	},
-	{
-		sel : $('.buttons'),
-		content : "If you're the kind of person who bounces around,<br/>you can get started with these buttons.",
-		expose: true,
-		position: 'n'
-	},
-	{
 		sel : $('.next-step'),
-		content : "If you're looking for the next step, check right here.",
-		expose: true,
-		position: 'n'
+		content : 'or follow along with the suggested next step.',
+		expose : true,
+		position : 'n'
 	},
 	{
-		sel : $('.next-step'),
-		content : "Click the link to measure your initial happiness score<br/>and proceed with the tour.",
-		expose: true,
-		position: 'n'
+		content : "That’s it for the tour! If you haven't done so yet,<br/><a href='/signup'>sign up</a> by clicking the link at the top.",
+		position : 'screen-center'
+	},
+	{
+		content : 'Remember, if you have any questions, click the <i class="fa fa-question-circle fa-lg"></i>',
+		position : 'screen-center'
+	},
+	{
+		content : 'If you have any feedback, check the Help section.',
+		position : 'screen-center'
+	},
+	{
+		content : 'Stay awesome and be happy!<br/><small>—Happs</small>',
+		position : 'screen-center'
 	}
 	], {
 		showNavigation : true,
