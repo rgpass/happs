@@ -120,14 +120,15 @@
 	},
 	{
 		content : "best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!",
-		position : 'screen-center'
-	},
-	{
-		sel : $('.next-tour'),
-		content : "Click the button to proceed with the tour.",
-		expose: true,
-		position : 'e'
+		position : 'screen-center',
+		callback : function() { window.location = "/examples/profile_start" }
 	}
+	// {
+	// 	sel : $('.next-tour'),
+	// 	content : "Click the button to proceed with the tour.",
+	// 	expose: true,
+	// 	position : 'e'
+	// }
 	], {
 		showNavigation : true,
 		showCloseBox : true,

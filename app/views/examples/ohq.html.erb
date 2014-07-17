@@ -66,7 +66,7 @@
 					<label class="btn btn-default">
 						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
 					</label>
-					<label class="btn btn-default">
+					<label class="btn btn-default active">
 						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
 					</label>
 					<label class="btn btn-default">
@@ -90,7 +90,7 @@
 					<label class="btn btn-default">
 						<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
 					</label>
-					<label class="btn btn-default">
+					<label class="btn btn-default active">
 						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
 					</label>
 					<label class="btn btn-default">
@@ -120,7 +120,7 @@
 					<label class="btn btn-default">
 						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
 					</label>
-					<label class="btn btn-default">
+					<label class="btn btn-default active">
 						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
 					</label>
 					<label class="btn btn-default">
@@ -144,7 +144,7 @@
 					<label class="btn btn-default">
 						<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
 					</label>
-					<label class="btn btn-default">
+					<label class="btn btn-default active">
 						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
 					</label>
 					<label class="btn btn-default">
@@ -179,7 +179,7 @@
 					<label class="btn btn-default">
 						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
 					</label>
-					<label class="btn btn-default">
+					<label class="btn btn-default active">
 						<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
 					</label>
 				</div>
@@ -217,14 +217,15 @@
 		sel : $('.question'),
 		content : 'Don’t over think the questions. Pick the answer that first comes to mind.',
 		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.next-tour'),
-		content : 'Click the link when you’re ready to proceed with the tour.',
-		expose : true,
-		position : 'e'
+		position : 'n',
+		callback : function() { window.location = "/examples/activity" }
 	}
+	// {
+	// 	sel : $('.next-tour'),
+	// 	content : 'Click the link when you’re ready to proceed with the tour.',
+	// 	expose : true,
+	// 	position : 'e'
+	// }
 	], {
 		showNavigation : true,
 		showCloseBox : true,

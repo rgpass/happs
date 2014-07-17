@@ -407,14 +407,12 @@
 		content : "and (3) Guide you through activities that will make you happier",
 		expose : true,
 		position : 'n',
-		canGoNext : $(function() { console.log('now') })
 	},
 	{
 		sel : $('.dashboard'),
 		content : "All of these are optional. What you want to do is up to you.",
 		expose : true,
 		position : 'n',
-		canGoNext : $(function() { console.log('now') })
 	},
 	{
 		sel : $('.next-step'),
@@ -426,14 +424,15 @@
 		sel : $('.next-step'),
 		content : "This is based off your activity history and<br/>Person-Activity Fit Diagnostic results.",
 		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.next-tour'),
-		content : "Click the link when you’re ready to proceed with the tour.",
-		expose : true,
-		position : 'e'
+		position : 'n',
+		callback : function() { window.location = "/examples/ohq" }
 	}
+	// {
+	// 	sel : $('.next-tour'),
+	// 	content : "",
+	// 	position : 'w',
+	// 	delay : 1
+	// }
 	], {
 		showNavigation : true,
 		showCloseBox : true,
