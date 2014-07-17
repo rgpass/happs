@@ -1,4 +1,4 @@
-<% provide(:title, "Example | Initial Profile") %>
+<% provide(:title, "Example | Blank Profile") %>
 
 <div class="alert alert-success no-margin strong">
 	Welcome to Happs!
@@ -6,7 +6,7 @@
 
 <div class="row" id="intro1">
 	<div class="col-md-12">
-		<h1 class="inline-block">John Smith</h1>
+		<h1 class="inline-block">Example User</h1>
 		<p class="inline-block padding-left next-step"><em>Suggested Next Step:</em> Figure out your <%= link_to "current happiness level", examples_ohq_path %>.</p>
 	</div>
 </div>
@@ -147,9 +147,16 @@
 	},
 	{
 		sel : $('.my-activity-breakdown'),
+		content : "---",
+		expose: true,
+		position: 's',
+		delay : 1
+	},
+	{
+		sel : $('.my-activity-breakdown'),
 		content : "As you do more activities, Happs will track your percentage breakdown.<br/>The goal is to match the results from the Person-Activity Fit Diagnostic.",
 		expose: true,
-		position: 's'
+		position: 'n'
 	},
 	{
 		sel : $('.my-activity-history'),

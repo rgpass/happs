@@ -32,6 +32,10 @@ grey: 587878 -- rgp(88,120,120)
   margin: 0px;
 }
 
+.no-padding-top {
+  padding-top: 0px;
+}
+
 .float-right {
   float: right;
 }
@@ -52,6 +56,11 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+hr.thin {
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -177,6 +186,15 @@ div.tooltip-inner {
   min-height: 285px;
 }
 
-.padding-left {
-  padding-left: 5px;
+.margin-left {
+  margin-left: 5px;
+}
+
+.my-activity-history {
+  h4 {
+    margin-bottom: 4px;
+  }
+  p {
+    font-size: small;
+  }
 }
