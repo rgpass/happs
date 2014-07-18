@@ -28,8 +28,10 @@
 			</blockquote>
 		</div>
   	<div class="col-md-5">
-		  <%= link_to "Take the Tour", examples_profile_complete_path, class: "btn btn-info btn-lg btn-jumbotron btn-left" %>
-			<%= link_to "Get Started", signup_path, class: "btn btn-primary btn-lg btn-jumbotron" %>
+  		<span class="buttons">
+			  <%= link_to "Take the Tour", examples_profile_complete_path, class: "btn btn-info btn-lg btn-jumbotron btn-left" %>
+				<%= link_to "Get Started", signup_path, class: "btn btn-primary btn-lg btn-jumbotron" %>
+			</span>
 		</div>
 	</div>
 </div>
@@ -38,3 +40,37 @@
 	Have any questions? Feel free to give me a call anytime at (404) 953-9976 or 
 	<a href="mailto:gerry.pass@happs.io">email me</a> (gerry.pass@happs.io). --Gerry Pass, Founder
 </p>
+
+<script type="text/javascript">
+	var trip = new Trip([
+	{
+		content : "Happs' vision is a where happiness is the highest life goal.",
+		position : 'screen-center'
+	},
+	{
+		content : "We do this by combining positive psychology with technology",
+		position : 'screen-center'
+	},
+	{
+		content : "through free, easy-to-use tools proven to increase happiness.",
+		position : 'screen-center'
+	},
+	{
+		sel : $('.buttons'),
+		content : "To learn more, take the tour<br/>or jump right in and get started.",
+		expose : true,
+		position : 'n'
+	},
+	{
+		sel : $('.get-started'),
+		content : "or jump right in and get started.",
+		expose : true,
+		position : 'n'
+	}
+	], {
+		showNavigation : true,
+		showCloseBox : true,
+		delay : -1,
+		animation: 'fadeInUp'
+	});
+</script>

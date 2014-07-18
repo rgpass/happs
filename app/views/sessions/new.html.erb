@@ -15,3 +15,25 @@
 		</div>
 	</div>
 <% end %> 
+
+<script type="text/javascript">
+	var trip = new Trip([
+	{
+		sel : $('#session_email, label[for="session_email"]'),
+		content : "Input the one you used to sign up.",
+		expose : true,
+		position : 'e'
+	},
+	{
+		sel : $('#session_password, label[for="session_password"]'),
+		content : "Input the one you used to sign up.",
+		expose : true,
+		position : 'e'
+	}
+	], {
+		showNavigation : true,
+		showCloseBox : true,
+		delay : -1,
+		animation: 'fadeInUp'
+	});
+</script>
