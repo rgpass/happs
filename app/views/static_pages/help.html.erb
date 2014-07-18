@@ -2,38 +2,51 @@
 <h1 class="text-center">Help</h1>
 <br />
 
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      I'm lost.
-    </h3>
-  </div>
-  <div class="panel-body">
-    <p class="strong">
-      There are two ways to un-lostify yourself.
-    </p>
-    <p>
-      1. Take the <a href="#">tour</a>. This will give you an overview of how the app works.
-    </p>
-    <p>
-      2. Click the <i class="fa fa-question-circle fa-lg text-info"></i> near the top of each section/page. It'll give an on-screen overview of what's going on.
-    </p>
-  </div>
-</div>
-
-<div class="panel panel-info">
-  <div class="panel-heading">
-    <h3 class="panel-title">
-      I have a question / issue / concern.
-    </h3>
-  </div>
-  <div class="panel-body">
-    <p class="strong">
-      Our goal is to make Happs simple. A sign of overcomplication is FAQs.
-    </p>
-    <p>
-      If you have any questions, issues, or concerns, give me a call anytime at (404) 953-9976 or <a href="mailto:gerry.pass@happs.io">email me</a> (gerry.pass@happs.io).<br>
-      <strong>--Gerry Pass, Founder</strong>
-    </p>
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel-group tips" id="accordion">
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              I'm lost.
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <p class="strong">
+              There are two ways to un-lostify yourself.
+            </p>
+            <p>
+              1. Take the <%= link_to "tour", examples_profile_complete_path %>. This will give you an overview of how the app works.
+            </p>
+            <p>
+              2. Click the <i class="fa fa-question-circle fa-lg text-muted"></i> near the top of each section/page. It'll give an on-screen overview of what's going on.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              I have a question / issue / concern.
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <p class="strong">
+              Our goal is to make Happs simple. A sign of overcomplication is FAQs.
+            </p>
+            <p>
+              If you have any questions, issues, or concerns, give me a call anytime at (404) 953-9976 or <a href="mailto:gerry.pass@happs.io">email me</a> (gerry.pass@happs.io).<br>
+              <strong>--Gerry Pass, Founder</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
