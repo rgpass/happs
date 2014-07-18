@@ -1,6 +1,5 @@
 <nav class="navbar navbar-default navbar-fixed-top header" role="navigation">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -8,10 +7,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Happs", root_path, class: "navbar-brand", id: "logo" %>
+      <%= link_to image_tag("h_logo_happs.png", id: "logo"), root_path %>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to "Research", research_path %></li>
@@ -20,7 +18,7 @@
         <li><%= link_to "Tour", examples_profile_complete_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" onclick="trip.start();"><i class="fa fa-question-circle fa-lg"></i></a></li>
+        <li><a onclick="trip.start();"><i class="fa fa-question-circle fa-lg"></i></a></li>
         <li><a href="https://www.facebook.com/happs.happyapps"><i class="fa fa-facebook-square fa-lg"></i></a></li>
         <% if signed_in? %>
           <li class="dropdown">

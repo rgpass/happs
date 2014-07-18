@@ -63,10 +63,15 @@ hr.thin {
   padding: 0px;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 
 /* Header */
 #logo {
-	/*color: #587878;	*/
+	height: 30px;
+  margin-top: 10px;
 }
 
 .navbar-default {
