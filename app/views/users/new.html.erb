@@ -12,47 +12,51 @@
 <% end %>
 
 <script type="text/javascript">
-	var trip = new Trip([
-	{
-		sel : $('#user_first_name, label[for="user_first_name"]'),
-		content : "Required. Max length of 20 characters.",
-		expose : true,
-		position : 'e'
-	},
-	{
-		sel : $('#user_last_name, label[for="user_last_name"]'),
-		content : "Required. Max length of 30 characters.",
-		expose : true,
-		position : 'e'
-	},
-	{
-		sel : $('#user_email, label[for="user_email"]'),
-		content : "Required. Valid email address.",
-		expose : true,
-		position : 'e'
-	},
-	{
-		sel : $('#user_password, label[for="user_password"]'),
-		content : "Required. Min length of 6 characters.",
-		expose : true,
-		position : 'e'
-	},
-	{
-		sel : $('#user_password_confirmation, label[for="user_password_confirmation"]'),
-		content : "Required. Must be the same.",
-		expose : true,
-		position : 'e'
-	},
-	{
-		sel : $('.create'),
-		content : "When finished, click to here create your account.",
-		expose : true,
-		position : 'e'
+	function startTrip() {
+		var trip = new Trip([
+		{
+			sel : $('#user_first_name, label[for="user_first_name"]'),
+			content : "Required. Max length of 20 characters.",
+			expose : true,
+			position : 'e'
+		},
+		{
+			sel : $('#user_last_name, label[for="user_last_name"]'),
+			content : "Required. Max length of 30 characters.",
+			expose : true,
+			position : 'e'
+		},
+		{
+			sel : $('#user_email, label[for="user_email"]'),
+			content : "Required. Valid email address.",
+			expose : true,
+			position : 'e'
+		},
+		{
+			sel : $('#user_password, label[for="user_password"]'),
+			content : "Required. Min length of 6 characters.",
+			expose : true,
+			position : 'e'
+		},
+		{
+			sel : $('#user_password_confirmation, label[for="user_password_confirmation"]'),
+			content : "Required. Must be the same.",
+			expose : true,
+			position : 'e'
+		},
+		{
+			sel : $('.create'),
+			content : "When finished, click to here create your account.",
+			expose : true,
+			position : 'e'
+		}
+		], {
+			showNavigation : true,
+			showCloseBox : true,
+			delay : -1,
+			animation: 'fadeInUp'
+		});
+
+	trip.start();
 	}
-	], {
-		showNavigation : true,
-		showCloseBox : true,
-		delay : -1,
-		animation: 'fadeInUp'
-	});
 </script>
