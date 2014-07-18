@@ -17,7 +17,8 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Happs!"
-      redirect_to @user
+      # redirect_to @user
+      redirect_to root_url
     else
       render 'new'
     end
@@ -29,7 +30,8 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
-      redirect_to @user
+      # redirect_to @user
+      redirect_to root_url
     else
       render 'edit'
     end
