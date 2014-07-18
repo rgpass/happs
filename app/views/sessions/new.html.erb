@@ -4,7 +4,7 @@
 
 <%= form_for(:session, url: sessions_path) do |f| %>
 	<div class="row">
-		<div class="col-md-4 form-font form-padding">
+		<div class="col-sm-6 col-md-5 col-lg-4 form-font form-padding">
 			<%= f.label :email, class: "control-label" %>
 			<%= f.text_field :email, class: "form-control input-sm", autofocus: true %>
 
@@ -20,13 +20,13 @@
 	var trip = new Trip([
 	{
 		sel : $('#session_email, label[for="session_email"]'),
-		content : "Input the one you used to sign up.",
+		content : "Type in the one you used to sign up.",
 		expose : true,
 		position : 'e'
 	},
 	{
 		sel : $('#session_password, label[for="session_password"]'),
-		content : "Input the one you used to sign up.",
+		content : "Type in the one you used to sign up.",
 		expose : true,
 		position : 'e'
 	}
