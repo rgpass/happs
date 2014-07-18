@@ -133,6 +133,22 @@ footer ul li {
   margin-right: 35px;
 }
 
+.slogan {
+  margin-top: 0px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1108px) {
+  .slogan {
+    text-align: center;
+    font-size: 26px;
+  }
+}
+
+@media only screen and (max-width: 410px) {
+  .slogan {
+    font-size: 25px;
+  }
+}
 
 /* Text */
 .strong {
