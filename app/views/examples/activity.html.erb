@@ -1,13 +1,12 @@
 <% provide(:title, "Example | Activity") %>
 
-<span class="next-tour">
-	<%= link_to 'Continue with tour', examples_profile_start_path, class: "btn btn-primary btn-xs" %>
-</span>
+<%= link_to 'Previous Page', examples_ohq_path, class: "btn btn-primary btn-xs" %>
+<%= link_to 'Continue with tour', examples_profile_start_path, class: "btn btn-primary btn-xs" %>
 
 <h1>Gratitude</h1>
 
 <div class="row">
-	<div class="col-md-5 form-font form-padding form">
+	<div class="col-sm-5 form-font form-padding form">
 		<label class="control-label" for="user_first_name">Subject</label>
 		<input autofocus="autofocus" class="form-control input-sm" id="user_first_name" name="user[first_name]" type="text" />
 
@@ -20,11 +19,12 @@
 
 		<br/>
 		<span class="submit">
-			<%= link_to "All Done", examples_profile_activity_path, class: "btn btn-primary" %>
+			<%= link_to "All Done", '#', class: "btn btn-primary" %>
 		</span>
+		<br class="visible-xs" /><br class="visible-xs" />
 	</div>
 
-	<div class="col-md-5 col-md-offset-1">
+	<div class="col-sm-5 col-sm-offset-1">
 		<blockquote>
 		  <p>We can only be said to be alive in those moments when our hearts are conscious of our treasures.</p>
 		  <small><a href="http://en.wikipedia.org/wiki/Thornton_Wilder">Thorton Wilder</a>, three time Pulitzer Prize winner</small>
@@ -109,62 +109,72 @@
 </div>
 
 <script type="text/javascript">
-	var trip = new Trip([
-	{
-		content : "Activities are the meat and bones behind making yourself happier.",
-		position : 'screen-center'
-	},
-	{
-		sel : $('.form'),
-		content : "Each activity will have a task for you to do. In this example,<br/>it’s writing about something you’re grateful for.",
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.form'),
-		content : "Consistency is more important than content, so write only as much as you want.<br/>If you can get your point across in one word, awesome!",
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.form'),
-		content : 'You may be thinking "What the heck do I write?"',
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('blockquote'),
-		content : "That's why we added quotes for those that are motivated by wise, old people",
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.tips'),
-		content : "and tips for those who want direct advice.",
-		expose : true,
-		position : 'n'
-	},
-	{
-		content : "Doing these sorts of activities as much as possible<br/>while keeping it fresh and exciting is the",
-		position : 'screen-center'
-	},
-	{
-		content : "best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!",
-		position : 'screen-center',
-		callback : function() { window.location = "/examples/profile_start" }
-	}
-	// {
-	// 	sel : $('.next-tour'),
-	// 	content : "Click the button to proceed with the tour.",
-	// 	expose: true,
-	// 	position : 'e'
-	// }
-	], {
-		showNavigation : true,
-		showCloseBox : true,
-		delay : -1,
-		animation: 'fadeInUp'
-	});
+	startTrip();
 
-  trip.start();
+	function startTrip() {
+		var trip = new Trip([
+		{
+			content : "Activities are the meat and bones<br/>behind making yourself happier.",
+			position : 'screen-center'
+		},
+		{
+			sel : $('.form'),
+			content : "Each activity will have a task for you to do.",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.form'),
+			content : "In this example, it’s writing about<br/>something you’re grateful for.",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.form'),
+			content : "Consistency is more important than content,<br/>so write only as much as you want.",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.form'),
+			content : "If you can get your point across in one word, awesome!",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.form'),
+			content : 'You may be thinking "What the heck do I write?"',
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('blockquote'),
+			content : "That's why we added quotes for those<br/>that are motivated by wise, old people",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.tips'),
+			content : "and tips for those who want direct advice.",
+			expose : true,
+			position : 'n'
+		},
+		{
+			content : "Doing these sorts of activities as much as possible<br/>while keeping it fresh and exciting is the",
+			position : 'screen-center'
+		},
+		{
+			content : "best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!",
+			position : 'screen-center',
+			callback : function() { window.location = "/examples/profile_start" }
+		}
+		], {
+			showNavigation : true,
+			showCloseBox : true,
+			delay : -1,
+			animation: 'fadeInUp'
+		});
+
+	  trip.start();
+	}
 </script>

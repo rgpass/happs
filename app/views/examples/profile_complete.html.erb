@@ -1,11 +1,9 @@
 <% provide(:title, "Example | Populated Profile") %>
 
-<span class="next-tour">
-	<%= link_to 'Continue with tour', examples_ohq_path, class: "btn btn-primary btn-xs" %>
-</span>
+<%= link_to 'Continue with tour', examples_ohq_path, class: "btn btn-primary btn-xs" %>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-xs-12">
 		<h1 class="inline-block">Example User</h1>
 		<p class="inline-block margin-left next-step"><em>Suggested Next Step:</em> <%= link_to "Express gratitude", examples_activity_path %>.</p>
 	</div>
@@ -13,7 +11,7 @@
 
 <div class="dashboard">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-5 col-lg-6">
 			<div class="panel panel-default min-height my-happiness">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Happiness</h3>
@@ -81,34 +79,60 @@
 			  	</div>
 			  	<br />
 			  	<div class="row">
-			  		<div class="col-md-6">
-							<table class="table stats" style="width:50%">
-								<tr>
-									<td>Current:</td>
-									<td>90</td>
-									<td>Highest:</td>
-									<td>92</td>
-								</tr>
-								<tr>
-									<td>Initial:</td>
-									<td>78</td>
-									<td>Average:</td>
-									<td>85</td>
-								</tr>
-							</table>
-						</div>
-				  	<div class="col-md-3">
-				  		<br />
-					  	<div class="buttons btn-mmh">
-								<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
+			  		<span class="hidden-sm hidden-xs">
+				  		<div class="col-md-6">
+								<table class="table stats" style="width:50%">
+									<tr>
+										<td>Current:</td>
+										<td>90</td>
+										<td>Highest:</td>
+										<td>92</td>
+									</tr>
+									<tr>
+										<td>Initial:</td>
+										<td>78</td>
+										<td>Average:</td>
+										<td>85</td>
+									</tr>
+								</table>
 							</div>
-			  		</div>
+					  	<div class="col-md-3">
+					  		<br />
+						  	<div class="buttons btn-mmh">
+									<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
+								</div>
+				  		</div>
+				  	</span>
+				  	<span class="visible-sm visible-xs">
+				  		<div class="col-xs-2 col-sm-3 col-sm-offset-1">
+								<table class="table stats" style="width:50%">
+									<tr>
+										<td>Current:</td>
+										<td>90</td>
+										<td>Highest:</td>
+										<td>92</td>
+									</tr>
+									<tr>
+										<td>Initial:</td>
+										<td>78</td>
+										<td>Average:</td>
+										<td>85</td>
+									</tr>
+								</table>
+							</div>
+					  	<div class="col-xs-1 col-xs-offset-4 col-sm-1 col-sm-offset-3">
+					  		<br />
+						  	<div class="buttons btn-mmh">
+									<button type="button" class="btn btn-primary center-block">Measure My Happiness</button>
+								</div>
+				  		</div>
+				  	</span>
 			  	</div>
 			  </div>
 			</div>
 		</div>
 
-		<div class="col-md-7">
+		<div class="col-md-7 col-lg-6">
 			<div class="panel panel-default min-height my-effective-activities">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Effective Activities</h3> <a href="#">update</a>
@@ -222,13 +246,12 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-
 		var h = $('.my-effective-activities').height();
 		$('.my-happiness').height(h+4);
 	</script>
 
 	<div class="row history">
-		<div class="col-md-5">
+		<div class="col-md-5 col-lg-6">
 			<div class="panel panel-default min-height my-activity-history">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Activity History</h3>
@@ -262,7 +285,7 @@
 			  </div>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-7 col-lg-6">
 			<div class="panel panel-default min-height my-activity-breakdown">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Activity Breakdown</h3>
@@ -373,77 +396,75 @@
 </div>
 
 <script type="text/javascript">
-	var trip = new Trip([
-	{
-		content : "Welcome to to the Happs tour!<br/><small>Note: You can use the arrow keys to navigate.</small>",
-		position : 'screen-center'
-	},
-	{
-		content : "In this tour, we’re going to run you through<br/>an example profile and how to get around.",
-		position : 'screen-center'
-	},
-	{
-		content : "If you accidentally exit out or at any point<br/>you get lost, click the <i class='fa fa-question-circle fa-lg'></i> at the top.",
-		position : 'screen-center'
-	},
-	{
-		content : "Happs uses scientifically proven techniques to do three things:",
-		position : 'screen-center'
-	},
-	{
-		sel : $('.my-happiness'),
-		content : "(1) Quantify and track happiness over time",
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.my-effective-activities'),
-		content : "(2) Determine which activities best match your personality",
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.history'),
-		content : "and (3) Guide you through activities that will make you happier",
-		expose : true,
-		position : 'n',
-	},
-	{
-		sel : $('.dashboard'),
-		content : "All of these are optional. What you want to do is up to you.",
-		expose : true,
-		position : 'n',
-	},
-	{
-		sel : $('.next-step'),
-		content : "However, Happs will always provide a suggested next step.",
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.next-step'),
-		content : "This is based off your activity history and<br/>Person-Activity Fit Diagnostic results.",
-		expose : true,
-		position : 'n',
-		callback : function() { window.location = "/examples/ohq" }
-	}
-	// {
-	// 	sel : $('.next-tour'),
-	// 	content : "",
-	// 	position : 'w',
-	// 	delay : 1
-	// }
-	], {
-		showNavigation : true,
-		showCloseBox : true,
-		delay : -1,
-		animation: 'fadeInUp',
-		onTripChange : function(i, tripData) {
-      $('html, body').animate({
-          scrollTop: $(tripData.sel).offset().top - 125
-      }, 1000);
-		}
-	});
+	startTrip();
 
-  trip.start();
+	function startTrip() {
+		var trip = new Trip([
+		{
+			content : "Welcome to to the Happs tour!<br/><small>Note: You can use the arrow keys to navigate.</small>",
+			position : 'screen-center'
+		},
+		{
+			content : "In this tour, we’re going to run you through<br/>an example profile and how to get around.",
+			position : 'screen-center'
+		},
+		{
+			content : "If you accidentally exit out or at any point<br/>you get lost, click the <i class='fa fa-question-circle fa-lg'></i> at the top.",
+			position : 'screen-center'
+		},
+		{
+			content : "Happs uses scientifically proven<br/>techniques to do three things:",
+			position : 'screen-center'
+		},
+		{
+			sel : $('.my-happiness'),
+			content : "(1) Quantify and track happiness over time",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.my-effective-activities'),
+			content : "(2) Determine which activities<br/>best match your personality",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.history'),
+			content : "and (3) Guide you through activities<br/>that will make you happier",
+			expose : true,
+			position : 'n',
+		},
+		{
+			sel : $('.dashboard'),
+			content : "All of these are optional. What<br/>you want to do is up to you.",
+			expose : true,
+			position : 'n',
+		},
+		{
+			sel : $('.next-step'),
+			content : "However, Happs will always<br/>provide a suggested next step.",
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.next-step'),
+			content : "This is based off your activity history and<br/>Person-Activity Fit Diagnostic results.",
+			expose : true,
+			position : 'n',
+			callback : function() { window.location = "/examples/ohq" }
+		}
+		], {
+			showNavigation : true,
+			showCloseBox : true,
+			delay : -1,
+			animation: 'fadeInUp',
+			onTripChange : function(i, tripData) {
+	      $('html, body').animate({
+	          scrollTop: $(tripData.sel).offset().top - 125
+	      }, 1000);
+			}
+		});
+
+	  trip.start();
+	}
 </script>

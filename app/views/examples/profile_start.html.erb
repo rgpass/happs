@@ -1,19 +1,21 @@
 <% provide(:title, "Example | Blank Profile") %>
 
+<%= link_to 'Previous Page', examples_activity_path, class: "btn btn-primary btn-xs" %><br/><br/>
+
 <div class="alert alert-success no-margin">
 	Welcome to Happs! If you haven't already, we suggest <%= link_to "taking the tour", examples_profile_complete_path, class: "alert-link strong" %>.
 </div>
 
-<div class="row" id="intro1">
-	<div class="col-md-12">
+<div class="row">
+	<div class="col-xs-12">
 		<h1 class="inline-block">Example User</h1>
 		<p class="inline-block padding-left next-step"><em>Suggested Next Step:</em> Figure out your <%= link_to "current happiness level", examples_ohq_path %>.</p>
 	</div>
 </div>
 
 <div class="dashboard">
-	<div class="row" id="intro2">
-		<div class="col-md-5">
+	<div class="row">
+		<div class="col-md-5 col-lg-6">
 			<div class="panel panel-default min-height my-happiness">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Happiness</h3>
@@ -33,7 +35,7 @@
 			  </div>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-7 col-lg-6">
 			<div class="panel panel-default min-height my-effective-activities">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Effective Activities</h3>
@@ -55,9 +57,14 @@
 			</div>
 		</div>
 	</div>
+	<script type="text/javascript">
+
+		var h = $('.my-effective-activities').height();
+		$('.my-happiness').height(h+4);
+	</script>
 
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-5 col-lg-6">
 			<div class="panel panel-default min-height my-activity-history">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Activity History</h3>
@@ -76,7 +83,7 @@
 			  </div>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-7 col-lg-6">
 			<div class="panel panel-default min-height my-activity-breakdown">
 			  <div class="panel-heading">
 			  	<h3 class="panel-title strong inline-block">My Activity Breakdown</h3>
@@ -101,50 +108,105 @@
 </div>
 
 <script type="text/javascript">
-	var trip = new Trip([
-	{
-		content : 'When you first sign up, this is what your profile will look like.',
-		position : 'screen-center'
-	},
-	{
-		content : 'What you want to do is totally up to you.',
-		position : 'screen-center'
-	},
-	{
-		sel : $('.free-options'),
-		content : 'You can either do your own thing by clicking on one of these buttons',
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.next-step'),
-		content : 'or follow along with the suggested next step.',
-		expose : true,
-		position : 'n'
-	},
-	{
-		content : "That’s it for the tour! If you haven't done so yet,<br/><a href='/signup'>sign up</a> by clicking the link at the top.",
-		position : 'screen-center'
-	},
-	{
-		content : 'Remember, if you have any questions, click the <i class="fa fa-question-circle fa-lg"></i>',
-		position : 'screen-center'
-	},
-	{
-		content : 'If you have any feedback, check the Help section.',
-		position : 'screen-center'
-	},
-	{
-		content : 'Stay awesome and be happy!<br/><small>—Happs</small>',
-		position : 'screen-center',
-		callback : function() { window.location = "/signup" }
-	}
-	], {
-		showNavigation : true,
-		showCloseBox : true,
-		delay : -1,
-		animation: 'fadeInUp'
-	});
+	startTrip();
 
-  trip.start();
+	function startTrip() {
+		var trip = new Trip([
+		{
+			content : 'When you first sign up, this is<br/>what your profile will look like.',
+			position : 'screen-center'
+		},
+		{
+			content : 'What you want to do is totally up to you.',
+			position : 'screen-center'
+		},
+		{
+			sel : $('.free-options'),
+			content : 'You can either do your own thing<br/>by clicking on one of these buttons',
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.next-step'),
+			content : 'or follow along with the suggested next step.',
+			expose : true,
+			position : 'n'
+		},
+		{
+			content : "Well, that’s it for the tour! If you haven't done so<br/>yet, <a href='/signup'>sign up</a> by clicking the link at the top.",
+			position : 'screen-center'
+		},
+		{
+			content : 'Remember, if you have any questions, click the <i class="fa fa-question-circle fa-lg"></i>',
+			position : 'screen-center'
+		},
+		{
+			content : 'If you have any feedback, check the Help section.',
+			position : 'screen-center'
+		},
+		{
+			content : 'Stay awesome and be happy!<br/><small>—Happs</small>',
+			position : 'screen-center',
+			callback : function() { window.location = "/signup" }
+		}
+		], {
+			showNavigation : true,
+			showCloseBox : true,
+			delay : -1,
+			animation: 'fadeInUp'
+		});
+
+	  trip.start();
+	}
+
+	var effectiveHeight = $('.my-effective-activities').height();
+	var happinessHeight = $('.my-happiness').height();
+	var historyHeight = $('.my-activity-history').height();
+	var breakdownHeight = $('.my-activity-breakdown').height();
+
+	if (effectiveHeight > happinessHeight) {
+		$('.my-happiness').height(effectiveHeight);
+	} else {
+		$('.my-effective-activities').height(happinessHeight);
+	}
+
+	if (historyHeight > breakdownHeight) {
+		$('.my-activity-breakdown').height(historyHeight);
+	} else {
+		$('.my-activity-history').height(breakdownHeight);
+	}
+
+	var waitForFinalEvent = (function () {
+	  var timers = {};
+	  return function (callback, ms, uniqueId) {
+	    if (!uniqueId) {
+	      uniqueId = "Don't call this twice without a uniqueId";
+	    }
+	    if (timers[uniqueId]) {
+	      clearTimeout (timers[uniqueId]);
+	    }
+	    timers[uniqueId] = setTimeout(callback, ms);
+	  };
+	})();
+
+	$(window).resize(function () {
+    waitForFinalEvent(function(){
+			var effectiveHeight = $('.my-effective-activities').height();
+			var happinessHeight = $('.my-happiness').height();
+			var historyHeight = $('.my-activity-history').height();
+			var breakdownHeight = $('.my-activity-breakdown').height();
+
+    	if (effectiveHeight > happinessHeight) {
+    		$('.my-happiness').height(effectiveHeight);
+    	} else {
+    		$('.my-effective-activities').height(happinessHeight);
+    	}
+
+    	if (historyHeight > breakdownHeight) {
+    		$('.my-activity-breakdown').height(historyHeight);
+    	} else {
+    		$('.my-activity-history').height(breakdownHeight);
+    	}
+    }, 25, "div heights");
+	});
 </script>

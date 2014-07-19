@@ -1,8 +1,7 @@
 <% provide(:title, "Example | OHQ") %>
 
-<span class="next-tour">
-	<%= link_to 'Continue with tour', examples_activity_path, class: "btn btn-primary btn-xs" %>
-</span>
+<%= link_to 'Previous Page', examples_profile_complete_path, class: "btn btn-primary btn-xs" %>
+<%= link_to 'Continue with tour', examples_activity_path, class: "btn btn-primary btn-xs" %>
 
 <div class="row">
 	<div class="col-md-12">
@@ -47,31 +46,48 @@
 <br/>
 
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-10 col-lg-8">
 		<div class="panel panel-primary question">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">1. I laugh a lot.</h3>
 		  </div>
 		  <div class="panel-body">
-				<div class="btn-group btn-group-justified" data-toggle="buttons">
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
-					</label>
-					<label class="btn btn-default active">
-						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
-					</label>
+		  	<div class="hidden-xs">
+					<div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
+						</label>
+						<label class="btn btn-default active">
+							<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
+						</label>
+					</div>
+				</div>
+				<div class="visible-xs">
+					<div class="form-group">
+					  <div class="col-xs-12">
+					    <select class="form-control" id="select">
+					    	<option selected disabled>Choose an answer</option>
+					      <option>1 - strongly disagree</option>
+					      <option>2 - moderately disagree</option>
+					      <option>3 - slightly disagree</option>
+					      <option>4 - slightly agree</option>
+					      <option>5 - moderately agree</option>
+					      <option>6 - strongly agree</option>
+					    </select>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -80,25 +96,42 @@
 		    <h3 class="panel-title">2. I am intensely interested in other people.</h3>
 		  </div>
 		  <div class="panel-body">
-				<div class="btn-group btn-group-justified" data-toggle="buttons">
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
-					</label>
-					<label class="btn btn-default active">
-						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
-					</label>
+		  	<div class="hidden-xs">
+					<div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
+						</label>
+						<label class="btn btn-default active">
+							<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
+						</label>
+					</div>
+				</div>
+				<div class="visible-xs">
+					<div class="form-group">
+					  <div class="col-xs-12">
+					    <select class="form-control" id="select">
+					    	<option selected disabled>Choose an answer</option>
+					      <option>1 - strongly disagree</option>
+					      <option>2 - moderately disagree</option>
+					      <option>3 - slightly disagree</option>
+					      <option>4 - slightly agree</option>
+					      <option>5 - moderately agree</option>
+					      <option>6 - strongly agree</option>
+					    </select>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -107,25 +140,42 @@
 		    <h3 class="panel-title">3. I feel that life is very rewarding.</h3>
 		  </div>
 		  <div class="panel-body">
-				<div class="btn-group btn-group-justified" data-toggle="buttons">
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
-					</label>
-					<label class="btn btn-default active">
-						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
-					</label>
+		  	<div class="hidden-xs">
+					<div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
+						</label>
+						<label class="btn btn-default active">
+							<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
+						</label>
+					</div>
+				</div>
+				<div class="visible-xs">
+					<div class="form-group">
+					  <div class="col-xs-12">
+					    <select class="form-control" id="select">
+					    	<option selected disabled>Choose an answer</option>
+					      <option>1 - strongly disagree</option>
+					      <option>2 - moderately disagree</option>
+					      <option>3 - slightly disagree</option>
+					      <option>4 - slightly agree</option>
+					      <option>5 - moderately agree</option>
+					      <option>6 - strongly agree</option>
+					    </select>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -134,25 +184,42 @@
 		    <h3 class="panel-title">4. I have very warm feelings towards almost everyone.</h3>
 		  </div>
 		  <div class="panel-body">
-				<div class="btn-group btn-group-justified" data-toggle="buttons">
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
-					</label>
-					<label class="btn btn-default active">
-						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
-					</label>
+		  	<div class="hidden-xs">
+					<div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
+						</label>
+						<label class="btn btn-default active">
+							<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
+						</label>
+					</div>
+				</div>
+				<div class="visible-xs">
+					<div class="form-group">
+					  <div class="col-xs-12">
+					    <select class="form-control" id="select">
+					    	<option selected disabled>Choose an answer</option>
+					      <option>1 - strongly disagree</option>
+					      <option>2 - moderately disagree</option>
+					      <option>3 - slightly disagree</option>
+					      <option>4 - slightly agree</option>
+					      <option>5 - moderately agree</option>
+					      <option>6 - strongly agree</option>
+					    </select>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -163,25 +230,42 @@
 		    <h3 class="panel-title">29. I feel able to take anything on.</h3>
 		  </div>
 		  <div class="panel-body">
-				<div class="btn-group btn-group-justified" data-toggle="buttons">
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
-					</label>
-					<label class="btn btn-default">
-						<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
-					</label>
-					<label class="btn btn-default active">
-						<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
-					</label>
+		  	<div class="hidden-xs">
+					<div class="btn-group btn-group-xs btn-group-justified" data-toggle="buttons">
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />1 - strongly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="1" />2 - moderately<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="3" />3 - slightly<br/>disagree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="4" />4 - slightly<br/>agree
+						</label>
+						<label class="btn btn-default active">
+							<input class="display-none" type="radio" value="5" />5 - moderately<br/>agree
+						</label>
+						<label class="btn btn-default">
+							<input class="display-none" type="radio" value="6" />6 - strongly<br/>agree
+						</label>
+					</div>
+				</div>
+				<div class="visible-xs">
+					<div class="form-group">
+					  <div class="col-xs-12">
+					    <select class="form-control" id="select">
+					    	<option selected disabled>Choose an answer</option>
+					      <option>1 - strongly disagree</option>
+					      <option>2 - moderately disagree</option>
+					      <option>3 - slightly disagree</option>
+					      <option>4 - slightly agree</option>
+					      <option>5 - moderately agree</option>
+					      <option>6 - strongly agree</option>
+					    </select>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -196,42 +280,48 @@
 
 
 <script type="text/javascript">
-	var trip = new Trip([
-	{
-		content : 'Happs utilizes two questionnaires:<br/>the Oxford Happiness Questionnaire to quantify your happiness and the<br/>Person-Activity Fit Diagnostic to determine your most effective activities.',
-		position : 'screen-center'
-	},
-	{
-		sel : $('.overview'),
-		content : 'Each of these questionnaires will explain their purpose,<br/>estimated time to complete, and suggested frequency.',
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.question'),
-		content : 'All of the questions will be on a 1-6 or 1-7 scale.',
-		expose : true,
-		position : 'n'
-	},
-	{
-		sel : $('.question'),
-		content : 'Don’t over think the questions. Pick the answer that first comes to mind.',
-		expose : true,
-		position : 'n',
-		callback : function() { window.location = "/examples/activity" }
-	}
-	// {
-	// 	sel : $('.next-tour'),
-	// 	content : 'Click the link when you’re ready to proceed with the tour.',
-	// 	expose : true,
-	// 	position : 'e'
-	// }
-	], {
-		showNavigation : true,
-		showCloseBox : true,
-		delay : -1,
-		animation: 'fadeInUp'
-	});
+	startTrip();
 
-  trip.start();
+	function startTrip() {
+		var trip = new Trip([
+		{
+			content : 'Happs utilizes two questionnaires:',
+			position : 'screen-center'
+		},
+		{
+			content : 'The Oxford Happiness Questionnaire<br/>to quantify your happiness and',
+			position : 'screen-center'
+		},
+		{
+			content : 'The Person-Activity Fit Diagnostic to determine<br/>which activites best match your personality.',
+			position : 'screen-center'
+		},
+		{
+			sel : $('.overview'),
+			content : 'Each of these questionnaires will explain their purpose,<br/>estimated time to complete, and suggested frequency.',
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.question'),
+			content : 'All of the questions will be on a 1-6 or 1-7 scale.',
+			expose : true,
+			position : 'n'
+		},
+		{
+			sel : $('.question'),
+			content : 'Don’t over think the questions. Pick<br/>the answer that first comes to mind.',
+			expose : true,
+			position : 'n',
+			callback : function() { window.location = "/examples/activity" }
+		}
+		], {
+			showNavigation : true,
+			showCloseBox : true,
+			delay : -1,
+			animation: 'fadeInUp'
+		});
+
+	  trip.start();
+	}
 </script>
