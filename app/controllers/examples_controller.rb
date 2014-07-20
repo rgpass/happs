@@ -1,4 +1,5 @@
 class ExamplesController < ApplicationController
+
   def profile_complete
   end
 
@@ -10,16 +11,5 @@ class ExamplesController < ApplicationController
 
   def profile_start
   end
-
-  # def profile_ohq
-  # end
-
-  # def paf
-  # end
-
-  # def profile_paf
-  # end
-
-  # def profile_activity
-  # end
+  
 end
