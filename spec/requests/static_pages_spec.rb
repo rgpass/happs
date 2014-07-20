@@ -11,10 +11,9 @@ describe "static_pages" do
 
 	describe "home page GET /" do
 		before { visit root_path }
-		let(:heading)			{ "Happs" }
 		let(:page_title)	{ "" }
 
-		it_should_behave_like "all static pages"
+		it { should have_title(full_title(page_title)) }
 		it { should_not have_title("| Home") }
 	end
 
@@ -56,17 +55,4 @@ describe "static_pages" do
 		end
 	end
 
-	it "has correct links in footer" do
-		visit root_path
-		within ".footer" do
-			click_link "Home"
-			expect(page).to have_title(full_title(''))
-			click_link "About"
-			expect(page).to have_title(full_title("About Us"))
-			click_link "Research"
-			expect(page).to have_title(full_title("Research"))
-			click_link "Help"
-			expect(page).to have_title(full_title("Help"))		
-		end
-	end
 end
