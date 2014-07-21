@@ -1,0 +1,69 @@
+- provide(:title, full_name(@user))
+
+.row
+  .col-xs-12
+    h1.inline-block= full_name(@user)
+    p.inline-block.next-step
+      em Suggested Next Step:
+.dashboard
+	.row
+	  .col-md-5.col-lg-6
+	    .panel.panel-default.min-height.my-happiness
+	      .panel-heading
+	        h3.panel-title.strong My Happiness
+	      .panel-body
+		      .text-center
+			      span.free-options
+				      = link_to "Measure My Happiness", '#', class: "btn btn-primary"
+		      br/
+		      |  Using the #{link_to "Oxford Happiness Questionnaire", '#'}, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
+		      br/
+		      br/
+		      blockquote
+			      p
+				      | What gets measured, gets managed.
+			      small
+				      a href="http://en.wikipedia.org/wiki/Peter_Drucker" Peter Drucker
+				      | , management legend
+	  .col-md-7.col-lg-6
+	    .panel.panel-default.min-height.my-effective-activities
+	      .panel-heading
+	        h3.panel-title.strong My Effective Activities
+	      .panel-body
+		      .text-center
+			      span.free-options
+				      = link_to "Determine My Effective Activities", '#', class: "btn btn-primary"
+		      br/
+		      |  The truth is, everybody is different and there's no single way to be happy. That's why Happs uses the #{link_to "Person-Activity Fit Diagnostic", '#'} to determine which activities fit your personality.
+		      br/
+		      br/
+		      blockquote
+			      p
+				      | Know yourself to improve yourself.
+			      small
+				      a href="http://en.wikipedia.org/wiki/Auguste_Comte" Auguste Comte
+				      | , founder of sociology
+	.row
+	  .col-md-5.col-lg-6
+		  .panel.panel-default.min-height.my-activity-history
+			  .panel-heading
+				  h3.panel-title.strong My Activity History
+	  .col-md-7.col-lg-6
+		  .panel.panel-default.min-height.my-activity-breakdown
+			  .panel-heading
+				  h3.panel-title.strong My Activity Breakdown
+			  .panel-body
+				  .text-center
+					  span.free-options
+						  = link_to "Do a Happiness Activity", '#', class: "btn btn-primary"
+				  br/
+				  | Once you've done at least one activity, Happs will provide you a visual breakdown of what you've done.
+				  br/
+				  br/
+				  blockquote
+					  p
+						  | Action may not bring happiness, but there is no happiness without action.
+					  small
+						  a href="http://en.wikipedia.org/wiki/William_James" William James
+						  | , founder of pragmatism and functional psychology
+

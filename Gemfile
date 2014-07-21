@@ -16,6 +16,7 @@ gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-sass'
 gem 'newrelic_rpm'
+gem 'slim'
 
 group :doc do
   gem 'sdoc', require: false
