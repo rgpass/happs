@@ -17,7 +17,6 @@ $(".users.show").ready ->
 		else
 		  $(".my-activity-history").height breakdownHeight
 		return
-
 	waitForFinalEvent = (->
 	  timers = {}
 	  (callback, ms, uniqueId) ->
@@ -26,7 +25,6 @@ $(".users.show").ready ->
 	    timers[uniqueId] = setTimeout(callback, ms)
 	    return
 	)()
-
 	$(window).resize ->
 	  waitForFinalEvent alignHeights(), 25, "div heights"
 	  return
