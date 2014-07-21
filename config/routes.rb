@@ -4,6 +4,8 @@ Happs::Application.routes.draw do
   get "examples/ohq"
   get "examples/activity"
 
+  match "/15CAA848590025BB3B93F642928894E0.txt", to: "static_pages#ssl_validation", via: 'get'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :subjective_happiness_scales
