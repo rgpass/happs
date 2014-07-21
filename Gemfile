@@ -15,6 +15,7 @@ gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-sass'
+gem 'newrelic_rpm'
 
 group :doc do
   gem 'sdoc', require: false
