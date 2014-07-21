@@ -17,6 +17,7 @@ $(".users.show").ready ->
 		else
 		  $(".my-activity-history").height breakdownHeight
 		return
+	alignHeights()
 	waitForFinalEvent = (->
 	  timers = {}
 	  (callback, ms, uniqueId) ->
