@@ -1,6 +1,4 @@
 <% provide(:title, "Research") %>
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
 
 <h1 class="text-center">The Research</h1>
 <br />
@@ -50,73 +48,6 @@
 							<span class="text-center">(mouseover for more info)</span>
 						</p>
 						<div id="container" style="height: 200px; max-width: 100%; margin: 0 auto">Refresh the page if you cannot see the chart. If the problem persists, enable JavaScript.</div>
-						<script type="text/javascript">
-							$(function () {
-							  Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function(color) {
-							      return {
-							          radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
-							          stops: [
-							              [0, color],
-							              [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] // darken
-							          ]
-							      };
-							  });
-									
-							  $('#container').highcharts({
-							    chart: {
-							      plotBackgroundColor: null,
-							      plotBorderWidth: null,
-							      plotShadow: false
-							    },
-							    title: {
-							      text: ''
-							    },
-							    tooltip: {
-								    pointFormat: '{point.a} <b>{point.percentage:.0f}% </b> {point.b}'
-							    },
-							    plotOptions: {
-							      pie: {
-							        allowPointSelect: true,
-							        cursor: 'pointer',
-							        dataLabels: {
-							          enabled: true,
-							          format: '<b>{point.name}</b>: {point.percentage:.0f} %',
-							          style: {
-							            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-							          },
-							          connectorColor: 'silver'
-							        }
-							      }
-							    },
-							    series: [{
-							      type: 'pie',
-							      name: 'Make of Happiness',
-							      data: [
-							        {
-							          name: 'Set Point',
-							          y: 50.0,
-							          a: "How much happiness is controlled by your genetics.<br/>Some people are born generally happy, others need help.<br /><i>Research shows that our genetics make up </i>",
-							          b: "<i> of our happiness</i>"
-							        },
-							        {
-							          name: 'Intentional Activity',
-							          y: 40.0,
-							          a: "How much happiness you can achieve by participating in<br/>activities proven to make people happier.<br /><i>Research shows that we have control over </i>",
-							          b: "<i> of our happiness</i>",
-							          sliced: true,
-							          selected: true
-							        },
-							        {
-							          name: 'Circumstances',
-							          y: 10.0,
-							          a: "How much happiness you get from wealth, beauty, and recent events.<br /><i>Research shows our circumstances make up only </i>",
-							          b: "<i> of our happiness</i>"
-							        }
-							      ]
-							    }]
-							  });
-							});
-						</script>
 		      </div>
 		    </div>
 		  </div>

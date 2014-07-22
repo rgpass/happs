@@ -13,7 +13,10 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require highcharts
+//= require exporting
 //= require bootstrap
+//= require trip.min
 //= require turbolinks
 //= require jquery-readyselector
 //= require_tree .
