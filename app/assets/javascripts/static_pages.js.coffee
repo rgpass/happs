@@ -64,4 +64,92 @@ $('.static_pages.research').ready ->
         }
       ]
     ]
+  window.startTrip = ->
+    trip = new Trip([
+      sel: $(".panel")
+      content: "Click on the header text to expand/collapse the information boxes."
+      expose: true
+      position: "screen-center"
+    ],
+      showNavigation: true
+      showCloseBox: true
+      delay: -1
+      animation: "fadeInUp"
+    )
+    trip.start()
+    return
   return
+
+$('.static_pages.about').ready ->
+  window.startTrip = ->
+    trip = new Trip([
+      sel: $(".panel")
+      content: "Click on the text to expand/collapse the information boxes."
+      expose: true
+      position: "screen-center"
+    ],
+      showNavigation: true
+      showCloseBox: true
+      delay: -1
+      animation: "fadeInUp"
+    )
+    trip.start()
+    return
+
+$('.static_pages.help').ready ->
+  window.startTrip = ->
+    trip = new Trip([
+      sel: $(".panel")
+      content: "Click on the text to expand/collapse the information boxes."
+      expose: true
+      position: "screen-center"
+    ],
+      showNavigation: true
+      showCloseBox: true
+      delay: -1
+      animation: "fadeInUp"
+    )
+    trip.start()
+    return
+
+$('.static_pages.home').ready ->
+  window.startTrip = ->
+    if $(".take-tour-sm").is(":visible")
+      tt = $(".take-tour-sm")
+      gs = $(".get-started-sm")
+    else
+      tt = $(".take-tour")
+      gs = $(".get-started")
+    trip = new Trip([
+      {
+        content: "Happs' vision is a where happiness is the highest life goal."
+        position: "screen-center"
+      }
+      {
+        content: "We do this by combining positive psychology with technology"
+        position: "screen-center"
+      }
+      {
+        content: "through free, easy-to-use tools proven to increase happiness."
+        position: "screen-center"
+      }
+      {
+        sel: tt
+        content: "Take the tour to learn more"
+        expose: true
+        position: "n"
+      }
+      {
+        sel: gs
+        content: "or jump right in and get started."
+        expose: true
+        position: "n"
+      }
+    ],
+      showNavigation: true
+      showCloseBox: true
+      delay: -1
+      animation: "fadeInUp"
+    )
+    trip.start()
+    return

@@ -242,7 +242,7 @@ $('.examples.profile_complete').ready ->
   return
 
 $('.examples.profile_complete').ready ->
-	startTrip = ->
+	window.startTrip = ->
 	  trip = new Trip([
 	    {
 	      content: "Welcome to to the Happs tour!<br/><small>Note: You can use the arrow keys to navigate.</small>"
@@ -315,7 +315,7 @@ $('.examples.profile_complete').ready ->
 	startTrip()
 
 $('.examples.ohq').ready ->
-	startTrip = ->
+	window.startTrip = ->
 	  trip = new Trip([
 	    {
 	      content: "Happs utilizes two questionnaires:"
@@ -361,7 +361,7 @@ $('.examples.ohq').ready ->
 	startTrip()
 
 $('.examples.activity').ready ->
-	startTrip = ->
+	window.startTrip = ->
 	  trip = new Trip([
 	    {
 	      content: "Activities are the meat and bones<br/>behind making yourself happier."
@@ -431,7 +431,7 @@ $('.examples.activity').ready ->
 	startTrip()
 
 $('.examples.profile_start').ready ->
-	startTrip = ->
+	window.startTrip = ->
 	  trip = new Trip([
 	    {
 	      content: "When you first sign up, this is<br/>what your profile will look like."
