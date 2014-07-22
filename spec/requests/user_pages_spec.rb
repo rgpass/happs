@@ -81,6 +81,8 @@ describe "user_pages" do
 					it { should have_selector('div.alert.alert-success', 
 						text: 'Welcome') }
 					it { should have_link('Sign Out') }
+					it { should have_link("Signed up! Awesome!", href: user_path(user)) }
+					it { should have_content("Account") }
 				end
 			end
 
@@ -108,8 +110,6 @@ describe "user_pages" do
 
 		it { should have_content(full_name(user)) }
 		it { should have_title(full_title(full_name(user))) }
-
-		pending "Write tests for show page"
 	end
 
 	describe "edit page GET /users/:id/edit" do

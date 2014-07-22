@@ -5,7 +5,7 @@
 
 .row
   .col-xs-12
-    h1.inline-block= full_name(@user)
+    h1.inline-block = full_name(@user)
     p.inline-block.next-step
       em Suggested Next Step: 
       | Tell all your friends about #{link_to "Happs", root_path}. :)
@@ -51,6 +51,10 @@
 	  .panel.panel-default.min-height.my-activity-history
 		  .panel-heading
 			  h3.panel-title.strong My Activity History
+		  .panel-body.no-padding-top
+			  - @activities.each do |activity|
+				  h4 =link_to activity.title, activity.path
+				  p #{activity.category} -- Completed #{time_ago_in_words(activity.created_at)} ago
   .col-md-7.col-lg-6
 	  .panel.panel-default.min-height.my-activity-breakdown
 		  .panel-heading

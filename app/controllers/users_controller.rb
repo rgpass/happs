@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
+      @user.activities.create!(title: "Signed up! Awesome!", 
+        path: user_path(@user), category: "Account")
       flash[:success] = "Welcome to Happs! If you haven't already, we suggest taking the tour."
       redirect_to @user
     else
@@ -36,6 +38,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = @user.activities
   end
 
   def destroy
