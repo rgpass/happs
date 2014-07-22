@@ -67,13 +67,7 @@ describe "subjective_happiness_scale_pages" do
 				end
 
 				describe "after submission" do
-					before { click_button submit }
-
-					it { should have_title(full_name(user)) }
-					it { should have_selector('div.alert.alert-success', 
-						text: 'Subjective Happiness Scale complete!') }
-					it { should have_content(
-						user.subjective_happiness_scales.average_score) }
+					pending "Figure out what to do with SHS"
 				end
 			end
 
