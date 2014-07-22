@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in @user
-      @user.activities.create!(title: "Signed up! Awesome!", 
+      @user.activities.create(title: "Signed up! Awesome!", 
         path: user_path(@user), category: "Account")
       flash[:success] = "Welcome to Happs! If you haven't already, we suggest taking the tour."
       redirect_to @user
@@ -30,6 +30,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
+      @user.activities.create!(title: "Account information updated", 
+        path: user_path(@user), category: "Account")
       flash[:success] = "Profile updated"
       redirect_to @user
     else

@@ -139,6 +139,8 @@ describe "user_pages" do
 
 				it { should have_title("#{new_first_name} #{new_last_name}") }
 				it { should have_selector('div.alert.alert-success') }
+				it { should have_link("Account information updated", href: user_path(user)) }
+				it { should have_content("Account") }
 				specify { expect(user.reload.first_name).to eq new_first_name }
 				specify { expect(user.reload.last_name).to eq new_last_name }
 				specify { expect(user.reload.email).to eq new_email }

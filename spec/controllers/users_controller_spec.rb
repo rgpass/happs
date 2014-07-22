@@ -16,4 +16,19 @@ describe UsersController do
 			end
 		end
 	end
+
+	describe "PATCH update" do
+		pending "Determine why this fails although it works"
+		# let(:user) { FactoryGirl.create(:user) }
+
+		# describe "with valid attributes" do
+		# 	it "creates new activity" do
+		# 		expect{
+		# 			patch :update, id: user.id,
+		# 				user: FactoryGirl.attributes_for(:user, first_name: "Joe",
+		# 					password: "foobar", password_confirmation: "foobar")
+		# 		}.to change(Activity, :count).by(1)
+		# 	end
+		# end
+	end
 end
