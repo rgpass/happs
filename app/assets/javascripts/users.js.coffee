@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(".users.show, .examples.profile_complete, .examples.profile_start").ready ->
+$(".users.show").ready ->
 	alignHeights = ->
 		effectiveHeight = $(".my-effective-activities").height()
 		happinessHeight = $(".my-happiness").height()

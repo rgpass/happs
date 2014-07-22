@@ -2,6 +2,34 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$(".examples.profile_complete, .examples.profile_start").ready ->
+	alignHeights = ->
+		effectiveHeight = $(".my-effective-activities").height()
+		happinessHeight = $(".my-happiness").height()
+		historyHeight = $(".my-activity-history").height()
+		breakdownHeight = $(".my-activity-breakdown").height()
+		if effectiveHeight > happinessHeight
+		  $(".my-happiness").height effectiveHeight
+		else
+		  $(".my-effective-activities").height happinessHeight
+		if historyHeight > breakdownHeight
+		  $(".my-activity-breakdown").height historyHeight
+		else
+		  $(".my-activity-history").height breakdownHeight
+		return
+	alignHeights()
+	waitForFinalEvent = (->
+	  timers = {}
+	  (callback, ms, uniqueId) ->
+	    uniqueId = "Don't call this twice without a uniqueId"  unless uniqueId
+	    clearTimeout timers[uniqueId]  if timers[uniqueId]
+	    timers[uniqueId] = setTimeout(callback, ms)
+	    return
+	)()
+	$(window).resize ->
+	  waitForFinalEvent alignHeights(), 25, "div heights"
+	  return
+
 $('.examples.profile_complete').ready ->
   $("#container1").highcharts
     chart:
