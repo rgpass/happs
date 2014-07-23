@@ -53,7 +53,7 @@
 			  h3.panel-title.strong My Activity History
 		  .panel-body.no-padding-top
 			  = render @activities
-			  = will_paginate @activities
+			  = will_paginate @activities, class: "pagination pagination-sm"
   .col-md-7.col-lg-6
 	  .panel.panel-default.min-height.my-activity-breakdown
 		  .panel-heading
