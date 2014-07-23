@@ -40,7 +40,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @activities = @user.activities
     @activities = @user.activities.paginate(page: params[:page], per_page: 5)
   end
 
