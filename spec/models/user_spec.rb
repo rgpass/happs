@@ -160,7 +160,7 @@ describe User do
 		end
 	end
 
-	describe "subjective_happiness_scale assocations" do
+	describe "subjective_happiness_scale associations" do
 		before { @user.save }
 		let!(:older_shs) do
 			FactoryGirl.create(:subjective_happiness_scale, user: @user,
@@ -182,6 +182,31 @@ describe User do
 			expect(subjective_happiness_scales).not_to be_empty
 			subjective_happiness_scales.each do |shs|
 				expect(SubjectiveHappinessScale.where(id: shs.id)).to be_empty
+			end
+		end
+	end
+
+	describe "activity associations" do
+		before { @user.save }
+		let!(:older_activity) do
+			FactoryGirl.create(:activity, user: @user, created_at: 1.day.ago)
+		end
+		let!(:newer_activity) do
+			FactoryGirl.create(:activity, user: @user, created_at: 1.day.ago)
+		end
+
+		it "correct order" do
+			expect(@user.activities.to_a).to eq([newer_activity, older_activity])
+		end
+
+		describe "on user destroy" do
+			it "destroys assoc activities" do
+				activities = @user.activities.to_a
+				@user.destroy
+				expect(activities).not_to be_empty
+				activities.each do |activity|
+					expect(Activity.where(id: activity.id)).to be_empty
+				end
 			end
 		end
 	end

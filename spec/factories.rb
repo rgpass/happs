@@ -18,4 +18,11 @@ FactoryGirl.define do
 		neg					(1..7).to_a.sample
 		user
 	end
+
+	factory :activity do
+		title	"Help an old lady across the street"
+		path	"/actofkindness/1"
+		category	"Practicing acts of kindness"
+		user
+	end
 end
