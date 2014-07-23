@@ -213,7 +213,13 @@ div.tooltip-inner {
 
 .my-activity-history {
   h4 {
-    margin-bottom: 4px;
+    border-top: 1px solid #e8e8e8;
+    margin-bottom: 2px;
+    padding-top: 8px;
+    &:first-child {
+      border-top: none;
+      padding-top: 0px;
+    }
   }
   p {
     font-size: small;
