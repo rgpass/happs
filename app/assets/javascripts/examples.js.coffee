@@ -273,18 +273,22 @@ $('.examples.profile_complete').ready ->
 	window.startTrip = ->
 	  trip = new Trip([
 	    {
+	      sel: $(".container-fluid")
 	      content: "Welcome to to the Happs tour!<br/><small>Note: You can use the arrow keys to navigate.</small>"
 	      position: "screen-center"
 	    }
 	    {
+	      sel: $(".container-fluid")
 	      content: "In this tour, we’re going to run you through<br/>an example profile and how to get around."
 	      position: "screen-center"
 	    }
 	    {
+	      sel: $(".container-fluid")
 	      content: "If you accidentally exit out or at any point<br/>you get lost, click the <i class='fa fa-question-circle fa-lg'></i> at the top."
 	      position: "screen-center"
 	    }
 	    {
+	      sel: $(".container-fluid")
 	      content: "Happs uses scientifically proven<br/>techniques to do three things:"
 	      position: "screen-center"
 	    }
