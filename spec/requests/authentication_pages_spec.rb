@@ -137,6 +137,18 @@ describe "authentication_pages" do
           specify { expect(response).to redirect_to(signin_path) }
         end
       end
+
+      describe "in Ohqs controller" do
+        describe "new ohq GET /ohqs/new" do
+          before { visit new_ohq_path }
+          it { should have_title('Sign in') }
+        end
+
+        describe "create ohq POST /ohqs" do
+          before { post ohqs_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
     end
 
     describe "as wrong user" do

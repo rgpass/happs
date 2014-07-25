@@ -21,9 +21,9 @@ describe Ohq do
   end
 
   describe "when score not present" do
-  	pending "Figure out virtual attributes"
-  	# before { @ohq.save }
-  	# its(:score) { should_not be_blank }
+  	before { @ohq.save }
+    
+  	its(:score) { should_not be_blank }
   end
 
 	before do

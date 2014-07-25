@@ -1,0 +1,36 @@
+.panel.panel-primary
+	.panel-heading
+		h3.panel-title
+			= question
+	.panel-body
+		.btn-group.btn-group-xs.btn-group-justified data-toggle="buttons"
+			label.btn.btn-default
+				= f.radio_button question_number, '1', class: "display-none"
+				| 1 - strongly
+				br/
+				| disagree
+			label.btn.btn-default
+				= f.radio_button question_number, '2', class: "display-none"
+				| 2 - moderately
+				br/
+				| disagree
+			label.btn.btn-default
+				= f.radio_button question_number, '3', class: "display-none"
+				| 3 - slightly
+				br/
+				| disagree
+			label.btn.btn-default
+				= f.radio_button question_number, '4', class: "display-none"
+				| 4 - slightly
+				br/
+				| agree
+			label.btn.btn-default
+				= f.radio_button question_number, '5', class: "display-none"
+				| 5 - moderately
+				br/
+				| agree
+			label.btn.btn-default
+				= f.radio_button question_number, '6', class: "display-none"
+				| 6 - strongly
+				br/
+				| agree
