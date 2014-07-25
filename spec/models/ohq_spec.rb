@@ -27,13 +27,14 @@ describe Ohq do
   end
 
 	before do
-		user.ohqs.create(score: 90)
+		user.ohqs.create(score: 80)
 		user.ohqs.create(score: 100)
+		user.ohqs.create(score: 90)
 	end
 
   describe "#average_score" do
   	it "equals average of scores" do
-  		expect(user.ohqs.average_score).to eq(95)
+  		expect(user.ohqs.average_score).to eq(90)
   	end
   end
 
@@ -45,7 +46,7 @@ describe Ohq do
 
   describe "#initial_score" do
   	it "equals initial score" do
-  		expect(user.ohqs.initial_score).to eq(90)
+  		expect(user.ohqs.initial_score).to eq(80)
   	end
   end
 end

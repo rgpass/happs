@@ -210,4 +210,29 @@ describe User do
 			end
 		end
 	end
+
+	describe "ohq associations" do
+		before { @user = FactoryGirl.create(:user) }
+		let!(:older_ohq) do
+			FactoryGirl.create(:ohq, user: @user, created_at: 1.day.ago)
+		end
+		let!(:newer_ohq) do
+			FactoryGirl.create(:ohq, user: @user, created_at: 1.hour.ago)
+		end
+
+		it "correct order" do
+			expect(@user.ohqs.to_a).to eq([newer_ohq, older_ohq])
+		end
+
+		describe "on user destroy" do
+			it "destroys assoc ohqs" do
+				ohqs = @user.ohqs.to_a
+				@user.destroy
+				expect(ohqs).not_to be_empty
+				ohqs.each do |ohq|
+					expect(Ohq.where(id: ohq.id)).to be_empty
+				end
+			end
+		end
+	end
 end

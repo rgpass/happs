@@ -25,4 +25,9 @@ FactoryGirl.define do
 		category	"Practicing acts of kindness"
 		user
 	end
+
+	factory :ohq do
+		score 90
+		user
+	end
 end

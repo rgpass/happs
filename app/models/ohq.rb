@@ -3,6 +3,8 @@ class Ohq < ActiveRecord::Base
 
 	validates :user_id, presence: true
 
+	default_scope -> { order('created_at DESC') }
+
 	def self.average_score
 		average(:score).to_f
 	end
@@ -12,6 +14,6 @@ class Ohq < ActiveRecord::Base
 	end
 
 	def self.initial_score
-		first.score
+		last.score
 	end
 end
