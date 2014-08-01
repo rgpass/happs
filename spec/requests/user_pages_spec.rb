@@ -113,6 +113,8 @@ describe "user_pages" do
 		it { should have_content(full_name(user)) }
 		it { should have_title(full_title(full_name(user))) }
 
+		it { should have_link('Measure My Happiness', new_ohq_path) }
+
 		describe "activity history" do
 			pending "Determine why this fails although it works"
 			# it { should have_content(a1.title) }

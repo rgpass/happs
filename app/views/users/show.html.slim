@@ -17,7 +17,7 @@
       .panel-body
 	      .text-center
 		      span.free-options data-toggle="tooltip" data-placement="top" title="" data-original-title="Currently under construction. We'll email you when it's done!"
-			      = link_to "Measure My Happiness", '#', class: "btn btn-primary"
+			      = link_to "Measure My Happiness", new_ohq_path, class: "btn btn-primary"
 	      br/
 	      - if @user.ohqs.count < 1
 		      |  Using the #{link_to "Oxford Happiness Questionnaire", '#'}, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
