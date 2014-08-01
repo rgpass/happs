@@ -141,7 +141,7 @@ describe "authentication_pages" do
       describe "in Ohqs controller" do
         describe "new ohq GET /ohqs/new" do
           before { visit new_ohq_path }
-          it { should have_title('Sign in') }
+          it { should have_title('Sign In') }
         end
 
         describe "create ohq POST /ohqs" do

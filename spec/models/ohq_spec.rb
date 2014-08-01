@@ -22,7 +22,7 @@ describe Ohq do
 
   describe "when score not present" do
   	before { @ohq.save }
-    
+
   	its(:score) { should_not be_blank }
   end
 
