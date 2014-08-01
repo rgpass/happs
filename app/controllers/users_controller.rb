@@ -52,6 +52,18 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
 
+  def ohq_data
+    @user = User.where(id: params[:user_id]).first
+    example_data = []
+    @user.ohqs.reverse.each do |ohq|
+      @created_at = ohq.created_at
+      example_data << [@created_at.year, @created_at.month, @created_at.day, ohq.score]
+    end
+    respond_to do |format|
+      format.json { render json: example_data }
+    end
+  end
+
   private
 
   	def user_params

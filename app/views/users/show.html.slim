@@ -5,7 +5,7 @@
 
 .row
   .col-xs-12
-    h1.inline-block = full_name(@user)
+    h1#user-info.inline-block data-id="#{@user.id}" = full_name(@user)
     p.inline-block.next-step
       em Suggested Next Step: 
       | Tell all your friends about #{link_to "Happs", root_path}. :)
@@ -19,15 +19,18 @@
 		      span.free-options data-toggle="tooltip" data-placement="top" title="" data-original-title="Currently under construction. We'll email you when it's done!"
 			      = link_to "Measure My Happiness", '#', class: "btn btn-primary"
 	      br/
-	      |  Using the #{link_to "Oxford Happiness Questionnaire", '#'}, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
-	      br/
-	      br/
-	      blockquote
-		      p
-			      | What gets measured, gets managed.
-		      small
-			      a href="http://en.wikipedia.org/wiki/Peter_Drucker" Peter Drucker
-			      | , management legend
+	      - if @user.ohqs.count < 1
+		      |  Using the #{link_to "Oxford Happiness Questionnaire", '#'}, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
+		      br/
+		      br/
+		      blockquote
+			      p
+				      | What gets measured, gets managed.
+			      small
+				      a href="http://en.wikipedia.org/wiki/Peter_Drucker" Peter Drucker
+				      | , management legend
+	      - else
+	      	#ohq-container style="min-width: 310px; height: 200px; margin: 0 auto"
   .col-md-7.col-lg-6
     .panel.panel-default.min-height.my-effective-activities
       .panel-heading
@@ -72,4 +75,3 @@
 				  small
 					  a href="http://en.wikipedia.org/wiki/William_James" William James
 					  | , founder of pragmatism and functional psychology
-

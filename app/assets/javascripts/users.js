@@ -34,45 +34,56 @@ $(".users.show").ready(function() {
   $(window).resize(function() {
     waitForFinalEvent(alignHeights(), 25, "div heights");
   });
-  $("#container1").highcharts({
-    chart: {
-      type: "spline"
-    },
-    title: {
-      text: ""
-    },
-    subtitle: {
-      text: ""
-    },
-    xAxis: {
-      type: "datetime",
-      dateTimeLabelFormats: {
-        day: "%b",
-        month: "%b",
-        year: "%b"
+
+  var userID = $('#user-info').data('id');
+  $.get('./ohq_data', { user_id: userID }, function(ohq_data) {
+    for (var i = 0; i < ohq_data.length; i++) {
+      ohq_data[i] = [Date.UTC(ohq_data[i][0], ohq_data[i][1]-1, ohq_data[i][2]), ohq_data[i][3]];
+    }
+
+    $("#ohq-container").highcharts({
+      chart: {
+        type: "spline"
       },
       title: {
         text: ""
-      }
-    },
-    yAxis: {
-      title: {
+      },
+      subtitle: {
         text: ""
       },
-      max: 100
-    },
-    tooltip: {
-      headerFormat: "<b>Happiness Level</b><br>",
-      pointFormat: "{point.x:%b %e}: {point.y:.0f} / 100"
-    },
-    series: [
-      {
-        showInLegend: false,
-        data: [[Date.UTC(2014, 6, 15), 78], [Date.UTC(2014, 6, 30), 83], [Date.UTC(2014, 7, 18), 81], [Date.UTC(2014, 8, 8), 88], [Date.UTC(2014, 8, 28), 92], [Date.UTC(2014, 9, 19), 84], [Date.UTC(2014, 10, 2), 87], [Date.UTC(2014, 10, 20), 90]],
-        pointInterval: 24 * 3600 * 1000
-      }
-    ]
+      xAxis: {
+        type: "datetime",
+        dateTimeLabelFormats: {
+          day: "%b %e",
+          month: "%b %e",
+          year: "%b"
+        },
+        title: {
+          text: ""
+        },
+      },
+      yAxis: {
+        title: {
+          text: ""
+        },
+        max: 100
+      },
+      tooltip: {
+        headerFormat: "<b>Happiness Level</b><br>",
+        pointFormat: "{point.x:%b %e}: {point.y:.0f} / 100"
+      },
+      series: [
+        {
+          showInLegend: false,
+          data: ohq_data,
+          pointInterval: 30 * 24 * 3600 * 1000
+        }
+      ]
+    });
+
+    
   });
+
 });
 
 $('.users.new').ready(function() {
