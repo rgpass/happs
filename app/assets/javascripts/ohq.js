@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$('.ohq.new').ready(function() {
 
 var numberOfQuestions = $('label').length / 6;
 

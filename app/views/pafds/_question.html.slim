@@ -1,0 +1,28 @@
+.panel.panel-primary
+	.panel-heading
+		h3.panel-title.strong
+			= question_title
+		p.no-margin
+			= question_description
+	.panel-body.form-font
+		.row
+			.col-md-2.col-md-offset-1
+				label.control-label.text-center for="select"
+					| NATURAL:
+					= render 'options', f: f, activity: activity, reason: "n"
+			.col-md-2
+				label.control-label.text-center for="select"
+					| ENJOY:
+					= render 'options', f: f, activity: activity, reason: "e"
+			.col-md-2
+				label.control-label.text-center for="select"
+					| VALUE:
+					= render 'options', f: f, activity: activity, reason: "v"
+			.col-md-2
+				label.control-label.text-center for="select"
+					| GUILTY:
+					= render 'options', f: f, activity: activity, reason: "g"
+			.col-md-2
+				label.control-label.text-center for="select"
+					| SITUATION:
+					= render 'options', f: f, activity: activity, reason: "s"

@@ -1,0 +1,102 @@
+- provide(:title, "Person-Activity Fit")
+
+.row
+	.col-md-12
+		h1.inline-block
+			| Person-Activity Fit Diagnostic
+
+.row
+	.col-md-7
+		.row
+			.col-md-3
+				span.strong
+					| Purpose:
+			.col-md-9
+				p.text-justify
+					| The PAFD is used to determine which activities best match your personality.
+		.row
+			.col-md-3
+				span.strong
+					| Instructions:
+			.col-md-9
+				p.text-justify
+					| Consider each of the following 12 happiness activities. Reflect on what it would be like to do it
+					em
+						|  every week 
+					| for an extended period of time. Then rate each activity by selecting the appropriate number (1 to 7) in the blank space next to the terms
+					em
+						|  NATURAL, ENJOY, VALUE, GUILTY, 
+					| and
+					em
+						|  SITUATION.
+				p.text-justify
+					| People do things for many different reasons. Rate why you might keep doing this activity in terms of each of the following reasons.
+					.row
+						.col-md-2
+							span.strong
+								| NATURAL:
+						.col-md-10
+							p
+								| I'll keep doing this activity because it will feel "natural" to me and I'll be able to stick with it.
+					.row
+						.col-md-2
+							span.strong
+								| ENJOY:
+						.col-md-10
+							p
+								| I'll keep doing this activity because I will enjoy doing it; I'll find it to be interesting and challenging.
+					.row
+						.col-md-2
+							span.strong
+								| VALUE:
+						.col-md-10
+							p
+								| I'll keep doing this activity because I will value and identify with doing it; I'll do it freely even when it's not enjoyable.
+					.row
+						.col-md-2
+							span.strong
+								| GUILTY:
+						.col-md-10
+							p
+								| I'll keep doing this activity because I would feel ashamed, guilty, or anxious if I didn't do it; I'll force myself.
+					.row
+						.col-md-2
+							span.strong
+								| SITUATION:
+						.col-md-10
+							p
+								| I'll keep doing this activity because somebody else will want me to or because my situation will force me to.
+		.row
+			.col-md-3
+				span.strong
+					| Time Required:
+			.col-md-9
+				p
+					| 20 minutes
+		.row
+			.col-md-3
+				span.strong
+					| Suggested Frequncy:
+			.col-md-9
+				p
+					| Once
+
+br/
+
+= form_for(@pafd) do |f|
+	= render 'shared/error_messages', object: f.object
+	.row
+		.col-md-10.col-lg-8
+			= render 'question', f: f, activity: :gratitude, question_title: "1. Expressing gratitude:", question_description: "Counting your blessings for what you have (either to a close other or privately, through contemplation or a journal) or conveying your gratitude and appreciation to one or more individuals whom you've never properly thanked."
+			= render 'question', f: f, activity: :optimism, question_title: "2. Cultivating optimism:", question_description: ""
+			= render 'question', f: f, activity: :comparison, question_title: "3. Avoiding overthinking and social comparison:", question_description: ""
+			= render 'question', f: f, activity: :kindness, question_title: "4. Practicing acts of kindness:", question_description: ""
+			= render 'question', f: f, activity: :relationships, question_title: "5. Nurturing relationships:", question_description: ""
+			= render 'question', f: f, activity: :coping, question_title: "6. Developing strategies for coping:", question_description: ""
+			= render 'question', f: f, activity: :forgiveness, question_title: "7. Learning to forgive:", question_description: ""
+			= render 'question', f: f, activity: :engagement, question_title: "8. Doing more activities that truly engage you:", question_description: ""
+			= render 'question', f: f, activity: :joys, question_title: "9. Savoring life's joys:", question_description: ""
+			= render 'question', f: f, activity: :goals, question_title: "10. Committing to your goals:", question_description: ""
+			= render 'question', f: f, activity: :spirituality, question_title: "11. Practicing religion and spirituality:", question_description: ""
+			= render 'question', f: f, activity: :body, question_title: "12. Taking care of your body:", question_description: ""
+	= f.submit "0 of 60 Answered", class: "btn btn-primary", disabled: "disabled"

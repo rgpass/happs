@@ -11,6 +11,7 @@ Happs::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :subjective_happiness_scales
   resources :ohqs, only: [:new, :create]
+  resources :pafds, only: [:new, :create]
   
   root 'static_pages#home'
 

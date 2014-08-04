@@ -31,13 +31,6 @@ describe Pafd do
   	it { should_not be_valid }
   end
 
-  describe "when any activity score not present" do
-  	describe "gratitude" do
-	  	before { @pafd.gratitude = nil }
-	  	it { should_not be_valid }
-	  end
-  end
-
   describe "when any score negative" do
 		before do
 			@pafd.forgiveness = -5.33
