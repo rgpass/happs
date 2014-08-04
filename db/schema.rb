@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140725162248) do
+ActiveRecord::Schema.define(version: 20140804155329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,24 @@ ActiveRecord::Schema.define(version: 20140725162248) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "pafds", force: true do |t|
+    t.float    "gratitude"
+    t.float    "optimism"
+    t.float    "comparison"
+    t.float    "kindness"
+    t.float    "relationships"
+    t.float    "coping"
+    t.float    "forgiveness"
+    t.float    "engagement"
+    t.float    "joys"
+    t.float    "goals"
+    t.float    "spirituality"
+    t.float    "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "subjective_happiness_scales", force: true do |t|

@@ -235,4 +235,19 @@ describe User do
 			end
 		end
 	end
+
+	describe "pafd associations" do
+		before { @user = FactoryGirl.create(:user) }
+		let!(:pafd) { FactoryGirl.create(:pafd, user: @user) }
+
+		describe "on user destroy" do
+			before do
+				@user.destroy
+			end
+
+			it "destroys assoc pafd" do
+				expect(Pafd.where(id: pafd.id)).to be_empty
+			end
+		end
+	end
 end

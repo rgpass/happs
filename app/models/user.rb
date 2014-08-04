@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	has_many :subjective_happiness_scales, dependent: :destroy
 	has_many :activities, dependent: :destroy
 	has_many :ohqs, dependent: :destroy
+	has_one	 :pafd, dependent: :destroy
 
 	before_save { email.downcase! }
 	before_create :create_remember_token

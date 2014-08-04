@@ -30,4 +30,20 @@ FactoryGirl.define do
 		score 90
 		user
 	end
+
+	factory :pafd do
+		gratitude			4.17
+		optimism			3
+		comparison 		2
+		kindness			3.5
+		relationships	1.5
+		coping 				0.5
+		forgiveness 	0
+		engagement 		3.5
+		joys 					3.83
+		goals 				2.17
+		spirituality	2.67
+		body 					0.83
+		user
+	end
 end
