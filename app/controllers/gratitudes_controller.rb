@@ -1,5 +1,6 @@
 class GratitudesController < ApplicationController
 	before_action :signed_in_user
+	before_action :correct_user, only: [:show]
 
 	def new
 		@gratitude = Gratitude.new
@@ -26,5 +27,12 @@ class GratitudesController < ApplicationController
 
 		def gratitude_params
 			params.fetch(:gratitude, Hash.new).permit(:title, :content)
+		end
+
+		def correct_user
+			@gratitude = current_user.gratitudes.find_by_id(params[:id])
+			if @gratitude.nil? && !current_user.try(:admin)
+				redirect_to root_url
+			end
 		end
 end

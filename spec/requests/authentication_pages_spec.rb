@@ -149,6 +149,36 @@ describe "authentication_pages" do
           specify { expect(response).to redirect_to(signin_path) }
         end
       end
+
+      describe "in Pafds controller" do
+        describe "new pafd GET /pafds/new" do
+          before { visit new_pafd_path }
+          it { should have_title('Sign In') }
+        end
+
+        describe "create pafd POST /pafds" do
+          before { post pafds_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
+
+      describe "in Gratitudes controller" do
+        describe "new gratitude GET /gratitudes/new" do
+          before { visit new_gratitude_path }
+          it { should have_title('Sign In') }
+        end
+
+        describe "create gratitude POST /gratitudes" do
+          before { post gratitudes_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "show gratitude GET /gratitudes/:id" do
+          let!(:gratitude) { FactoryGirl.create(:gratitude) }
+          before { visit gratitude_path(gratitude) }
+          it { should have_title('Sign In') }
+        end
+      end
     end
 
     describe "as wrong user" do
@@ -170,6 +200,15 @@ describe "authentication_pages" do
 
         describe "show page GET /users/:id" do
           before { get user_path(wrong_user) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      describe "in Gratitudes controller" do
+        describe "show page GET /gratitudes/:id" do
+          let!(:wrong_users_gratitude) { FactoryGirl.create(:gratitude,
+            user: wrong_user) }
+          before { get gratitude_path(wrong_users_gratitude) }
           specify { expect(response).to redirect_to(root_url) }
         end
       end
@@ -208,14 +247,24 @@ describe "authentication_pages" do
         expect { delete user_path(admin) }.not_to change(User, :count)
       end
 
-      describe "index page GET /users" do
-        before { get users_path }
-        specify { expect(response.body).to match(full_title('All Users')) }
+      describe "in Users controller" do
+        describe "index page GET /users" do
+          before { get users_path }
+          specify { expect(response.body).to match(full_title('All Users')) }
+        end
+
+        describe "show page GET /users/:id" do
+          before { get user_path(user) }
+          specify { expect(response.body).to match(full_title(full_name(user))) }
+        end
       end
 
-      describe "show page GET /users/:id" do
-        before { get user_path(user) }
-        specify { expect(response.body).to match(full_title(full_name(user))) }
+      describe "in Gratitudes controller" do
+        describe "show page GET /gratitudes/:id" do
+          let!(:gratitude) { FactoryGirl.create(:gratitude, user: user) }
+          before { get gratitude_path(gratitude) }
+          specify { expect(response.body).to match(gratitude.title) }
+        end
       end
     end
   end
