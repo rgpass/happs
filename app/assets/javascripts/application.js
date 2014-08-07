@@ -15,7 +15,7 @@
 //= require jquery_ujs
 //= require highcharts
 //= require exporting
-//= require bootstrap
+//= require bootstrap.min
 //= require trip.min
 //= require turbolinks
 //= require jquery-readyselector

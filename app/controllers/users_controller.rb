@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
-      @user.activities.create!(title: "Account information updated", 
+      @user.activities.create(title: "Account information updated",
         path: user_path(@user), category: "Account")
       flash[:success] = "Profile updated"
       redirect_to @user
