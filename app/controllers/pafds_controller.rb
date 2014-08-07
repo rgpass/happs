@@ -8,6 +8,9 @@ class PafdsController < ApplicationController
   def create
   	@pafd = current_user.build_pafd(pafd_params)
   	if @pafd.save
+      current_user.activities.create(
+        title: "Person-Activity Fit Diagnostic completed",
+        path: user_path(current_user), category: "PAFD")
   		flash[:success] = "Person-Activity Fit Diagnositic completed!"
   		redirect_to current_user
   	else
