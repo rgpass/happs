@@ -15,6 +15,7 @@ Happs::Application.routes.draw do
   resources :subjective_happiness_scales
   resources :ohqs, only: [:new, :create]
   resources :pafds, only: [:new, :create]
+  resources :gratitudes, only: [:new, :create, :show]
   
   root 'static_pages#home'
 

@@ -46,4 +46,10 @@ FactoryGirl.define do
 		body 					0.83
 		user
 	end
+
+	factory :gratitude do
+		title		"My wife"
+		content	"Because she's the bomb dot com"
+		user
+	end
 end

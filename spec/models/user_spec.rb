@@ -250,4 +250,17 @@ describe User do
 			end
 		end
 	end
+
+	describe "gratitude associations" do
+		before { @user = FactoryGirl.create(:user) }
+		let!(:gratitude) { FactoryGirl.create(:gratitude, user: @user) }
+
+		describe "on user destroy" do
+			before { @user.destroy }
+
+			it "destroys assoc gratitude" do
+				expect(Gratitude.where(id: gratitude.id)).to be_empty
+			end
+		end
+	end
 end

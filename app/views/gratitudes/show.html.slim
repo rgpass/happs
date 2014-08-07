@@ -1,0 +1,13 @@
+- provide(:title, @gratitude.title)
+
+h1
+	| Gratitude
+
+h2
+	= @gratitude.title
+
+p
+	= @gratitude.content
+
+br/
+= link_to "Back to Profile", user_path(@gratitude.user), class: "btn btn-primary"

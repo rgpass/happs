@@ -1,0 +1,83 @@
+- provide(:title, "Express Gratitude")
+
+h1
+	| Gratitude
+
+= form_for(@gratitude) do |f|
+	= render 'shared/error_messages', object: f.object
+	.row
+		.col-sm-5.form-font.form-padding.form
+			= f.label :title, "What are you grateful for?", class: "control-label"
+			= f.text_field :title, class: "form-control input-sm", autofocus: true
+			= f.label :content, "Why are you grateful?", class: "control-label"
+			= f.text_area :content, class: "form-control input-sm", rows: 3
+			br/
+			= f.submit "All Done", class: "btn btn-primary"
+		.col-sm-5.col-sm-offset-1
+			blockquote
+				p
+					| We can only be said to be alive in those moments when our hearts are conscious of our treasures.
+				small
+					a href="http://en.wikipedia.org/wiki/Thornton_Wilder" target="_blank" Thorton Wilder
+					| , three time Pulitzer Prize winner
+			p
+				span.strong
+					| Strategies:
+				|  (click to expand)
+			#accordion.panel-group.tips
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse1" data-toggle="collapse" data-parent="#accordion"
+								| Write a gratitude letter
+					#collapse1.panel-collapse.collapse
+						.panel-body
+							| Think of someone who's had a big impact on your life: your mom, favorite uncle, old friend, or a coach, teacher or supervisor. Draft up a letter thanking them for what they did and how it has affected you.
+							br/
+							br/
+							| For a significant increase in happiness, print the letter out, meet up with that person face-to-face, and read it out aloud.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse2" data-toggle="collapse" data-parent="#accordion"
+								| Think of the mundane to the magnificent
+					#collapse2.panel-collapse.collapse
+						.panel-body
+							| Mundane: Your dryer works. Magnificent: Life and the fact it exists at all. There's a lot of space in between there and thus tons of stuff to be grateful for. Start at the mundane and go up.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse3" data-toggle="collapse" data-parent="#accordion"
+								| List ouf 3-5 random things
+					#collapse3.panel-collapse.collapse
+						.panel-body
+							| Start by looking up from the screen and seeing what's around. It could be flowers, an oven, or a loved one. The more random the better!
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse4" data-toggle="collapse" data-parent="#accordion"
+								| Six degrees of separation
+					#collapse4.panel-collapse.collapse
+						.panel-body
+							| Every play 
+							a href="http://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon" target="_blank"
+								| Six Degrees of Kevin Bacon
+							| ? Try doing something similar with what you're grateful for. The more random and longer you can go the better.
+							br/
+							br/
+							| Example: I'm grateful for a 
+							a href="https://www.youtube.com/watch?v=gId6nrMDmUU" target="_blank"
+								| lamp
+							|  in my room --> I'm grateful for electricity --> Technology --> Medical devices --> Medicine --> My health --> Easy access to healthy foods
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse5" data-toggle="collapse" data-parent="#accordion"
+								| Upload a picture
+					#collapse5.panel-collapse.collapse
+						.panel-body
+							| Remember the cliche "A picture is worth a 1,000 words"? Sometimes it's worth more than that. Upload a picture of something you're grateful for.
+			p
+				span.strong
+					| Tip:
+				|  Keep it fresh. Think of new strategies. The more random the better.
