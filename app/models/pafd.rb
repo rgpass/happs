@@ -19,6 +19,23 @@ class Pafd < ActiveRecord::Base
 	before_create :save_scores
 	before_create :zero_out_negatives
 
+	def results_for_diagram
+		[	
+			["Expressing gratitude", self.gratitude],
+			["Savoring life's joys", self.joys],
+      ["Practicing acts of kindness", self.kindness],
+      ["Doing more activities that truly engage you", self.engagement],
+      ["Cultivating optimism", self.optimism],
+      ["Practicing religion and spirituality", self.spirituality],
+      ["Committing to your goals", self.goals],
+      ["Avoiding overthinking and social comparison", self.comparison],
+      ["Nurturing relationships", self.relationships],
+      ["Taking care of your body", self.body],
+      ["Developing strategies for coping", self.coping],
+      ["Learning to forgive", self.forgiveness]
+    ].sort { |x,y| y[1] <=> x[1] }
+	end
+
 	private
 
 		def save_scores
@@ -44,32 +61,6 @@ class Pafd < ActiveRecord::Base
 			activity_s = self.send("#{activity}_s")
 			((activity_n.to_f + activity_e.to_f + activity_v.to_f)/3 - (activity_g.to_f + activity_s.to_f)/2).round(2)
 		end
-
-			# results 
-			# gratitude_result =		(gratitude_n + gratitude_e + gratitude_v)/3 -
-			# 											(gratitude_g + gratitude_s)/2
-			# optimism_result =			(optimism_n + optimism_e + optimism_v)/3 -
-			# 											(optimism_g + optimism_s)/2
-			# comparison_result =		(comparison_n + comparison_e + comparison_v)/3 -
-			# 											(comparison_g + comparison_s)/2
-			# kindness_result =			(kindness_n + kindness_e + kindness_v)/3 -
-			# 											(kindness_g + kindness_s)/2
-			# relationships_result =	(relationships_n + relationships_e + relationships_v)/3 -
-			# 												(relationships_g + relationships_s)/2
-			# coping_result =				(coping_n + coping_e + coping_v)/3 -
-			# 											(coping_g + coping_s)/2
-			# forgiveness_result =	(forgiveness_n + forgiveness_e + forgiveness_v)/3 -
-			# 											(forgiveness_g + forgiveness_s)/2
-			# engagement_result =		(engagement_n + engagement_e + engagement_v)/3 -
-			# 											(engagement_g + engagement_s)/2
-			# joys_result =					(joys_n + joys_e + joys_v)/3 -
-			# 											(joys_g + joys_s)/2
-			# goals_result =				(goals_n + goals_e + goals_v)/3 -
-			# 											(goals_g + goals_s)/2
-			# spirituality_result =	(spirituality_n + spirituality_e + spirituality_v)/3 -
-			# 											(spirituality_g + spirituality_s)/2
-			# body_result =					(body_n + body_e + body_v)/3 -
-			# 											(body_g + body_s)/2
 
 		def zero_out_negatives
 			activities = [:gratitude, :optimism, :comparison, :kindness, 

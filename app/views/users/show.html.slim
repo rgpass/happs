@@ -16,7 +16,7 @@
         h3.panel-title.strong My Happiness
       .panel-body
 	      .text-center
-		      span.free-options data-toggle="tooltip" data-placement="top" title="" data-original-title="Currently under construction. We'll email you when it's done!"
+		      span.free-options
 			      = link_to "Measure My Happiness", new_ohq_path, class: "btn btn-primary"
 	      br/
 	      - if @user.ohqs.count < 1
@@ -34,21 +34,27 @@
   .col-md-7.col-lg-6
     .panel.panel-default.min-height.my-effective-activities
       .panel-heading
-        h3.panel-title.strong My Effective Activities
+        h3.inline.panel-title.strong My Effective Activities
+        - if @user.pafd
+	        p.inline.padding-left
+		        = link_to 'retake', new_pafd_path
       .panel-body
-	      .text-center
-		      span.free-options data-toggle="tooltip" data-placement="top" title="" data-original-title="Currently under construction. We'll email you when it's done!"
-			      = link_to "Determine My Effective Activities", '#', class: "btn btn-primary"
-	      br/
-	      |  The truth is, everybody is different and there's no single way to be happy. That's why Happs uses the #{link_to "Person-Activity Fit Diagnostic", '#'} to determine which activities fit your personality.
-	      br/
-	      br/
-	      blockquote
-		      p
-			      | Know yourself to improve yourself.
-		      small
-			      a href="http://en.wikipedia.org/wiki/Auguste_Comte" Auguste Comte
-			      | , founder of sociology
+	      - unless @user.pafd
+		      .text-center
+			      span.free-options
+				      = link_to "Determine My Effective Activities", new_pafd_path, class: "btn btn-primary"
+		      br/
+		      |  The truth is, everybody is different and there's no single way to be happy. That's why Happs uses the #{link_to "Person-Activity Fit Diagnostic", '#'} to determine which activities fit your personality.
+		      br/
+		      br/
+		      blockquote
+			      p
+				      | Know yourself to improve yourself.
+			      small
+				      a href="http://en.wikipedia.org/wiki/Auguste_Comte" Auguste Comte
+				      | , founder of sociology
+	      - else
+		      #pafd-container style="min-width: 310px; height: 200px; margin: 0 auto"
 .row
   .col-md-5.col-lg-6
 	  .panel.panel-default.min-height.my-activity-history

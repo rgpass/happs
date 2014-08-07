@@ -53,14 +53,22 @@ class UsersController < ApplicationController
   end
 
   def ohq_data
-    @user = User.where(id: params[:user_id]).first
-    example_data = []
+    @user = User.find(params[:user_id])
+    ohq_data = []
     @user.ohqs.reverse.each do |ohq|
       @created_at = ohq.created_at
-      example_data << [@created_at.year, @created_at.month, @created_at.day, ohq.score]
+      ohq_data << [@created_at.year, @created_at.month, @created_at.day, ohq.score]
     end
     respond_to do |format|
-      format.json { render json: example_data }
+      format.json { render json: ohq_data }
+    end
+  end
+
+  def pafd_data
+    @user = User.find(params[:user_id])
+    pafd_data = @user.pafd.results_for_diagram
+    respond_to do |format|
+      format.json { render json: pafd_data }
     end
   end
 

@@ -19,7 +19,7 @@ function updateButton(selected) {
 	}
 }
 
-var selectedCount = function() {
+function selectedCount() {
 	var selectedCount = 0;
 	for (var i = 0; i < selectTags.length; i++) {
 		if (selectTags[i].value != "0") {

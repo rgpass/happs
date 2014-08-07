@@ -41,4 +41,24 @@ describe Pafd do
 	  	expect(@pafd.forgiveness).to eq(0)
   	end
   end
+
+
+  describe ".results_for_diagram" do
+    before { @pafd.save }
+
+    it "returns PAFD result in descending order of score" do
+      expected_result = [
+        ["Expressing gratitude", 4.17], ["Savoring life's joys", 3.83], 
+        ["Practicing acts of kindness", 3.5], 
+        ["Doing more activities that truly engage you", 3.5], 
+        ["Cultivating optimism", 3.0], 
+        ["Practicing religion and spirituality", 2.67], 
+        ["Committing to your goals", 2.17], 
+        ["Avoiding overthinking and social comparison", 2.0], 
+        ["Nurturing relationships", 1.5], ["Taking care of your body", 0.83], 
+        ["Developing strategies for coping", 0.5], ["Learning to forgive", 0.0]
+      ]
+      expect(@pafd.results_for_diagram).to eq(expected_result)
+    end
+  end
 end

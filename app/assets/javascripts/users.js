@@ -80,10 +80,41 @@ $(".users.show").ready(function() {
         }
       ]
     });
-
-    
   });
-
+  $.get('./pafd_data', { user_id: userID }, function(pafd_data) {
+    $("#pafd-container").highcharts({
+      chart: {
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
+      },
+      title: {
+        text: ""
+      },
+      // subtitle: {
+      //   text: "<small>Mouseover for more info</small>"
+      // },
+      tooltip: {
+        pointFormat: "<b>{point.percentage:.1f}% </b>"
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: "pointer",
+          dataLabels: {
+            enabled: false
+          }
+        }
+      },
+      series: [
+        {
+          type: "pie",
+          name: "Make of Happiness",
+          data: pafd_data
+        }
+      ]
+    });
+  });
 });
 
 $('.users.new').ready(function() {

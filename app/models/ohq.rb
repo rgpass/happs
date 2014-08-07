@@ -29,7 +29,7 @@ class Ohq < ActiveRecord::Base
 			sum = [	q1.to_i, q2.to_i, q3.to_i, q4.to_i, q5.to_i, q6.to_i, q7.to_i, q8.to_i, q9.to_i, q10.to_i,
 							q11.to_i, q12.to_i, q13.to_i, q14.to_i, q15.to_i, q16.to_i, q17.to_i, q18.to_i, q19.to_i, q20.to_i,
 							q21.to_i, q22.to_i, q23.to_i, q24.to_i, q25.to_i, q26.to_i, q27.to_i, q28.to_i, q29.to_i].reduce(:+)
-			average = sum / 29
-			self.score ||= (average * 100 / 6).round # If score passed directly, ignore calculation
+			average = sum / 29 - 1 	# Lowest score possible gives 0, highest gives 100
+			self.score ||= (average * 100 / 5).round # If score passed directly, ignore calculation
 		end
 end

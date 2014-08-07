@@ -8,6 +8,9 @@ class OhqsController < ApplicationController
 	def create
 		@ohq = current_user.ohqs.build(ohq_params)
 		if @ohq.save
+			current_user.activities.create(
+				title: "Happiness measured -- #{@ohq.score} / 100", 
+				path: user_path(current_user), category: "Measured Happiness")
 			flash[:success] = "Happiness tracked!"
 			redirect_to current_user
 		else

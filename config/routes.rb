@@ -3,7 +3,10 @@ Happs::Application.routes.draw do
   get "examples/profile_start"
   get "examples/ohq"
   get "examples/activity"
+
+  # AJAX routes
   get "users/ohq_data"
+  get "users/pafd_data"
 
   match "/15CAA848590025BB3B93F642928894E0.txt", to: "static_pages#ssl_validation", via: 'get'
 
