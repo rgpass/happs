@@ -5,8 +5,11 @@ Happs::Application.routes.draw do
   get "examples/activity"
 
   # AJAX routes
-  get "users/ohq_data"
-  get "users/pafd_data"
+  # get "/ohq_data"
+  # get "/pafd_data"
+  match '/ohq_data', to: 'users#ohq_data', via: 'get'
+  match '/pafd_data', to: 'users#pafd_data', via: 'get'
+
 
   match "/15CAA848590025BB3B93F642928894E0.txt", to: "static_pages#ssl_validation", via: 'get'
 
@@ -17,8 +20,9 @@ Happs::Application.routes.draw do
   resources :pafds, only: [:new, :create]
   resources :gratitudes, only: [:new, :create, :show]
   
-  root 'static_pages#home'
+  root 'users#show'
 
+  match '/welcome',   to: 'static_pages#home',      via: 'get'
   match '/help',			to: 'static_pages#help',			via: 'get'
   match '/about',			to: 'static_pages#about',			via: 'get'
   match '/research',	to: 'static_pages#research',	via: 'get'

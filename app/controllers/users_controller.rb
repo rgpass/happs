@@ -40,7 +40,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @activities = @user.activities.paginate(page: params[:page], per_page: 5)
+    if @user
+      @pafd = @user.pafd.present?
+      @ohq = @user.ohqs.any?
+      @activities = @user.activities.paginate(page: params[:page], per_page: 5)
+    end
   end
 
   def destroy
@@ -66,7 +70,11 @@ class UsersController < ApplicationController
 
   def pafd_data
     @user = User.find(params[:user_id])
-    pafd_data = @user.pafd.results_for_diagram
+    unless @user.pafd.nil?
+      pafd_data = @user.pafd.results_for_diagram
+    else
+      pafd_data = []
+    end
     respond_to do |format|
       format.json { render json: pafd_data }
     end
@@ -80,7 +88,7 @@ class UsersController < ApplicationController
   	end
 
     def correct_user
-      @user = User.find(params[:id])
+      @user = params[:id] ? User.find(params[:id]) : current_user
       redirect_to(root_url) unless current_user?(@user) || current_user.try(:admin)
     end
 

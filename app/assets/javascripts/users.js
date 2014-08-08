@@ -36,85 +36,93 @@ $(".users.show").ready(function() {
   });
 
   var userID = $('#user-info').data('id');
-  $.get('./ohq_data', { user_id: userID }, function(ohq_data) {
-    for (var i = 0; i < ohq_data.length; i++) {
-      ohq_data[i] = [Date.UTC(ohq_data[i][0], ohq_data[i][1]-1, ohq_data[i][2]), ohq_data[i][3]];
-    }
+  var userOHQ = $('#user-info').data('ohq');
+  var userPAFD = $('#user-info').data('pafd');
+  if (userID != undefined) {
+    if (userOHQ) {
+      $.get('../ohq_data', { user_id: userID }, function(ohq_data) {
+        for (var i = 0; i < ohq_data.length; i++) {
+          ohq_data[i] = [Date.UTC(ohq_data[i][0], ohq_data[i][1]-1, ohq_data[i][2]), ohq_data[i][3]];
+        }
 
-    $("#ohq-container").highcharts({
-      chart: {
-        type: "spline"
-      },
-      title: {
-        text: ""
-      },
-      subtitle: {
-        text: ""
-      },
-      xAxis: {
-        type: "datetime",
-        dateTimeLabelFormats: {
-          day: "%b %e",
-          month: "%b %e",
-          year: "%b"
-        },
-        title: {
-          text: ""
-        },
-      },
-      yAxis: {
-        title: {
-          text: ""
-        },
-        max: 100
-      },
-      tooltip: {
-        headerFormat: "<b>Happiness Level</b><br>",
-        pointFormat: "{point.x:%b %e}: {point.y:.0f} / 100"
-      },
-      series: [
-        {
-          showInLegend: false,
-          data: ohq_data,
-          pointInterval: 30 * 24 * 3600 * 1000
-        }
-      ]
-    });
-  });
-  $.get('./pafd_data', { user_id: userID }, function(pafd_data) {
-    $("#pafd-container").highcharts({
-      chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: null,
-        plotShadow: false
-      },
-      title: {
-        text: ""
-      },
-      // subtitle: {
-      //   text: "<small>Mouseover for more info</small>"
-      // },
-      tooltip: {
-        pointFormat: "<b>{point.percentage:.1f}% </b>"
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: "pointer",
-          dataLabels: {
-            enabled: false
-          }
-        }
-      },
-      series: [
-        {
-          type: "pie",
-          name: "Make of Happiness",
-          data: pafd_data
-        }
-      ]
-    });
-  });
+        $("#ohq-container").highcharts({
+          chart: {
+            type: "spline"
+          },
+          title: {
+            text: ""
+          },
+          subtitle: {
+            text: ""
+          },
+          xAxis: {
+            type: "datetime",
+            dateTimeLabelFormats: {
+              day: "%b %e",
+              month: "%b %e",
+              year: "%b"
+            },
+            title: {
+              text: ""
+            },
+          },
+          yAxis: {
+            title: {
+              text: ""
+            },
+            max: 100
+          },
+          tooltip: {
+            headerFormat: "<b>Happiness Level</b><br>",
+            pointFormat: "{point.x:%b %e}: {point.y:.0f} / 100"
+          },
+          series: [
+            {
+              showInLegend: false,
+              data: ohq_data,
+              pointInterval: 30 * 24 * 3600 * 1000
+            }
+          ]
+        });
+      });
+    }
+    if (userPAFD) {
+      $.get('../pafd_data', { user_id: userID }, function(pafd_data) {
+        $("#pafd-container").highcharts({
+          chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+          },
+          title: {
+            text: ""
+          },
+          // subtitle: {
+          //   text: "<small>Mouseover for more info</small>"
+          // },
+          tooltip: {
+            pointFormat: "<b>{point.percentage:.1f}% </b>"
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: "pointer",
+              dataLabels: {
+                enabled: false
+              }
+            }
+          },
+          series: [
+            {
+              type: "pie",
+              name: "Make of Happiness",
+              data: pafd_data
+            }
+          ]
+        });
+      });
+    }
+  }
 });
 
 $('.users.new').ready(function() {
