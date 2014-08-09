@@ -5,6 +5,7 @@ class Gratitude < ActiveRecord::Base
 
 	has_attached_file :photo
 	validates_attachment :photo, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+	validates_with AttachmentSizeValidator, :attributes => :photo, :less_than => 3.megabytes
 
 	before_create :sanitize_content
 
