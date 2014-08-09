@@ -30,3 +30,6 @@ server.csr
 server.key
 server.pass.key
 *.crt
+
+# Ignore Paperclip uploads
+/public/system
