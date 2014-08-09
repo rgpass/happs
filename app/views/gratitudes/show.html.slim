@@ -3,11 +3,25 @@
 h1
 	| Gratitude
 
-h2
-	= @gratitude.title
+p.strong.no-margin
+	| I am grateful for:
 
-p
-	= @gratitude.content
+h2.no-margin
+	| #{@gratitude.title}
+
+br/
+
+.row
+	.col-sm-6
+		p.strong.no-margin
+			| Because:
+		p.no-margin
+			= simple_format(@gratitude.content)
+		- if @gratitude.photo.present?
+			br/
+			br/
+			= image_tag @gratitude.photo.url, class: "paperclip"
+			br/
 
 br/
 = link_to "Back to Profile", user_path(@gratitude.user), class: "btn btn-primary"

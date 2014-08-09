@@ -26,7 +26,7 @@ class GratitudesController < ApplicationController
 	private
 
 		def gratitude_params
-			params.fetch(:gratitude, Hash.new).permit(:title, :content)
+			params.fetch(:gratitude, Hash.new).permit(:title, :content, :photo)
 		end
 
 		def correct_user

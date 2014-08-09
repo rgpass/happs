@@ -18,6 +18,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'font-awesome-sass'
 gem 'newrelic_rpm'
 gem 'slim'
+gem "paperclip", "~> 4.1"
+gem "aws-sdk"
 
 group :doc do
   gem 'sdoc', require: false
