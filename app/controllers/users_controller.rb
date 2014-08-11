@@ -44,6 +44,7 @@ class UsersController < ApplicationController
       @pafd = @user.pafd.present?
       @ohq = @user.ohqs.any?
       @activities = @user.activities.paginate(page: params[:page], per_page: 5)
+      @breakdown = @user.activities.real_activities
     end
   end
 
@@ -77,6 +78,14 @@ class UsersController < ApplicationController
     end
     respond_to do |format|
       format.json { render json: pafd_data }
+    end
+  end
+
+  def breakdown_data
+    @user = User.find(params[:user_id])
+    @breakdown = @user.activities.results_for_diagram
+    respond_to do |format|
+      format.json { render json: @breakdown}
     end
   end
 

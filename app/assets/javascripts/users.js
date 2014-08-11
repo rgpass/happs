@@ -38,6 +38,7 @@ $(".users.show").ready(function() {
   var userID = $('#user-info').data('id');
   var userOHQ = $('#user-info').data('ohq');
   var userPAFD = $('#user-info').data('pafd');
+  var userBreakdown = $('#user-info').data('breakdown');
   if (userID != undefined) {
     if (userOHQ) {
       $.get('../ohq_data', { user_id: userID }, function(ohq_data) {
@@ -117,6 +118,42 @@ $(".users.show").ready(function() {
               type: "pie",
               name: "Make of Happiness",
               data: pafd_data
+            }
+          ]
+        });
+      });
+    }
+    if (userBreakdown) {
+      $.get('../breakdown_data', { user_id: userID }, function(breakdown_data) {
+        $("#breakdown-container").highcharts({
+          chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+          },
+          title: {
+            text: ""
+          },
+          // subtitle: {
+          //   text: "<small>Mouseover for more info</small>"
+          // },
+          tooltip: {
+            pointFormat: "<b>{point.percentage:.1f}% </b>"
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: "pointer",
+              dataLabels: {
+                enabled: false
+              }
+            }
+          },
+          series: [
+            {
+              type: "pie",
+              name: "Make of Happiness",
+              data: breakdown_data
             }
           ]
         });

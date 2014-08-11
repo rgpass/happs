@@ -9,6 +9,7 @@ Happs::Application.routes.draw do
   # get "/pafd_data"
   match '/ohq_data', to: 'users#ohq_data', via: 'get'
   match '/pafd_data', to: 'users#pafd_data', via: 'get'
+  match '/breakdown_data', to: 'users#breakdown_data', via: 'get'
 
 
   match "/15CAA848590025BB3B93F642928894E0.txt", to: "static_pages#ssl_validation", via: 'get'

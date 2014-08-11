@@ -2,7 +2,7 @@
 	- provide(:title, full_name(@user))
 	.row
 	  .col-xs-12
-	    h1#user-info.inline-block data-id="#{@user.id}" data-pafd="#{@pafd}" data-ohq="#{@ohq}" = full_name(@user)
+	    h1#user-info.inline-block data-id="#{@user.id}" data-pafd="#{@pafd}" data-ohq="#{@ohq}" data-breakdown="#{@breakdown}" = full_name(@user)
 	    p.inline-block.next-step
 	      em Suggested Next Step: 
 	      | Tell all your friends about #{link_to "Happs", root_path}. :)
@@ -69,16 +69,19 @@
 					  span.free-options data-toggle="tooltip"
 						  button.btn.btn-primary data-toggle="modal" data-target="#newActivity"
 							  | Do a Happiness Activity
-				  br/
-				  | Once you've done at least one activity, Happs will provide you a visual breakdown of what you've done.
-				  br/
-				  br/
-				  blockquote
-					  p
-						  | Action may not bring happiness, but there is no happiness without action.
-					  small
-						  a href="http://en.wikipedia.org/wiki/William_James" target="_blank" William James
-						  | , founder of pragmatism and functional psychology
+				  - if @breakdown.count < 1
+					  br/
+					  | Once you've done at least one activity, Happs will provide you a visual breakdown of what you've done.
+					  br/
+					  br/
+					  blockquote
+						  p
+							  | Action may not bring happiness, but there is no happiness without action.
+						  small
+							  a href="http://en.wikipedia.org/wiki/William_James" target="_blank" William James
+							  | , founder of pragmatism and functional psychology
+				  - else
+					  #breakdown-container style="min-width: 310px; height: 200px; margin: 0 auto"
 	#newActivity.modal.fade tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
 		.modal-dialog
 			.modal-content
