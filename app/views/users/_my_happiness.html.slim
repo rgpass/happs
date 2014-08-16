@@ -1,0 +1,16 @@
+.text-center
+  span.free-options
+    = link_to "Measure My Happiness", new_ohq_path, class: "btn btn-primary"
+br/
+- if @user.ohqs.count < 1
+  |  Using the #{link_to "Oxford Happiness Questionnaire", '#'}, Happs is able to track your happiness over time. Quantifying happiness is the first step in the improvement process.
+  br/
+  br/
+  blockquote.no-margin
+    p
+      | What gets measured, gets managed.
+    small
+      a href="http://en.wikipedia.org/wiki/Peter_Drucker" target="_blank" Peter Drucker
+      | , management legend
+- else
+	#ohq-container style="min-width: 310px; height: 200px; margin: 0 auto"

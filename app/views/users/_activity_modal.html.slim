@@ -1,0 +1,36 @@
+#newActivity.modal.fade tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close type="button" data-dismiss="modal"
+					span aria-hidden="true"
+						| &times;
+					span.sr-only
+						| Close
+				h4#myModalLabel.modal-title
+					| New Happiness Activity
+			.modal-body
+				p
+					| We're currently building out activities. Thank you for your patience. :)
+				h4
+					| Finished Activities
+				= link_to "Express gratitude", new_gratitude_path, class: "btn btn-primary"
+				br/
+				br/
+				h4
+					| Under Construction
+				ul
+					li Savoring life's joys
+					li Practicing acts of kindness
+					li Doing more activities that truly engage you
+					li Cultivating optimism
+					li Practicing religion and spirituality
+					li Committing to your goals
+					li Avoiding overthinking and social comparison
+					li Nurturing relationships
+					li Taking care of your body
+					li Developing strategies for coping
+					li Learning to forgive
+			.modal-footer
+				button.btn.btn-primary type="button" data-dismiss="modal"
+					| Close

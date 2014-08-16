@@ -1,0 +1,16 @@
+- unless @user.pafd
+  .text-center
+    span.free-options
+      = link_to "Determine My Effective Activities", new_pafd_path, class: "btn btn-primary"
+  br/
+  |  The truth is, everybody is different and there's no single way to be happy. That's why Happs uses the #{link_to "Person-Activity Fit Diagnostic", '#'} to determine which activities fit your personality.
+  br/
+  br/
+  blockquote
+    p
+      | Know yourself to improve yourself.
+    small
+      a href="http://en.wikipedia.org/wiki/Auguste_Comte" target="_blank" Auguste Comte
+      | , founder of sociology
+- else
+  #pafd-container style="min-width: 310px; height: 200px; margin: 0 auto"
