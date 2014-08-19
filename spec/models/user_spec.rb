@@ -18,6 +18,9 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:subjective_happiness_scales) }
+  it { should respond_to(:gratitudes) }
+  it { should respond_to(:joys) }
+  it { should respond_to(:kindnesses) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -236,44 +239,19 @@ describe User do
 		end
 	end
 
-	describe "pafd associations" do
-		before { @user = FactoryGirl.create(:user) }
-		let!(:pafd) { FactoryGirl.create(:pafd, user: @user) }
+  describe "pafd associations" do
+  	it_should_behave_like "activity associations", Pafd, "pafd"
+  end
 
-		describe "on user destroy" do
-			before do
-				@user.destroy
-			end
+  describe "gratitude associations" do
+  	it_should_behave_like "activity associations", Gratitude, "gratitude"
+  end
 
-			it "destroys assoc pafd" do
-				expect(Pafd.where(id: pafd.id)).to be_empty
-			end
-		end
-	end
+  describe "joy associations" do
+  	it_should_behave_like "activity associations", Joy, "joy"
+  end
 
-	describe "gratitude associations" do
-		before { @user = FactoryGirl.create(:user) }
-		let!(:gratitude) { FactoryGirl.create(:gratitude, user: @user) }
-
-		describe "on user destroy" do
-			before { @user.destroy }
-
-			it "destroys assoc gratitude" do
-				expect(Gratitude.where(id: gratitude.id)).to be_empty
-			end
-		end
-	end
-
-	describe "joy associations" do
-		before { @user = FactoryGirl.create(:user) }
-		let!(:joy) { FactoryGirl.create(:joy, user: @user) }
-
-		describe "on user destroy" do
-			before { @user.destroy }
-
-			it "destroys assoc joy" do
-				expect(Joy.where(id: joy.id)).to be_empty
-			end
-		end
-	end
+  describe "kindness associations" do
+  	it_should_behave_like "activity associations", Kindness, "kindness"
+  end
 end

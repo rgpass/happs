@@ -1,0 +1,100 @@
+- provide(:title, "Practice Acts of Kindness")
+
+h1
+	| Acts of Kindness
+
+= form_for(@kindness) do |f|
+	= render 'shared/error_messages', object: f.object
+	.row
+		.col-sm-5.form-font.form-padding.form
+			= f.label :title, "What did you do?", class: "control-label"
+			= f.text_field :title, class: "form-control input-sm", autofocus: true
+			= f.label :content, "Describe your experience. To whom? When?", class: "control-label"
+			= f.text_area :content, class: "form-control input-sm", rows: 3
+			br/
+			= f.file_field :photo
+			br/
+			= f.submit "All Done", class: "btn btn-primary"
+		.col-sm-5.col-sm-offset-1
+			blockquote
+				p
+					| Kindness is the language which the deaf can hear and the blind can see.
+				small
+					a href="http://en.wikipedia.org/wiki/Mark_Twain" target="_blank" Mark Twain
+					| , author and humorist
+			p
+				span.strong
+					| Strategies:
+				|  (click to expand)
+			#accordion.panel-group.tips
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse1" data-toggle="collapse" data-parent="#accordion"
+								| Generate a list of ideas
+					#collapse1.panel-collapse.collapse
+						.panel-body
+							| There are an infinite amount of acts of kindness that can be done. For starters, look no further than friends and family.
+							br/
+							br/
+							| Some other examples:
+							ul
+								li by a friend a Sunday
+								li wash someone else's dishes
+								li donate blood
+								li stay with a friend on their first night in a new place
+								li visit a nursing home
+								li help a stranger with computer problems
+								li let a friend borrow your car
+								li give a homeless person $20
+								li tell a professor thank you for their hard work
+								li tutor at a middle school
+								li help raise funds for a good cause
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse2" data-toggle="collapse" data-parent="#accordion"
+								| Timing is everything
+					#collapse2.panel-collapse.collapse
+						.panel-body
+							| The best results occur when you do all the kindness activities in one day rather than distributing them out over time.
+							br/
+							br/
+							| This is believed to happen because it's not distinguisable from your habitual kind behavior. Try to do them all on one day and the next week spread them out. See what works best for you!
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse3" data-toggle="collapse" data-parent="#accordion"
+								| Surprise someone
+					#collapse3.panel-collapse.collapse
+						.panel-body
+							| Give someone a hook-cooked meal, an outing, a gift, a letter, or a phone call.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse3" data-toggle="collapse" data-parent="#accordion"
+								| Keep it a secret
+					#collapse3.panel-collapse.collapse
+						.panel-body
+							| At least once a week, do a kind deed about which you tell no one and expect nothing in return. Ensure that you don't sit around and wonder why people are not as considerate as you. These two things together will deepen your sense of value, meaning, and self-worth.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse3" data-toggle="collapse" data-parent="#accordion"
+								| Word of caution
+					#collapse3.panel-collapse.collapse
+						.panel-body
+							| For the effects to occur, make sure the acts you choose are:
+							ul
+								li not forced to be done (such as caregiving)
+								li is done freely and autonomously
+								li the person wants your help
+								li don't make you self-righteous or condescending
+			p
+				span.strong
+					| Tip:
+				|  Keep it fresh. Think of new acts you can do. Try not to do the same one more than twice.
+			p
+				span.strong
+					| Tip:
+				|  For more ideas, Google around and write down ones you could see yourself doing.

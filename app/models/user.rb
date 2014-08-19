@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	has_one	 :pafd, dependent: :destroy
 	has_many :gratitudes, dependent: :destroy
 	has_many :joys, dependent: :destroy
+	has_many :kindnesses, dependent: :destroy
 
 	before_save { email.downcase! }
 	before_create :create_remember_token

@@ -2,11 +2,12 @@ FactoryGirl.define do
 	factory :user do
 		sequence(:first_name)	{ |n| "First#{n}" }
 		sequence(:last_name)	{ |n| "Last#{n}" }
-		sequence(:email)			{ |n| "person_#{n}@happs.io" }
+		sequence(:email)			{ |n| "person-#{n}@gmail.com" }
 		password 		"foobar"
 		password_confirmation "foobar"
 
 		factory :admin do
+			email { Faker::Internet.email }
 			admin true
 		end
 	end
@@ -56,6 +57,12 @@ FactoryGirl.define do
 	factory :joy do
 		title "Eating ice cream"
 		content "Ate a ridic amount of ice cream and it was delicious"
+		user
+	end
+
+	factory :kindness do
+		title "Helped an old lady"
+		content "She was crossing the street looking nervous"
 		user
 	end
 end

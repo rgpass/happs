@@ -1,0 +1,27 @@
+- provide(:title, @kindness.title)
+
+h1
+	| Act of Kindness
+
+p.strong.no-margin
+	| My act:
+
+h2.no-margin
+	| #{@kindness.title}
+
+br/
+
+.row
+	.col-sm-6
+		p.strong.no-margin
+			| My experience:
+		p.no-margin
+			= simple_format(@kindness.content)
+		- if @kindness.photo.present?
+			br/
+			br/
+			= image_tag @kindness.photo.url, class: "paperclip"
+			br/
+
+br/
+= link_to "Back to Profile", user_path(@kindness.user), class: "btn btn-primary"

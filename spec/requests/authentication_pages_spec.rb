@@ -162,41 +162,9 @@ describe "authentication_pages" do
         end
       end
 
-      describe "in Gratitudes controller" do
-        describe "new gratitude GET /gratitudes/new" do
-          before { visit new_gratitude_path }
-          it { should have_title('Sign In') }
-        end
-
-        describe "create gratitude POST /gratitudes" do
-          before { post gratitudes_path }
-          specify { expect(response).to redirect_to(signin_path) }
-        end
-
-        describe "show gratitude GET /gratitudes/:id" do
-          let!(:gratitude) { FactoryGirl.create(:gratitude) }
-          before { visit gratitude_path(gratitude) }
-          it { should have_title('Sign In') }
-        end
-      end
-
-      describe "in Joys controller" do
-        describe "new joy GET /joys/new" do
-          before { visit new_joy_path }
-          it { should have_title('Sign In') }
-        end
-
-        describe "create joy POST /joys" do
-          before { post joys_path }
-          specify { expect(response).to redirect_to(signin_path) }
-        end
-
-        describe "show joy GET /joys/:id" do
-          let!(:joy) { FactoryGirl.create(:joy) }
-          before { visit joy_path(joy) }
-          it { should have_title('Sign In') }
-        end
-      end
+      it_should_behave_like "!signed_in? activity controller", "gratitude"
+      it_should_behave_like "!signed_in? activity controller", "joy"
+      it_should_behave_like "!signed_in? activity controller", "kindness"
     end
 
     describe "as wrong user" do
@@ -223,20 +191,15 @@ describe "authentication_pages" do
       end
 
       describe "in Gratitudes controller" do
-        describe "show page GET /gratitudes/:id" do
-          let!(:wrong_users_gratitude) { FactoryGirl.create(:gratitude,
-            user: wrong_user) }
-          before { get gratitude_path(wrong_users_gratitude) }
-          specify { expect(response).to redirect_to(root_url) }
-        end
+        it_should_behave_like "wrong_user activity#show", "gratitude"
       end
 
       describe "in Joys controller" do
-        describe "show page GET /joys/:id" do
-          let!(:wrong_users_joy) { FactoryGirl.create(:joy, user: wrong_user) }
-          before { get joy_path(wrong_users_joy) }
-          specify { expect(response).to redirect_to(root_url) }
-        end
+        it_should_behave_like "wrong_user activity#show", "joy"
+      end
+
+      describe "in Kindnesses controller" do
+        it_should_behave_like "wrong_user activity#show", "kindness"
       end
     end
 
@@ -286,19 +249,15 @@ describe "authentication_pages" do
       end
 
       describe "in Gratitudes controller" do
-        describe "show page GET /gratitudes/:id" do
-          let!(:gratitude) { FactoryGirl.create(:gratitude, user: user) }
-          before { get gratitude_path(gratitude) }
-          specify { expect(response.body).to match(gratitude.title) }
-        end
+        it_should_behave_like "#admin? activity#show", "gratitude"
       end
 
       describe "in Joys controller" do
-        describe "show page GET /joys/:id" do
-          let!(:joy) { FactoryGirl.create(:joy, user: user) }
-          before { get joy_path(joy) }
-          specify { expect(response.body).to match(joy.title) }
-        end
+        it_should_behave_like "#admin? activity#show", "joy"
+      end
+
+      describe "in Kindnesses controller" do
+        it_should_behave_like "#admin? activity#show", "kindness"
       end
     end
   end
