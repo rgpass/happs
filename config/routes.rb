@@ -1,12 +1,11 @@
 Happs::Application.routes.draw do
+
   get "examples/profile_complete"
   get "examples/profile_start"
   get "examples/ohq"
   get "examples/activity"
 
   # AJAX routes
-  # get "/ohq_data"
-  # get "/pafd_data"
   match '/ohq_data', to: 'users#ohq_data', via: 'get'
   match '/pafd_data', to: 'users#pafd_data', via: 'get'
   match '/breakdown_data', to: 'users#breakdown_data', via: 'get'
@@ -20,6 +19,7 @@ Happs::Application.routes.draw do
   resources :ohqs, only: [:new, :create]
   resources :pafds, only: [:new, :create]
   resources :gratitudes, only: [:new, :create, :show]
+  resources :joys, only: [:new, :create, :show]
   
   root 'users#show'
 

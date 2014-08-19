@@ -263,4 +263,17 @@ describe User do
 			end
 		end
 	end
+
+	describe "joy associations" do
+		before { @user = FactoryGirl.create(:user) }
+		let!(:joy) { FactoryGirl.create(:joy, user: @user) }
+
+		describe "on user destroy" do
+			before { @user.destroy }
+
+			it "destroys assoc joy" do
+				expect(Joy.where(id: joy.id)).to be_empty
+			end
+		end
+	end
 end

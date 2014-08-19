@@ -1,0 +1,27 @@
+- provide(:title, @joy.title)
+
+h1
+	| Savor Joy
+
+p.strong.no-margin
+	| I savored:
+
+h2.no-margin
+	| #{@joy.title}
+
+br/
+
+.row
+	.col-sm-6
+		p.strong.no-margin
+			| My experience:
+		p.no-margin
+			= simple_format(@joy.content)
+		- if @joy.photo.present?
+			br/
+			br/
+			= image_tag @joy.photo.url, class: "paperclip"
+			br/
+
+br/
+= link_to "Back to Profile", user_path(@joy.user), class: "btn btn-primary"

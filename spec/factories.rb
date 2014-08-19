@@ -52,4 +52,10 @@ FactoryGirl.define do
 		content	"Because she's the bomb dot com"
 		user
 	end
+
+	factory :joy do
+		title "Eating ice cream"
+		content "Ate a ridic amount of ice cream and it was delicious"
+		user
+	end
 end

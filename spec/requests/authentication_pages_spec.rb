@@ -179,6 +179,24 @@ describe "authentication_pages" do
           it { should have_title('Sign In') }
         end
       end
+
+      describe "in Joys controller" do
+        describe "new joy GET /joys/new" do
+          before { visit new_joy_path }
+          it { should have_title('Sign In') }
+        end
+
+        describe "create joy POST /joys" do
+          before { post joys_path }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+
+        describe "show joy GET /joys/:id" do
+          let!(:joy) { FactoryGirl.create(:joy) }
+          before { visit joy_path(joy) }
+          it { should have_title('Sign In') }
+        end
+      end
     end
 
     describe "as wrong user" do
@@ -209,6 +227,14 @@ describe "authentication_pages" do
           let!(:wrong_users_gratitude) { FactoryGirl.create(:gratitude,
             user: wrong_user) }
           before { get gratitude_path(wrong_users_gratitude) }
+          specify { expect(response).to redirect_to(root_url) }
+        end
+      end
+
+      describe "in Joys controller" do
+        describe "show page GET /joys/:id" do
+          let!(:wrong_users_joy) { FactoryGirl.create(:joy, user: wrong_user) }
+          before { get joy_path(wrong_users_joy) }
           specify { expect(response).to redirect_to(root_url) }
         end
       end
@@ -264,6 +290,14 @@ describe "authentication_pages" do
           let!(:gratitude) { FactoryGirl.create(:gratitude, user: user) }
           before { get gratitude_path(gratitude) }
           specify { expect(response.body).to match(gratitude.title) }
+        end
+      end
+
+      describe "in Joys controller" do
+        describe "show page GET /joys/:id" do
+          let!(:joy) { FactoryGirl.create(:joy, user: user) }
+          before { get joy_path(joy) }
+          specify { expect(response.body).to match(joy.title) }
         end
       end
     end

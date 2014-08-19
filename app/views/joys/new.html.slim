@@ -1,0 +1,134 @@
+- provide(:title, "Savor Life\'s Joys")
+
+h1
+	| Savor Joy
+
+= form_for(@joy) do |f|
+	= render 'shared/error_messages', object: f.object
+	.row
+		.col-sm-5.form-font.form-padding.form
+			= f.label :title, "What did/will/are you enjoy(ing)?", class: "control-label"
+			= f.text_field :title, class: "form-control input-sm", autofocus: true
+			= f.label :content, "Describe your experience.", class: "control-label"
+			= f.text_area :content, class: "form-control input-sm", rows: 3
+			br/
+			= f.file_field :photo
+			br/
+			= f.submit "All Done", class: "btn btn-primary"
+		.col-sm-5.col-sm-offset-1
+			blockquote
+				p
+					| My advice to you is not to inquire why or whither, but just enjoy your ice cream while it's on your plate.
+				small
+					a href="http://en.wikipedia.org/wiki/Thornton_Wilder" target="_blank" Thorton Wilder
+					| , three time Pulitzer Prize winner
+			p
+				span.strong
+					| Strategies:
+				|  (click to expand)
+			#accordion.panel-group.tips
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse1" data-toggle="collapse" data-parent="#accordion"
+								| Relish ordinary experiences
+					#collapse1.panel-collapse.collapse
+						.panel-body
+							| Consider your daily routine activities and rituals. Instead of dashing through them, seize those pleasures then they happen and take full advantage of them.
+							br/
+							br/
+							| During your next meal, absorb the aroma, the flavor, the environment around you, how you feel. Or next time you complete something, bask in the feeling of accomplishment for a few seconds or minutes before moving on to the next task.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse2" data-toggle="collapse" data-parent="#accordion"
+								| Savor and reminisce with family and friends
+					#collapse2.panel-collapse.collapse
+						.panel-body
+							| Pick an activity that you'll enjoy and a friend you know who will enjoy the activity and its experience as well. Set aside some time during or after the activity to marvel at the experience.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse3" data-toggle="collapse" data-parent="#accordion"
+								| Transport yourself
+					#collapse3.panel-collapse.collapse
+						.panel-body
+							| Make a list of happy memories and personal mementos (such as photographs, gifts, and souvenirs) and choose one to reflect upon. Then sit down, take a deep breath, relax, close your eyes, and begin to think about the memory. Allow images related to the memory to come to mind. Try to picture the events associated with this memory in your mind. Use your mind to imagine the memory. Let your mind wander freely through the details of the memory, while you are imagining the memory.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse4" data-toggle="collapse" data-parent="#accordion"
+								| Replay happy days
+					#collapse4.panel-collapse.collapse
+						.panel-body
+							| The practice of repetitively replaying your happiest life events serves to prolong and reinforce positive emotions and make you happier. Think about one of your happiest days (such as a wedding, graduation, getting a puppy), and replay it in your mind as if watching a movie. Think about specific events and remember the details.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse5" data-toggle="collapse" data-parent="#accordion"
+								| Celebrate good news
+					#collapse5.panel-collapse.collapse
+						.panel-body
+							| Share good news with close friends and family. It doesn't matter if it's your good news or your spouse's, friend's, or cousin's. Patting yourself on the back, tell yourself how hard you've worked for this moment, and imagine how impressed people might be. Do the same for your spouse or friend or cousin.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse6" data-toggle="collapse" data-parent="#accordion"
+								| Be open to beauty and excellence
+					#collapse6.panel-collapse.collapse
+						.panel-body
+							| Allow yourself to truly admire an object of beauty or a display of talent, genius, or virtue. Strive even to feel reverence and awe. People who open themselves to the beauty and excellence around them are more likely to find joy, meaning, and profound connections in their lives.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse7" data-toggle="collapse" data-parent="#accordion"
+								| Be mindful
+					#collapse7.panel-collapse.collapse
+						.panel-body
+							| Be mindfully attentive to the here and now and keenly aware of your surroundings. People who actively practice this are models of flourishing and positive mental health.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse8" data-toggle="collapse" data-parent="#accordion"
+								| Create a savoring album
+					#collapse8.panel-collapse.collapse
+						.panel-body
+							| Create a photo album of your favorite people, places, or things--family, friends, pets, famous paintings, etc. Try including other happiness-inducing or meaningful items--your acceptance letter to college, a love note, a favorite recipe, a niece's drawing, or an article about your favorite actor. Look back on this album from time to time, but not too often to make sure you avoid adaptation.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse9" data-toggle="collapse" data-parent="#accordion"
+								| Savor with your camera
+					#collapse9.panel-collapse.collapse
+						.panel-body
+							| Most photographers feel detached from momements and experiences because they feel like observers rather than an experiencer. Teach yourself to use your camera in a way that enhances your ongoing experiences, by truly looking at things and noticing what is beautiful and meaningful.
+							br/
+							br/
+							| Don't just create as many pictures as possible; try to take, print, and frame the best picture you know how.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse10" data-toggle="collapse" data-parent="#accordion"
+								| Seek bittersweet experiences
+					#collapse10.panel-collapse.collapse
+						.panel-body
+							| A bittersweet experience is one that typically involves happiness and sadness mixed together, such as a fun/great event that is ending soon. Although bittersweet experiences also make us sad, it is this sadness that prompts us, instead of taking it for granted, to come to appreciate the positive aspects of our vacation, colleague, or hometown; it's "now or never."
+							br/
+							br/
+							| Some examples are a vacation coming to an end, a phase of life, watching your child board the bus for the first day of kindergarten, a colleague changing jobs, and moving to a new city.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse11" data-toggle="collapse" data-parent="#accordion"
+								| Wax nostalgic
+					#collapse11.panel-collapse.collapse
+						.panel-body
+							| Nuture those nostalgic feelings; they will make you feel warm about your past and bring back cherished memories of beauty, pleasure, goodness, and love. Don't compare these feelings with the present; focus only on the positives and how they have enriched your life.
+			p
+				span.strong
+					| Tip:
+				|  Don't organize your thoughts. Write whatever comes to mind.
+			p
+				span.strong
+					| Tip:
+				|  Being in the present is best done sparingly. There can be too much of a good thing.

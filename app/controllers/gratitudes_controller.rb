@@ -13,7 +13,7 @@ class GratitudesController < ApplicationController
 				title: @gratitude.title, 
 				path: gratitude_path(@gratitude), category: "Expressing gratitude")
 			flash[:success] = "Gratitude tracked: #{@gratitude.title}"
-			redirect_to current_user
+			redirect_to root_url
 		else
 			render 'new'
 		end
