@@ -77,6 +77,9 @@ describe "authentication_pages" do
   end
 
   describe "authorization" do
+    quantifiers = ["subjective_happiness_scale", "ohq", "pafd"]
+    activities = ["gratitude", "joy", "kindness"]
+
     describe "for non-signed in users" do
       let(:user) { FactoryGirl.create(:user) }
 
@@ -126,45 +129,13 @@ describe "authentication_pages" do
         end
       end
 
-      describe "in SubjectiveHappinessScales controller" do
-        describe "new shs GET /subjective_happiness_scales/new" do
-          before { visit new_subjective_happiness_scale_path }
-          it { should have_title('Sign In') }
-        end
-
-        describe "create shs POST /subjective_happiness_scales" do
-          before { post subjective_happiness_scales_path }
-          specify { expect(response).to redirect_to(signin_path) }
-        end
+      quantifiers.each do |quantifier|
+        it_should_behave_like "!signed_in? quantifiers controller", quantifier
       end
 
-      describe "in Ohqs controller" do
-        describe "new ohq GET /ohqs/new" do
-          before { visit new_ohq_path }
-          it { should have_title('Sign In') }
-        end
-
-        describe "create ohq POST /ohqs" do
-          before { post ohqs_path }
-          specify { expect(response).to redirect_to(signin_path) }
-        end
+      activities.each do |activity|
+        it_should_behave_like "!signed_in? activity controller", activity
       end
-
-      describe "in Pafds controller" do
-        describe "new pafd GET /pafds/new" do
-          before { visit new_pafd_path }
-          it { should have_title('Sign In') }
-        end
-
-        describe "create pafd POST /pafds" do
-          before { post pafds_path }
-          specify { expect(response).to redirect_to(signin_path) }
-        end
-      end
-
-      it_should_behave_like "!signed_in? activity controller", "gratitude"
-      it_should_behave_like "!signed_in? activity controller", "joy"
-      it_should_behave_like "!signed_in? activity controller", "kindness"
     end
 
     describe "as wrong user" do
@@ -190,16 +161,8 @@ describe "authentication_pages" do
         end
       end
 
-      describe "in Gratitudes controller" do
-        it_should_behave_like "wrong_user activity#show", "gratitude"
-      end
-
-      describe "in Joys controller" do
-        it_should_behave_like "wrong_user activity#show", "joy"
-      end
-
-      describe "in Kindnesses controller" do
-        it_should_behave_like "wrong_user activity#show", "kindness"
+      activities.each do |activity|
+        it_should_behave_like "wrong_user activity#show", activity
       end
     end
 
@@ -248,16 +211,8 @@ describe "authentication_pages" do
         end
       end
 
-      describe "in Gratitudes controller" do
-        it_should_behave_like "#admin? activity#show", "gratitude"
-      end
-
-      describe "in Joys controller" do
-        it_should_behave_like "#admin? activity#show", "joy"
-      end
-
-      describe "in Kindnesses controller" do
-        it_should_behave_like "#admin? activity#show", "kindness"
+      activities.each do |activity|
+        it_should_behave_like "#admin? activity#show", activity
       end
     end
   end
