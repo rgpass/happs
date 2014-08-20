@@ -21,6 +21,7 @@ Happs::Application.routes.draw do
   resources :gratitudes, only: [:new, :create, :show]
   resources :joys, only: [:new, :create, :show]
   resources :kindnesses, only: [:new, :create, :show]
+  resources :engagements, only: [:new, :create, :show]
   
   root 'users#show'
 

@@ -239,19 +239,15 @@ describe User do
 		end
 	end
 
-  describe "pafd associations" do
-  	it_should_behave_like "activity associations", Pafd, "pafd"
-  end
+	activities = [
+		{ name: "pafd", model: Pafd },
+		{ name: "gratitude", model: Gratitude },
+		{ name: "joy", model: Joy },
+		{ name: "kindness", model: Kindness },
+		{ name: "engagement", model: Engagement },
+	]
 
-  describe "gratitude associations" do
-  	it_should_behave_like "activity associations", Gratitude, "gratitude"
-  end
-
-  describe "joy associations" do
-  	it_should_behave_like "activity associations", Joy, "joy"
-  end
-
-  describe "kindness associations" do
-  	it_should_behave_like "activity associations", Kindness, "kindness"
-  end
+	activities.each do |activity|
+		it_should_behave_like "activity associations", activity[:model], activity[:name]
+	end
 end

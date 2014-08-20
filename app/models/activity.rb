@@ -13,7 +13,12 @@ class Activity < ActiveRecord::Base
 	end
 
 	def self.results_for_diagram
-    real = ["Expressing gratitude", "Savoring life's joys", "Practicing acts of kindness"]
+    real = [
+    	"Expressing gratitude",
+    	"Savoring life's joys",
+    	"Practicing acts of kindness",
+    	"Doing more activities that truly engage you"
+    ]
     results = []
     real.each do |activity|
     	results << [activity, self.where(category: activity).count]

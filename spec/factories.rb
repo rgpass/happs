@@ -65,4 +65,10 @@ FactoryGirl.define do
 		content "She was crossing the street looking nervous"
 		user
 	end
+
+	factory :engagement do
+		title "Coding"
+		content "Got in the zone with coding"
+		user
+	end
 end

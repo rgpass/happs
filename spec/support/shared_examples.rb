@@ -4,14 +4,16 @@ shared_examples_for "all static pages" do
 end
 
 shared_examples_for "activity associations" do |model, activity|
-	let!(:user) { FactoryGirl.create(:user) }
-	let!(:this_activity) { FactoryGirl.create(activity.to_sym, user: user) }
+	describe "#{activity} associations" do
+		let!(:user) { FactoryGirl.create(:user) }
+		let!(:this_activity) { FactoryGirl.create(activity.to_sym, user: user) }
 
-	describe "on user destroy" do
-		before { user.destroy }
+		describe "on user destroy" do
+			before { user.destroy }
 
-		it "destroys assoc #{activity}" do
-			expect(model.where(id: this_activity.id)).to be_empty
+			it "destroys assoc #{activity}" do
+				expect(model.where(id: this_activity.id)).to be_empty
+			end
 		end
 	end
 end

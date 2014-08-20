@@ -1,0 +1,27 @@
+- provide(:title, @engagement.title)
+
+h1
+	| Engage Yourself
+
+p.strong.no-margin
+	| I engaged myself in:
+
+h2.no-margin
+	| #{@engagement.title}
+
+br/
+
+.row
+	.col-sm-6
+		p.strong.no-margin
+			| My experience:
+		p.no-margin
+			= simple_format(@engagement.content)
+		- if @engagement.photo.present?
+			br/
+			br/
+			= image_tag @engagement.photo.url, class: "paperclip"
+			br/
+
+br/
+= link_to "Back to Profile", user_path(@engagement.user), class: "btn btn-primary"

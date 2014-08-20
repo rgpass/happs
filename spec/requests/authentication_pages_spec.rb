@@ -78,7 +78,7 @@ describe "authentication_pages" do
 
   describe "authorization" do
     quantifiers = ["subjective_happiness_scale", "ohq", "pafd"]
-    activities = ["gratitude", "joy", "kindness"]
+    activities = ["gratitude", "joy", "kindness", "engagement"]
 
     describe "for non-signed in users" do
       let(:user) { FactoryGirl.create(:user) }

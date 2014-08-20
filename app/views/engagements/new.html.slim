@@ -1,0 +1,116 @@
+- provide(:title, "Engage Yourself")
+
+h1
+	| Engage Yourself
+
+= form_for(@engagement) do |f|
+	= render 'shared/error_messages', object: f.object
+	.row
+		.col-sm-5.form-font.form-padding.form
+			= f.label :title, "What did you engage yourself in?", class: "control-label"
+			= f.text_field :title, class: "form-control input-sm", autofocus: true
+			= f.label :content, "Describe your experience.", class: "control-label"
+			= f.text_area :content, class: "form-control input-sm", rows: 3
+			br/
+			= f.file_field :photo
+			br/
+			= f.submit "All Done", class: "btn btn-primary"
+		.col-sm-5.col-sm-offset-1
+			blockquote
+				p
+					| Control of consciousness determines the quality of life.
+				small
+					a href="http://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi" target="_blank" Mihaly Csikszentmihalyi
+					| , author of 
+					a href="http://www.amazon.com/Flow-Psychology-Experience-Csikszentmihalyi-published/dp/B00E32322Y/ref=sr_1_3?ie=UTF8&qid=1408549595&sr=8-3&keywords=Flow%3A+The+Psychology+of+Optimal+Experience" target="_blank" Flow: The Psychology of Optimal Experience
+			p
+				span.strong
+					| Strategies:
+				|  (click to expand)
+			#accordion.panel-group.tips
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse1" data-toggle="collapse" data-parent="#accordion"
+								| Control attention
+					#collapse1.panel-collapse.collapse
+						.panel-body
+							| There's only so much attention that you have to garound, so how and where you choose to invest it is critical. When you're intensely concentrating on doing something, you're essentially directing your attention to the task as opposed to other things like "What time is it?", "What will I have for dinner?", and "This is not going as smoothly as last time."
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse2" data-toggle="collapse" data-parent="#accordion"
+								| Adopt new values
+					#collapse2.panel-collapse.collapse
+						.panel-body
+							| Happy people have the ability to be happy in the absence of material goods and even when their goals have not been reached. They do this by (1) being open to new and different experiences like joining a softball team, hiking, learning a new skill and (2) learning until the day they die, whether it's barbecuing, a new language, history of World War II, how to maintain friendships better, etc.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse3" data-toggle="collapse" data-parent="#accordion"
+								| Learn what flow is
+					#collapse3.panel-collapse.collapse
+						.panel-body
+							| Flow, coined by 
+							a href="http://en.wikipedia.org/wiki/Mihaly_Csikszentmihalyi" target="_blank" Dr. Mihaly Csikszentmihalyi
+							| , is the state reached when you're doing a productive task that is challenging yet not frustrating. In other words, when you're doing something that is between too easy (and thus boring) and overwhelming. When in flow, four hours will pass and you'll feel like it was only four minutes.
+							br/
+							br/
+							| Although 'work' has a negative connotation, it is often times the place where we most reach flow. Figure out the times and activities which you find yourself in flow and focus on those.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse4" data-toggle="collapse" data-parent="#accordion"
+								| Transform routine tasks
+					#collapse4.panel-collapse.collapse
+						.panel-body
+							| Even seemingly boring and tedious activities--waiting for the bus, listening to a dull presentation, getting one's teeth cleaned, or vacuumming--can be transformed into something more meaningful and stimulating.
+							br/
+							br/
+							| For example, in your head, try to solve a puzzle, draw a cartoon character, make up a song, etc.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse5" data-toggle="collapse" data-parent="#accordion"
+								| Flow in conversation
+					#collapse5.panel-collapse.collapse
+						.panel-body
+							| Reaching flow during a conversation can be a challenge. However, with these tips, it can be easily learned with practice.
+							ul
+								li Focus your attention as intensely as possible on what the other persion is saying and your reaction to their words
+								li Don't respond quickly. Give them time to expand on their thoughts
+								li Ask follow up questions such as "And then what happened?" or "Why did you think that?"
+								li Set a goal of learning more about the person you're talking to, such as what are they thinking, what emotions are they feeling, what have they taught you this conversation?
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse6" data-toggle="collapse" data-parent="#accordion"
+								| Smart leisure
+					#collapse6.panel-collapse.collapse
+						.panel-body
+							| Do you watch TV? Read an entertainment magazine? Chat on your cell phone? Send text messages? During what percentage of your leisure activities are you truly concentrating, using your mind, or exercising your skills? If they percentage is low, this means that you're unlikely to be in flow during much of your leisure time.
+							br/
+							br/
+							| Figure out how long you really need to decompress after a long day, then once that time is up (typically less than 45 minutes), start doing an activity you enjoy.
+				.panel.panel-info
+					.panel-heading
+						h4.panel-title
+							a href="#collapse7" data-toggle="collapse" data-parent="#accordion"
+								| Smart work
+					#collapse7.panel-collapse.collapse
+						.panel-body
+							| Work can be enjoyable if you're lucky and if you make it be.
+							br/
+							br/
+							| People are remarkably adept at crafting their jobs to derive maximum engagement and meaning. During a study of hospital workers, some of cleaners described their work as bettering the daily lives of patients, visitors, and nurses. They were social, believed their work as highly skilled, and felt they were serving as part of a system that improved people's lives.
+							br/
+							br/
+							| This philosophy can be applied to your job as well.
+			p
+				span.strong
+					| Tip:
+				|  Try to reach flow in your day-to-day activities.
+			p
+				span.strong
+					| Tip:
+				|  When reaching flow, do not go overboard. It is possible to become too engaged in an activity (even when positive) if it gets in the way of other, more pressing responsibilities.
