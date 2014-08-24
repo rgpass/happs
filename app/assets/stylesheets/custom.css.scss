@@ -169,6 +169,22 @@ footer ul li {
 }
 
 
+/* Static Pages */
+@media only screen and (max-width: 412px) {
+  .limited {
+    height: 100px;
+    margin-left: -95px;
+  }
+}
+
+@media only screen and (min-width: 413px) {
+  .limited {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
 /* Forms */
 .form-font {
   label {
@@ -233,7 +249,7 @@ div.tooltip-inner {
 }
 
 
-/* Gratitude */
+/* Activities */
 .paperclip {
   max-width: 100%;
   text-align: center;
