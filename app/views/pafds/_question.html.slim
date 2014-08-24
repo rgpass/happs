@@ -8,21 +8,26 @@
 		.row
 			.col-sm-2.col-sm-offset-1
 				label.control-label.text-center for="select"
-					| NATURAL:
+					p data-toggle="tooltip" data-placement="top" title="" data-original-title="I'll keep doing this activity because it will feel natural to me."
+						| NATURAL:
 					= render 'options', f: f, activity: activity, reason: "n"
 			.col-sm-2
 				label.control-label.text-center for="select"
-					| ENJOY:
+					p data-toggle="tooltip" data-placement="top" title="" data-original-title="I'll keep doing this activity because I will enjoy doing it."
+						| ENJOY:
 					= render 'options', f: f, activity: activity, reason: "e"
 			.col-sm-2
 				label.control-label.text-center for="select"
-					| VALUE:
+					p data-toggle="tooltip" data-placement="top" title="" data-original-title="I'll keep doing this activity because I will value and identify with doing it."
+						| VALUE:
 					= render 'options', f: f, activity: activity, reason: "v"
 			.col-sm-2
 				label.control-label.text-center for="select"
-					| GUILTY:
+					p data-toggle="tooltip" data-placement="top" title="" data-original-title="I'll keep doing this activity because I would feel ashamed, guilty, or anxious if I didn't do it."
+						| GUILTY:
 					= render 'options', f: f, activity: activity, reason: "g"
 			.col-sm-2
 				label.control-label.text-center for="select"
-					| SITUATION:
+					p data-toggle="tooltip" data-placement="top" title="" data-original-title="I'll keep doing this activity because somebody else will want me to or because my situation will force me to."
+						| SITUATION:
 					= render 'options', f: f, activity: activity, reason: "s"
