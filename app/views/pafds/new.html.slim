@@ -6,7 +6,7 @@
 			| Person-Activity Fit Diagnostic
 
 .row
-	.col-md-7
+	.col-md-7.info
 		.row
 			.col-md-3
 				span.strong
@@ -86,7 +86,7 @@ br/
 = form_for(@pafd) do |f|
 	= render 'shared/error_messages', object: f.object
 	.row
-		.col-md-10.col-lg-8
+		.col-md-10.col-lg-8.questions
 			= render 'question', f: f, activity: :gratitude, question_title: "1. Expressing gratitude:", question_description: "Counting your blessings for what you have (either to a close other or privately, through contemplation or a journal) or conveying your gratitude and appreciation to one or more individuals whom you've never properly thanked."
 			= render 'question', f: f, activity: :optimism, question_title: "2. Cultivating optimism:", question_description: ""
 			= render 'question', f: f, activity: :comparison, question_title: "3. Avoiding overthinking and social comparison:", question_description: ""

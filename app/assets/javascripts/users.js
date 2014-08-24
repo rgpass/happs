@@ -160,6 +160,39 @@ $(".users.show").ready(function() {
       });
     }
   }
+
+  window.startTrip = function() {
+    var trip;
+    trip = new Trip([
+      {
+        sel: $(".my-happiness"),
+        content: "Quantify and track your happiness here.",
+        expose: true,
+        position: "n"
+      }, {
+        sel: $(".my-effective-activities"),
+        content: "Determine which activities best<br/>match your personality.",
+        expose: true,
+        position: "n"
+      }, {
+        sel: $(".my-activity-history"),
+        content: "View previous activities.",
+        expose: true,
+        position: "n"
+      }, {
+        sel: $(".my-activity-breakdown"),
+        content: "Do a new activity and visually<br/>see what you've done.",
+        expose: true,
+        position: "n"
+      }
+    ], {
+      showNavigation: true,
+      showCloseBox: true,
+      delay: -1,
+      animation: "fadeInUp"
+    });
+    trip.start();
+  };
 });
 
 $('.users.new').ready(function() {

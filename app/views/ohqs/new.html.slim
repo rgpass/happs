@@ -6,7 +6,7 @@
 			| Oxford Happiness Questionnaire
 
 .row
-	.col-md-7
+	.col-md-7.info
 		.row
 			.col-md-3
 				span.strong
@@ -40,7 +40,7 @@ br/
 = form_for(@ohq) do |f|
 	= render 'shared/error_messages', object: f.object
 	.row
-		.col-md-10.col-lg-8
+		.col-md-10.col-lg-8.questions
 			= render 'question_reverse', f: f, question_number: :q1, question: "1. I don't feel particularly pleased with the way I am."
 			= render 'question', f: f, question_number: :q2, question: "2. I am intensely interested in other people."
 			= render 'question', f: f, question_number: :q3, question: "3. I feel that life is very rewarding."

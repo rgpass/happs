@@ -29,4 +29,32 @@ function selectedCount() {
 	return selectedCount;
 }
 
+window.startTrip = function() {
+  var trip;
+  trip = new Trip([
+    {
+      sel: $(".info"),
+      content: "Important info about<br/>the questionnaire.",
+      expose: true,
+      position: "n"
+    }, {
+      sel: $(".questions"),
+      content: "Answer each question.<br/>Don't think about it too hard.",
+      expose: true,
+      position: "n"
+    }, {
+      sel: $("input[type=submit]"),
+      content: "When you've answered all the<br/>questions, click here to continue.",
+      expose: true,
+      position: "e"
+    }
+  ], {
+    showNavigation: true,
+    showCloseBox: true,
+    delay: -1,
+    animation: "fadeInUp"
+  });
+  trip.start();
+};
+
 });
