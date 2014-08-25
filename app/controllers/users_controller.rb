@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserMailer.signup_confirmation(@user).deliver
       sign_in @user
       @user.activities.create(title: "Signed up! Awesome!", 
         path: user_path(@user), category: "Account")
