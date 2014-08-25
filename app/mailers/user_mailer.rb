@@ -5,6 +5,6 @@ class UserMailer < ActionMailer::Base
     @user = user
 
     # mail to: user.email, subject: "Sign Up Confirmation"
-    mail to: "#{user.first_name} #{user.last_name} <#{user.email}>", subject: "Welcome to Happs!"
+    mail to: "#{user.first_name} #{user.last_name} <#{user.email}>", subject: "Welcome to Happs!", from: "Gerry Pass <gerry.pass@happs.io>"
   end
 end
