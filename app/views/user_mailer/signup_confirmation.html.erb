@@ -1,5 +1,23 @@
-<p>Hey <strong><%= @user.first_name %></strong>,</p>
+<p>Hey <%= @user.first_name %>,</p>
 
-<p>Thanks for being awesome. :)</p>
+<p><strong>Welcome to Happs!</strong></p>
 
-<%= link_to "View Profile", user_url(@user) %>
+<p>Our goal is make people happier. We do this better anyone else in three ways:</p>
+<ul>
+	<li>Happs is backed by research and empirical data</li>
+	<li>Happs is simple to use and get started</li>
+	<li>Happs is free for all users</li>
+</ul>
+
+<p>If you have any ideas of how we could improve, feel free to reach out to me directly at this email address or phone at (404) 953-9976.</p>
+
+
+<p>
+	Stay awesome,
+	<br/>
+	Gerry
+</p>
+
+
+<br/>
+<p><%= link_to "Get Started", user_url(@user) %></p>
