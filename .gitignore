@@ -33,3 +33,6 @@ server.pass.key
 
 # Ignore Paperclip uploads
 /public/system
+
+# Ignore passwords
+/config/app_environment_variables.rb

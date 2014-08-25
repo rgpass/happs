@@ -88,4 +88,16 @@ Happs::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "happs.io",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "gerry.pass@happs.io",
+    password: ENV["HAPPS_EMAIL_PASSWORD"]
+  }
+  config.action_mailer.default_url_options = {host: "happs.io"}
 end
