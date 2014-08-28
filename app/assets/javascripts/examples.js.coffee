@@ -446,7 +446,7 @@ $('.examples.activity').ready ->
 	      position: "screen-center"
 	    }
 	    {
-	      content: "...best way to boost your happiness. Remember<br/>not to do too many or<br/>you'll burn yourself out!"
+	      content: "...best way to boost your happiness. Remember<br/>not to do too many or you'll<br/>burn yourself out!"
 	      position: "screen-center"
 	      callback: ->
 	        window.location = "/examples/profile_start"
