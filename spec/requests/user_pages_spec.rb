@@ -21,7 +21,7 @@ describe "user_pages" do
 
 			it { should have_selector('ul.pagination') }
 
-			it "lists each user" do
+			it "lists each user", :slow do
 				User.paginate(page: 1).each do |user|
 					expect(page).to have_selector('li', text: full_name(user))
 				end

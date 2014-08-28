@@ -41,4 +41,16 @@ RSpec.configure do |config|
   config.order = "random"
 
   config.include Capybara::DSL
+
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run focus: true # Add :focus on a test to make it run only that
+  config.run_all_when_everything_filtered = true
+
+  # Don't run tests with :slow tag unless you run
+  # $ SLOW_SPECS=true bundle exec rspec spec
+  config.filter_run_excluding :slow unless ENV["SLOW_SPECS"]
+
+  # Set when Garbage Collection is run
+  config.before(:all) { DeferredGarbageCollection.start }
+  config.after(:all) { DeferredGarbageCollection.reconsider }
 end
