@@ -26,3 +26,20 @@ As the founder, I can personally speak to the challenge that it is for inexperie
 If you're a newbie Rails developer and this sounds like something you'd be interested in, there's a couple strongly recommended preliminary steps. Go to this [awesome learning path for becoming a Rails developer](http://www.nicoschuele.com/posts/a-path-to-learn-rails-4-properly) and complete everything up to and including [Michael Hartl's Rails Tutorial](http://ruby.railstutorial.org/ruby-on-rails-tutorial-book). If you have any questions, feel free to [send me an email](mailto:rgpass@gmail.com).
 
 For bonus points, check out [Git Immersion](http://gitimmersion.com/).
+
+## Running Test Suite
+
+### Slow Specs
+By default, any spec with ```:slow``` is ignored. To run these specs:
+
+```
+$ SLOW_SPECS=true bundle exec rspec spec
+```
+
+### Guard
+In the terminal, run:
+
+```
+$ guard
+```
+Upon saving a spec file, that file will be tested automatically. This **does** ignore specs tagged with ```:slow```.
