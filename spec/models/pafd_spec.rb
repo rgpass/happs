@@ -43,7 +43,7 @@ describe Pafd do
   end
 
 
-  describe ".results_for_diagram" do
+  describe "#results_for_diagram" do
     before { @pafd.save }
 
     it "returns PAFD result in descending order of score" do

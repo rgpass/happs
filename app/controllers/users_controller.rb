@@ -45,7 +45,7 @@ class UsersController < ApplicationController
       @pafd = @user.pafd.present?
       @ohq = @user.ohqs.any?
       @activities = @user.activities.paginate(page: params[:page], per_page: 5)
-      @breakdown = @user.activities.real_activities
+      @happiness_activity_count = @user.activities.happiness_activity_count
     end
   end
 

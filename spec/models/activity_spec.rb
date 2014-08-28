@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Activity do
 	let(:user) { FactoryGirl.create(:user) }
   before do
-  	@activity = user.activities.build(title: "Sunset", path: "/gratitude/1",
-  	category: "Gratitude")
+  	@activity = user.activities.create(title: "Sunset", path: "/gratitude/1",
+  	category: "Expressing gratitude")
   end
 
   subject { @activity }
@@ -49,5 +49,21 @@ describe Activity do
   		before { @activity.category = " " }
   		it { should_not be_valid }
   	end
+  end
+
+  describe ".happiness_activity_count" do
+    it "returns number of activities" do
+      expect(user.activities.happiness_activity_count).to eq(1)
+    end
+  end
+
+  describe ".results_for_diagram" do
+    it "sorts and returns activity and count" do
+      expected_results = [
+        ["Expressing gratitude", 1], ["Practicing acts of kindness", 0], 
+        ["Savoring life's joys", 0], ["Doing more activities that truly engage you", 0]
+      ]
+      expect(user.activities.results_for_diagram).to eq(expected_results)
+    end
   end
 end
