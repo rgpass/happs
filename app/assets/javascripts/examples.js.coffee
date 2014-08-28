@@ -442,11 +442,11 @@ $('.examples.activity').ready ->
 	      position: "n"
 	    }
 	    {
-	      content: "Doing these sorts of activities as much as<br/>possible while keeping it fresh and exciting is the..."
+	      content: "Doing these sorts of activities as much as<br/>possible while keeping it fresh<br/>and exciting is the..."
 	      position: "screen-center"
 	    }
 	    {
-	      content: "...best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!"
+	      content: "...best way to boost your happiness. Remember<br/>not to do too many or<br/>you'll burn yourself out!"
 	      position: "screen-center"
 	      callback: ->
 	        window.location = "/examples/profile_start"
