@@ -31,7 +31,7 @@ window.startTrip = function() {
       position: "n"
     }, {
       sel: $("input[type=submit]"),
-      content: "When you've answered all the<br/>questions, click here to continue.",
+      content: "When you've answered all<br/>the questions, click here<br/>to continue.",
       expose: true,
       position: "e"
     }

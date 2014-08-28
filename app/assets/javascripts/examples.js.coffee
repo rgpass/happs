@@ -363,7 +363,7 @@ $('.examples.ohq').ready ->
 	    }
 	    {
 	      sel: $(".overview")
-	      content: "Each of these questionnaires will explain their purpose,<br/>estimated time to complete, and suggested frequency."
+	      content: "Each of these questionnaires will explain their<br/>purpose, estimated time to complete,<br/>and suggested frequency."
 	      expose: true
 	      position: "n"
 	    }
@@ -431,22 +431,22 @@ $('.examples.activity').ready ->
 	    }
 	    {
 	      sel: $("blockquote")
-	      content: "That's why we added quotes for those<br/>that are motivated by wise, old people"
+	      content: "That's why we added quotes for those<br/>that are motivated by wise, old people..."
 	      expose: true
 	      position: "n"
 	    }
 	    {
 	      sel: $(".tips")
-	      content: "and tips for those who want direct advice."
+	      content: "...and tips for those who want direct advice."
 	      expose: true
 	      position: "n"
 	    }
 	    {
-	      content: "Doing these sorts of activities as much as possible<br/>while keeping it fresh and exciting is the"
+	      content: "Doing these sorts of activities as much as<br/>possible while keeping it fresh and exciting is the..."
 	      position: "screen-center"
 	    }
 	    {
-	      content: "best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!"
+	      content: "...best way to boost your happiness. Remember not<br/>to do too many or you'll burn yourself out!"
 	      position: "screen-center"
 	      callback: ->
 	        window.location = "/examples/profile_start"
