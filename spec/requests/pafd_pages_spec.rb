@@ -18,9 +18,5 @@ describe "pafd_pages" do
 			it { should have_css(".btn.btn-primary[disabled]") }
 			it { should_not have_content("All Done") }
 		end
-
-		describe "valid information" do
-			pending "Add once test suite is sped up"
-		end
 	end
 end

@@ -16,12 +16,12 @@ describe "user_pages" do
 		it { should have_content('All Users') }
 
 		describe "pagination" do
-			before(:all) { 30.times { FactoryGirl.create(:user) } }
+			before(:all) { 5.times { FactoryGirl.build(:user) } }
 			after(:all) { User.delete_all }
 
 			it { should have_selector('ul.pagination') }
 
-			it "lists each user", :slow do
+			it "lists each user" do
 				User.paginate(page: 1).each do |user|
 					expect(page).to have_selector('li', text: full_name(user))
 				end
