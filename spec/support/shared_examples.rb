@@ -78,3 +78,18 @@ shared_examples_for "#admin? activity#show" do |activity|
 	  end
 	end
 end
+
+shared_examples_for "show activity" do |activity|
+	describe "show #{activity} GET /#{activity.pluralize}/:id" do
+		let(:user) { FactoryGirl.create(:user) }
+		let!(:this_activity) { FactoryGirl.create(activity.to_sym, user: user) }
+		before do
+			sign_in user
+			this_path = "#{activity}_path".to_sym
+			visit send(this_path, this_activity)
+		end
+
+		it { should have_title(this_activity.title) }
+		it { should have_selector('h2', this_activity.title) }
+	end
+end

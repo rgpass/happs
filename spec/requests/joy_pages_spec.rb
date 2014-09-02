@@ -53,4 +53,6 @@ describe "joy_pages" do
 			end
 		end
 	end
+
+	it_should_behave_like "show activity", "joy"
 end
