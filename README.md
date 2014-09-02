@@ -43,3 +43,8 @@ In the terminal, run:
 $ guard
 ```
 Upon saving a spec file, that file will be tested automatically. This **does** ignore specs tagged with ```:slow```.
+
+## Code Base
+
+### Duplication
+Going through the code base, you'll notice there is lots of duplication in the code. This is intentional since it's better to have duplication than to have the wrong abstraction. Everything that's duplicated has plans to be vastly changed and improved in the near future.

@@ -102,9 +102,9 @@ describe "user_pages" do
 	end
 
 	describe "show page GET /users/:id" do
-		let(:user)	{ FactoryGirl.create(:user) }
-		let(:a1)		{ FactoryGirl.create(:activity, user: user, title: "Foo") }
-		let(:a2)		{ FactoryGirl.create(:activity, user: user, title: "Bar") }
+		let!(:user)	{ FactoryGirl.create(:user) }
+		let!(:a1)		{ FactoryGirl.create(:activity, user: user, title: "Foo") }
+		let!(:a2)		{ FactoryGirl.create(:activity, user: user, title: "Bar") }
 		before do
 			sign_in user
 			visit user_path(user)
@@ -116,9 +116,8 @@ describe "user_pages" do
 		it { should have_link('Measure My Happiness', new_ohq_path) }
 
 		describe "activity history" do
-			pending "Determine why this fails although it works"
-			# it { should have_content(a1.title) }
-			# it { should have_content(a2.title) }
+			it { should have_content(a1.title) }
+			it { should have_content(a2.title) }
 		end
 	end
 

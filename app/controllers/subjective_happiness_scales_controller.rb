@@ -10,8 +10,11 @@ class SubjectiveHappinessScalesController < ApplicationController
   def create
     @shs = current_user.subjective_happiness_scales.build(shs_params)
   	if @shs.save
+      current_user.activities.create(
+        title: "Subjective Happiness Scale completed",
+        path: user_path(current_user), category: "SHS")
   		flash[:success] = "Subjective Happiness Scale complete!"
-  		redirect_to current_user
+  		redirect_to root_path
   	else
   		render 'new'
   	end

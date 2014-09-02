@@ -9,6 +9,7 @@ class StaticPagesController < ApplicationController
   def research
   end
 
+  # Confirm removable
   def ssl_validation
 	  send_file(
 	    "#{Rails.root}/public/15CAA848590025BB3B93F642928894E0.txt",

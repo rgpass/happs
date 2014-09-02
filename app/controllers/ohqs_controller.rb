@@ -12,7 +12,7 @@ class OhqsController < ApplicationController
 				title: "Happiness measured -- #{@ohq.score} / 100", 
 				path: user_path(current_user), category: "Measured Happiness")
 			flash[:success] = "Happiness tracked!"
-			redirect_to current_user
+			redirect_to root_path
 		else
 			render 'new'
 		end

@@ -35,4 +35,6 @@ Happs::Application.configure do
   config.active_support.deprecation = :stderr
 
   ActiveModel::SecurePassword.min_cost = true
+
+  config.action_mailer.default_url_options = {host: "localhost:3000"}
 end

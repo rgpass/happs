@@ -12,7 +12,7 @@ class PafdsController < ApplicationController
         title: "Person-Activity Fit Diagnostic completed",
         path: user_path(current_user), category: "PAFD")
   		flash[:success] = "Person-Activity Fit Diagnositic completed!"
-  		redirect_to current_user
+  		redirect_to root_path
   	else
   		render 'new'
   	end

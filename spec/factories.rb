@@ -2,12 +2,13 @@ FactoryGirl.define do
 	factory :user do
 		sequence(:first_name)	{ |n| "First#{n}" }
 		sequence(:last_name)	{ |n| "Last#{n}" }
-		sequence(:email)			{ |n| "person-#{n}@gmail.com" }
+		# sequence(:email)			{ |n| "person-#{n}@gmail.com" }
+		email { Faker::Internet.email }
 		password 		"foobar"
 		password_confirmation "foobar"
 
-		factory :admin do
-			email { Faker::Internet.email }
+		factory :admin, parent: :user do
+			email "rgpass@gmail.com"
 			admin true
 		end
 	end
