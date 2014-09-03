@@ -59,4 +59,22 @@ describe Ohq do
   		expect(user.ohqs.initial_score).to eq(80)
   	end
   end
+
+  describe ".results_for_diagram" do
+    before { Ohq.destroy_all }
+    let(:ohq1) { FactoryGirl.create(:ohq, score: 80, user: user) }
+    let(:ohq2) { FactoryGirl.create(:ohq, score: 85, user: user) }
+
+    it "returns array of ohqs" do
+      created_at1 = ohq1.created_at
+      created_at2 = ohq2.created_at
+      
+      expected_result = [
+        [created_at1.year, created_at1.month, created_at1.day, ohq1.score],
+        [created_at2.year, created_at2.month, created_at2.day, ohq2.score],
+      ]
+
+      expect(user.ohqs.results_for_diagram).to eq(expected_result)
+    end
+  end
 end

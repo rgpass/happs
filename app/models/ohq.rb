@@ -23,6 +23,15 @@ class Ohq < ActiveRecord::Base
 		last.score
 	end
 
+	def self.results_for_diagram
+		ohq_data = []
+		all.reverse.each do |ohq|
+			created_at = ohq.created_at
+			ohq_data << [created_at.year, created_at.month, created_at.day, ohq.score]
+		end
+		ohq_data
+	end
+
 	private
 
 		def save_score

@@ -60,11 +60,7 @@ class UsersController < ApplicationController
 
   def ohq_data
     @user = User.find(params[:user_id])
-    ohq_data = []
-    @user.ohqs.reverse.each do |ohq|
-      @created_at = ohq.created_at
-      ohq_data << [@created_at.year, @created_at.month, @created_at.day, ohq.score]
-    end
+    ohq_data = @user.ohqs.results_for_diagram
     respond_to do |format|
       format.json { render json: ohq_data }
     end
@@ -72,11 +68,7 @@ class UsersController < ApplicationController
 
   def pafd_data
     @user = User.find(params[:user_id])
-    unless @user.pafd.nil?
-      pafd_data = @user.pafd.results_for_diagram
-    else
-      pafd_data = []
-    end
+    pafd_data = @user.pafd.results_for_diagram
     respond_to do |format|
       format.json { render json: pafd_data }
     end

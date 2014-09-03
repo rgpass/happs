@@ -20,20 +20,24 @@ class Pafd < ActiveRecord::Base
 	before_create :zero_out_negatives
 
 	def results_for_diagram
-		[	
-			["Expressing gratitude", self.gratitude],
-			["Savoring life's joys", self.joys],
-      ["Practicing acts of kindness", self.kindness],
-      ["Doing more activities that truly engage you", self.engagement],
-      ["Cultivating optimism", self.optimism],
-      ["Practicing religion and spirituality", self.spirituality],
-      ["Committing to your goals", self.goals],
-      ["Avoiding overthinking and social comparison", self.comparison],
-      ["Nurturing relationships", self.relationships],
-      ["Taking care of your body", self.body],
-      ["Developing strategies for coping", self.coping],
-      ["Learning to forgive", self.forgiveness]
-    ].sort { |x,y| y[1] <=> x[1] }
+		if self.id.nil?
+			[]
+		else
+			[	
+				["Expressing gratitude", self.gratitude],
+				["Savoring life's joys", self.joys],
+	      ["Practicing acts of kindness", self.kindness],
+	      ["Doing more activities that truly engage you", self.engagement],
+	      ["Cultivating optimism", self.optimism],
+	      ["Practicing religion and spirituality", self.spirituality],
+	      ["Committing to your goals", self.goals],
+	      ["Avoiding overthinking and social comparison", self.comparison],
+	      ["Nurturing relationships", self.relationships],
+	      ["Taking care of your body", self.body],
+	      ["Developing strategies for coping", self.coping],
+	      ["Learning to forgive", self.forgiveness]
+	    ].sort { |x,y| y[1] <=> x[1] }
+	  end
 	end
 
 	private
