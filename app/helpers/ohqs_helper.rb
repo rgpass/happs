@@ -1,0 +1,35 @@
+module OhqsHelper
+	def questions
+		[
+			{ type: "question_reverse", number: :q1,	text: "1. I don't feel particularly pleased with the way I am." },
+			{ type: "question", 				number: :q2,	text: "2. I am intensely interested in other people." },
+			{ type: "question", 				number: :q3,	text: "3. I feel that life is very rewarding." },
+			{ type: "question", 				number: :q4,	text: "4. I have very warm feelings towards almost everyone." },
+			{ type: "question_reverse", number: :q5,	text: "5. I rarely wake up feeling rested." },
+			{ type: "question_reverse", number: :q6,	text: "6. I'm not particularly optimistic about the future." },
+			{ type: "question", 				number: :q7,	text: "7. I find most things amusing." },
+			{ type: "question", 				number: :q8,	text: "8. I am always committed and involved." },
+			{ type: "question", 				number: :q9,	text: "9. Life is good." },
+			{ type: "question_reverse", number: :q10, text: "10. I don't think that the world is a good place." },
+			{ type: "question", 				number: :q11, text: "11. I laugh a lot." },
+			{ type: "question", 				number: :q12, text: "12. I am well satisfied with everything in my life." },
+			{ type: "question_reverse", number: :q13, text: "13. I don't think I look attractive." },
+			{ type: "question_reverse", number: :q14, text: "14. There's a gap between what I would like to do and what I have done." },
+			{ type: "question", 				number: :q15, text: "15. I am very happy." },
+			{ type: "question", 				number: :q16, text: "16. I find beauty in some things." },
+			{ type: "question", 				number: :q17, text: "17. I always have a cheerful effect on others." },
+			{ type: "question", 				number: :q18, text: "18. I can find time for everything I want to do." },
+			{ type: "question_reverse", number: :q19, text: "19. I feel that I'm not especially in control of my life." },
+			{ type: "question", 				number: :q20, text: "20. I feel able to take anything on." },
+			{ type: "question", 				number: :q21, text: "21. I feel fully mentally alert." },
+			{ type: "question", 				number: :q22, text: "22. I often experience joy and elation." },
+			{ type: "question_reverse", number: :q23, text: "23. I don't find it easy to make decisions." },
+			{ type: "question_reverse", number: :q24, text: "24. I don't have a particular sense of meaning and purpose in my life." },
+			{ type: "question", 				number: :q25, text: "25. I feel I have a great deal of energy." },
+			{ type: "question", 				number: :q26, text: "26. I usually have a positive influence on events." },
+			{ type: "question_reverse", number: :q27, text: "27. I don't have fun with other people." },
+			{ type: "question_reverse", number: :q28, text: "28. I don't feel particularly healthy." },
+			{ type: "question_reverse", number: :q29, text: "29. I don't have particularly happy memories of the past." },
+		]
+	end
+end
