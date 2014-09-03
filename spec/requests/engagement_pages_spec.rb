@@ -54,16 +54,5 @@ describe "engagement_pages" do
 		end
 	end
 
-	# describe "show engagement GET /engagements/:id" do
-	# 	let(:user) 				{ FactoryGirl.create(:user) }
-	# 	let(:engagement)	{ FactoryGirl.create(:engagement, user: user) }
-	# 	before do
-	# 		sign_in user
-	# 		visit engagement_path(engagement)
-	# 	end
-
-	# 	it { should have_title(engagement.title) }
-	# 	it { should have_selector('h2', engagement.title) }
-	# end
 	it_should_behave_like "show activity", "engagement"
 end
