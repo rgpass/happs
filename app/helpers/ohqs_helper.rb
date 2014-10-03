@@ -1,5 +1,5 @@
 module OhqsHelper
-	def questions
+	def ohq_questions
 		[
 			{ type: "question_reverse", number: :q1,	text: "1. I don't feel particularly pleased with the way I am." },
 			{ type: "question", 				number: :q2,	text: "2. I am intensely interested in other people." },

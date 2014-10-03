@@ -41,6 +41,6 @@ br/
 	= render 'shared/error_messages', object: f.object
 	.row
 		.col-md-10.col-lg-8.questions
-			- questions.each do |question|
+			- ohq_questions.each do |question|
 				= render question[:type], f: f, question_number: question[:number], text: question[:text]
 	= f.submit "0 of 29 Answered", class: "btn btn-primary", disabled: "disabled"
